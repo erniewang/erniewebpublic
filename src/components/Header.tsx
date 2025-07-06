@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { AiFillInstagram, AiFillYoutube, AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { phoneMode } from '../App';
 import HeaderSmall from './HeaderSmall';
+import HeaderLink from './shared/HeaderLink';
 
 const tw = {
 	socialLink: "text-white hover:text-gray-700" as const,
@@ -22,38 +23,22 @@ const Header = () => {
 				</div>
 				<div className="flex items-center gap-3 mr-0">
 					<div className="flex gap-2 mt-1">
-						<a
+						<HeaderLink 
 							href="https://www.instagram.com/visualbasic_ernie/"
-							target="_blank"
-							rel="noopener noreferrer"
-							className={tw.socialLink}
-						>
-							<AiFillInstagram size={30} />
-						</a>
-						<a
+							icon={AiFillInstagram}
+						/>
+						<HeaderLink 
 							href="https://www.youtube.com/@erniewang399"
-							target="_blank"
-							rel="noopener noreferrer"
-							className={tw.socialLink}
-						>
-							<AiFillYoutube size={30} />
-						</a>
-						<a
+							icon={AiFillYoutube}
+						/>
+						<HeaderLink 
 							href="https://github.com/erniewang"
-							target="_blank"
-							rel="noopener noreferrer"
-							className={tw.socialLink}
-						>
-							<AiFillGithub size={30} />
-						</a>
-						<a
+							icon={AiFillGithub}
+						/>
+						<HeaderLink 
 							href="https://www.linkedin.com/in/erniewang/"
-							target="_blank"
-							rel="noopener noreferrer"
-							className={tw.socialLink}
-						>
-							<AiFillLinkedin size={30} />
-						</a>
+							icon={AiFillLinkedin}
+						/>
 						<span className="text-white ml-3 text-2xl pb-1">|</span>
 					</div>
 					<nav className="flex gap-6 ml-2">
