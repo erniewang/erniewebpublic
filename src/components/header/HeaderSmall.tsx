@@ -40,10 +40,10 @@ export default function HeaderSmall(): React.ReactElement {
             <div className={`${tw.darkBg} p-6 fixed bottom-0 w-full`}>
                 <div className="max-w-xl mx-auto flex flex-col justify-between items-center text-white gap-8 pb-8">
                     <div className="flex gap-9 mt-1 pt-8">
-                        <HeaderLink href="https://www.instagram.com/visualbasic_ernie/" icon={AiFillInstagram}/>
-                        <HeaderLink href="https://www.youtube.com/@erniewang399" icon={AiFillYoutube}/>
-                        <HeaderLink href="https://github.com/erniewang" icon={AiFillGithub}/>
-                        <HeaderLink href="https://www.linkedin.com/in/erniewang/" icon={AiFillLinkedin}/>
+                        <HeaderLink href="https://www.instagram.com/visualbasic_ernie/" icon={AiFillInstagram} />
+                        <HeaderLink href="https://www.youtube.com/@erniewang399" icon={AiFillYoutube} />
+                        <HeaderLink href="https://github.com/erniewang" icon={AiFillGithub} />
+                        <HeaderLink href="https://www.linkedin.com/in/erniewang/" icon={AiFillLinkedin} />
                     </div>
 
                     <a href="#about" className={tw.navLink}>About</a>
