@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { AiFillInstagram, AiFillYoutube, AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import HeaderLink from './shared/HeaderLink';
+import { MovingWords } from '../movingWords/movingWords';
 
+//tailwind shit that is repeated. so put them at the top. not sure if this is good practice
 const tw = {
     navLink: "text-white hover:text-gray-500 text-2xl" as const,
     fixedBottom: "fixed bottom-0 w-full" as const,
@@ -9,6 +11,7 @@ const tw = {
     flexCenter: "flex items-center justify-between" as const,
 } as const;
 
+//header when mode is small. sizes are fixed because they have to go outside traditional dom placement
 export default function HeaderSmall(): React.ReactElement {
     const [toggled, setToggled] = useState<boolean>(false);
 
@@ -17,7 +20,9 @@ export default function HeaderSmall(): React.ReactElement {
             <header className={`${tw.fixedBottom} ${tw.darkBg} text-white`}>
                 <div className="max-w-xl mx-auto">
                     <div className={`${tw.flexCenter} pl-5 w-full p-2`}>
-                        <div className="text-3xl font-medium ml-2">Ernie Wang</div>
+                        <div className="text-3xl font-medium ml-2">
+                            Ernie Wang
+                        </div>
                         <button
                             onClick={() => setToggled(true)}
                             className="flex items-center gap-2 px-4 py-2 bg-neutral-800 rounded-md text-sm font-semibold hover:bg-neutral-700 transition"
@@ -46,10 +51,10 @@ export default function HeaderSmall(): React.ReactElement {
                         <HeaderLink href="https://www.linkedin.com/in/erniewang/" icon={AiFillLinkedin} />
                     </div>
 
-                    <a href="#about" className={tw.navLink}>About</a>
-                    <a href="#projects" className={tw.navLink}>Projects</a>
-                    <a href="#creative" className={tw.navLink}>Creative</a>
-                    <a href="#resume" className={tw.navLink}>Resume</a>
+                    <a href="#about" className={tw.navLink}><MovingWords>About</MovingWords></a>
+                    <a href="#projects" className={tw.navLink}><MovingWords>Projects</MovingWords></a>
+                    <a href="#creative" className={tw.navLink}><MovingWords>Creative</MovingWords></a>
+                    <a href="#resume" className={tw.navLink}><MovingWords>Resume</MovingWords></a>
                 </div>
             </div>
         </div>

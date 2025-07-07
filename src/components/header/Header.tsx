@@ -7,7 +7,7 @@ import { MovingWords } from '../movingWords/movingWords';
 
 const tw = {
 	socialLink: "text-white hover:text-gray-700" as const,
-	navLink: "text-white hover:text-gray-500 hover:text-md" as const,
+	navLink: "text-white hover:text-gray-500 hover:text-md max-w-[76px] overflow-hidden font-mono" as const,
 	fixedBottom: "fixed bottom-0 w-full" as const,
 	darkBg: "bg-neutral-900" as const,
 	flexCenter: "flex items-center justify-between" as const,
