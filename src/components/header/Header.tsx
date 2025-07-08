@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { AiFillInstagram, AiFillYoutube, AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { phoneMode } from '../../App';
 import HeaderSmall from './HeaderSmall';
@@ -13,12 +13,16 @@ const tw = {
 	flexCenter: "flex items-center justify-between" as const,
 } as const;
 
-const Header = () => {
+interface FuncProps {
+    setterFunction(arg: number): void;
+}
+
+const Header : React.FC <FuncProps> = (props) => {
 	const pM = useContext(phoneMode);
-    
+
 	return !pM ? (
 		<header className={`${tw.darkBg} p-3 w-full`}>
-			<div className={`max-w-4xl mx-auto ${tw.flexCenter} pl-3 pr-2 w-full`}>
+			<div className={`max-w-4xl mx-auto ${tw.flexCenter} pr-2 pl-1 w-full`}>
 				<div>
 					<h1 className="text-white text-3xl">Ernie Wang</h1>
 				</div>
@@ -31,10 +35,10 @@ const Header = () => {
 						<span className="text-white ml-3 text-2xl pb-1">|</span>
 					</div>
 					<nav className="flex gap-6 ml-2">
-						<a href="#about" className={tw.navLink}><MovingWords>About</MovingWords></a>
-						<a href="#projects" className={tw.navLink}><MovingWords>Projects</MovingWords></a>
-						<a href="#creative" className={tw.navLink}><MovingWords>Creative</MovingWords></a>
-						<a href="#resume" className={tw.navLink}><MovingWords>Resume</MovingWords></a>
+						<a href="#about" className={tw.navLink} onClick={() => props.setterFunction(0)}><MovingWords>About</MovingWords></a>
+						<a href="#projects" className={tw.navLink} onClick={() => props.setterFunction(1)}><MovingWords>Projects</MovingWords></a>
+						<a href="#creative" className={tw.navLink} onClick={() => props.setterFunction(2)}><MovingWords>Creative</MovingWords></a>
+						<a href="#resume" className={tw.navLink} onClick={() => props.setterFunction(3)}><MovingWords>Resume</MovingWords></a>
 					</nav>
 				</div>
 			</div>
