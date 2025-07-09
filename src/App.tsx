@@ -31,12 +31,13 @@ const App = () => {
             case 2:
                 return <Projects></Projects>;
             case 3:
-                return <>window.open("https://www.educative.io/", "_blank")</>
+                //incorrect
+                return <>window.open("https://www.educative.io/", "_blank")</> 
         }
     }
 
     return (
-        <div className="h-screen w-screen bg-gradient-to-b from-blue-900 via-gray-900 to-black">
+        <div className="h-screen w-screen bg-gradient-to-b from-blue-900 via-gray-900 to-black overflow-hidden">
             <phoneMode.Provider value={smallWidth}>
                 <Header setterFunction={setterFunction}></Header>
                 {renderSwitch(selected)}
