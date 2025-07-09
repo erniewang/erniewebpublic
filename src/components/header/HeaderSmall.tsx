@@ -11,8 +11,12 @@ const tw = {
     flexCenter: "flex items-center justify-between" as const,
 } as const;
 
+interface FuncProps {
+    setterFunction(arg: number): void;
+}
+
 //header when mode is small. sizes are fixed because they have to go outside traditional dom placement
-export default function HeaderSmall(): React.ReactElement {
+export default function HeaderSmall({ setterFunction }: FuncProps): React.ReactElement {
     const [toggled, setToggled] = useState<boolean>(false);
 
     if (!toggled) {
@@ -51,10 +55,10 @@ export default function HeaderSmall(): React.ReactElement {
                         <HeaderLink href="https://www.linkedin.com/in/erniewang/" icon={AiFillLinkedin} />
                     </div>
 
-                    <a href="#about" className={tw.navLink}><MovingWords>About</MovingWords></a>
-                    <a href="#projects" className={tw.navLink}><MovingWords>Projects</MovingWords></a>
-                    <a href="#creative" className={tw.navLink}><MovingWords>Creative</MovingWords></a>
-                    <a href="#resume" className={tw.navLink}><MovingWords>Resume</MovingWords></a>
+                    <a href="#about" className={tw.navLink} onClick={() => setterFunction(0)}><MovingWords>About</MovingWords></a>
+                    <a href="#projects" className={tw.navLink} onClick={() => setterFunction(1)}><MovingWords>Projects</MovingWords></a>
+                    <a href="#creative" className={tw.navLink} onClick={() => setterFunction(2)}><MovingWords>Creative</MovingWords></a>
+                    <a href="#resume" className={tw.navLink} onClick={() => setterFunction(3)}><MovingWords>Resume</MovingWords></a>
                 </div>
             </div>
         </div>

@@ -4,42 +4,37 @@ import { phoneMode } from '../../App';
 
 export function Projects() {
     const pM = useContext(phoneMode);
-
+    
     return <SubHeader>
-        <div className={`
-            ${pM 
-                ? 'flex flex-col w-full overflow-y-auto' 
-                : 'flex flex-col h-full w-full'
-            }
-        `}>
-            {!pM ? (
-                <>
-                    {/* First Row */}
-                    <div className="flex h-1/2">
-                        <div className="w-[43.5vw] bg-gray-600" />
-                        <div className="w-[23vw] bg-gray-700" />
-                        <div className="w-[33.5vw] bg-gray-800" />
+        <div className="w-full h-full">
+            {pM ? (
+                // Mobile Layout
+                <div className="flex flex-col h-full">
+                    <div className="h-[12vh] flex gap-2">
+                        <div className="flex-1 bg-gray-500" />
+                        <div className="flex-1 bg-gray-600" />
+                        <div className="flex-1 bg-gray-700" />
+                        <div className="flex-1 bg-gray-600" />
+                        <div className="flex-1 bg-gray-500" />
                     </div>
-                    {/* Second Row */}
-                    <div className="flex h-1/2">
-                        <div className="w-[35.5vw] bg-gray-500" />
-                        <div className="w-[37vw] bg-gray-900" />
-                        <div className="w-[27.5vw] bg-gray-400" />
-                    </div>
-                </>
+                    <div className="flex-1 bg-gray-800 overflow-y-scroll" />
+                </div>
             ) : (
-                <>
-                    <div className="w-full h-[30vh] flex-shrink-0 bg-gray-400" />
-                    <div className="w-full h-[25vh] flex-shrink-0 bg-gray-500" />
-                    <div className="w-full h-[18vh] flex-shrink-0 bg-gray-600" />
-                    <div className="w-full h-[30vh] flex-shrink-0 bg-gray-700" />
-                    <div className="w-full h-[40vh] flex-shrink-0 bg-gray-800" />
-                    <div className="w-full h-[15vh] flex-shrink-0 bg-gray-900" />
-                </>
+                // Desktop Layout
+                <div className="flex h-full">
+                    <div className="w-[12vw] h-full flex flex-col justify-center gap-4 bg-gray-900">
+                        <div className="h-[12vh] bg-gray-500" />
+                        <div className="h-[12vh] bg-gray-600" />
+                        <div className="h-[12vh] bg-gray-700" />
+                        <div className="h-[12vh] bg-gray-600" />
+                        <div className="h-[12vh] bg-gray-500" />
+                    </div>
+                    <div className="flex-1 bg-gray-800 overflow-y-scroll" />
+                </div>
             )}
         </div>
     </SubHeader>;
-} 
+}
 
 //harmonizer
 //resume tuner

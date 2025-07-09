@@ -40,7 +40,7 @@ const Header : React.FC <FuncProps> = (props) => {
             </div>
         </header>
     ) : (
-        <HeaderSmall />
+        <HeaderSmall setterFunction={props.setterFunction} />
     );
 };
 
