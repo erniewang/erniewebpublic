@@ -39,8 +39,11 @@ export function MovingWords({ children }: { children: React.ReactNode }) {
     }
 
     const handleMouseEnter = () => {
-        eventToggler.current = true;
-        alterWords();
+        //somehow this solved the entire problem?
+        if (eventToggler.current) {
+            eventToggler.current = true;
+            alterWords();
+        }
     };
 
     return <div 

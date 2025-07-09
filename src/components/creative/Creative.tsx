@@ -9,7 +9,7 @@ export function Creative() {
         <div className="w-full h-full">
             {pM ? (
                 // Mobile Layout
-                <div className="flex flex-col h-full">
+                <div className="flex flex-col h-full bg-gray-500">
                     <div className="h-[12vh] flex gap-2">
                         <div className="flex-1 bg-gray-500" />
                         <div className="flex-1 bg-gray-600" />

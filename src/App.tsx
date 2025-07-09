@@ -50,5 +50,6 @@ export default App;
 
 //light and dark mode
 
+//left bare should stay constant
 
 //declare animations that pop in and out of existance. 
