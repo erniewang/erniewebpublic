@@ -26,9 +26,9 @@ const App = () => {
         switch(select) {
             case 0:
                 return <About></About>;
-            case 1:
-                return <Creative></Creative>;
             case 2:
+                return <Creative></Creative>;
+            case 1:
                 return <Projects></Projects>;
             case 3:
                 //incorrect
