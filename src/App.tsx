@@ -22,6 +22,7 @@ const App = () => {
     function setterFunction (page:number) {
         setSelected(page);
     }
+    
     function renderSwitch(select:number) {
         switch(select) {
             case 0:
