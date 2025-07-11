@@ -1,22 +1,49 @@
-export function Gallery(props: { imageList: string[] }) {
+import { useState } from "react";
+
+// Subcomponent for rendering an individual image
+function GalleryImage({ src, index }: { src: string; index?: number }) {
+
+    const [imgDimensions, setImgDimensions] = useState<[number, number]>([1, 1]);
+    
+    var img = new Image(); 
+    img.src = src;
+
+    img.onload = function() {
+        const dimension:number = Math.round((img.width / img.height) * 2) / 2;
+        setImgDimensions([(dimension < 1 ? 2 : 1),(dimension < 1 ? 1: dimension)]);
+    };
+
     return (
-        <div className="w-full h-full grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] overflow-y-scroll">
-            {props.imageList.map((src, index) => (
-                <img
-                    key={index}
-                    className="bg-gray-200 object-cover w-full h-auto"
-                    alt="Gallery photo"
-                    src={src}
-                />
-            ))}
+        <div 
+            className="relative"
+            style={{
+                gridRow: `span ${imgDimensions[0]}`,
+                gridColumn: `span ${imgDimensions[1]}`
+            }}
+        >
+            <img
+                className="bg-gray-200 object-cover w-full h-full"
+                alt="testing"
+                src={src}
+            />
         </div>
     );
 }
 
+export function Gallery(props: { imageList: string[] }) {
+    //dense can violate the spirit of
+    return (
+        <div className="w-full h-full grid grid-cols-[repeat(auto-fit,minmax(1fr,2fr))] grid-flow-dense overflow-y-scroll gap-1">
+            {props.imageList.map((src, index) => {
+                return <GalleryImage key={index} src={src} index={index} />;
+            })}
+        </div>
+    );
+}
+
+//
 
 //things to do. 
-
 //add more images into the thing
-
 //turn the about images into numbers. and import them with a direct for loop type shit.
-
+//make it so the dimensions of the image are tall. or short. that is all

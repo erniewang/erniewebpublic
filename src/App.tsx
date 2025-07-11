@@ -38,7 +38,7 @@ const App = () => {
     }
 
     return (
-        <div className="h-screen w-screen bg-gray-600 overflow-hidden">
+        <div className="h-screen w-screen bg-black overflow-hidden">
             <phoneMode.Provider value={smallWidth}>
                 <Header setterFunction={setterFunction}></Header>
                 {renderSwitch(selected)}
