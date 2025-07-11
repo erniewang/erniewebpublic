@@ -1,7 +1,57 @@
 <!DOCTYPE html>
 <html>
-<head>
-</head>
-<body>
-</body>
+    <body style="background-color: rgb(23, 22, 22); overflow: hidden;"></body>
 </html> 
+
+<script>
+    const rA = Math.random;
+    const rD = Math.round;
+
+    // Utility functions
+    const random = (min, max) => rD(rA() * (max - min)) + min;
+    const randomGray = () => {
+        const shade = random(100, 175);
+        return {
+            color: `rgb(${shade}, ${shade}, ${shade})`,
+            glow: `0 0 15px rgba(${shade}, ${shade}, ${shade}, 0.4)`
+        };
+    };
+
+    // Box creation and animation
+    const createBox = () => {
+        const box = document.createElement("div");
+        const size = random(25, 100);
+        const colors = randomGray();
+        const rotation = random(0, 90);
+        const moveDistance = random(10, 40) * (rA() > 0.5 ? 5 : -5);
+
+        Object.assign(box.style, {
+            width: `${size}px`,
+            height: `${size}px`,
+            position: 'absolute',
+            left: `${random(0, 100)}%`,
+            top: `${random(0, 100)}%`,
+            background: colors.color,
+            borderRadius: '2px',
+            transform: `rotate(${rotation}deg)`,
+            boxShadow: colors.glow
+        });
+
+        box.animate([
+            { transform: `rotate(${rotation}deg) translate(0px, 0px)` },
+            { transform: `rotate(${rotation}deg) translate(${moveDistance}px, ${moveDistance}px)` },
+            { transform: `rotate(${rotation}deg) translate(0px, 0px)` }
+        ], {
+            duration: random(3000, 8000),
+            iterations: Infinity,
+            easing: 'ease-in-out'
+        });
+
+        return box;
+    };
+
+    // Create and add boxes
+    Array.from({ length: 90 }, () => {
+        document.body.appendChild(createBox());
+    });
+</script>
