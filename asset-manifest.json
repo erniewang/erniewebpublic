@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/erniewebpublic/static/css/main.5f8ce76d.css",
+    "main.js": "/erniewebpublic/static/js/main.279059be.js",
+    "index.html": "/erniewebpublic/index.html",
+    "main.5f8ce76d.css.map": "/erniewebpublic/static/css/main.5f8ce76d.css.map",
+    "main.279059be.js.map": "/erniewebpublic/static/js/main.279059be.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5f8ce76d.css",
+    "static/js/main.279059be.js"
+  ]
+}

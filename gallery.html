@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html style="padding: 0;">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    </head>
+    <body style="background-color: rgb(23, 22, 22); overflow: hidden; padding: 0; margin: 0;">
+        <div style="background: url(playbutton.png); width: 100vw; height: 100vh; background-size: cover; margin: 0; display: flex; align-items: center; justify-content: center;">
+            <div style="width: 0; height: 0; border-top: 50px solid transparent; border-bottom: 50px solid transparent; border-left: 75px solid white; cursor: pointer;" 
+                onmouseover="this.style.borderLeftColor='#aaaaaa'" 
+                onmouseout="this.style.borderLeftColor='white'"
+                onclick="startProcess(this)">
+            </div>
+        </div>
+    </body>
+</html> 
+
+<script>
+    //make sure the audiocontext is the same for everything. 
+    const synth = new Tone.Synth().toDestination();
+
+    var speed = 20000;
+    // Core random utilities
+    const r = (min, max) => Math.round(Math.random() * (max - min)) + min;
+    const rPN = () => ((Math.round(r(0,1))) ? -1 : 1);
+
+    // Box creation
+    const createBox = () => {
+
+        const box = document.createElement("div");
+
+        //stylings
+        Object.assign(box.style, {
+            width: `${r(25, 150)}px`,
+            height: `${r(25, 150)}px`,
+            position: 'absolute',
+            left: `${r(-10, 100)}%`,
+            top: `${r(-10, 100)}%`,
+            transform: `rotate(${r(0, 90)}deg)`,
+            background: `rgb(${r(100, 175)}, ${r(100, 175)}, ${r(100, 175)})`,
+            boxShadow: `0 10px 35px rgba(${r(100, 175)}, ${r(100, 175)}, ${r(100, 175)}, 0.3)`,
+            borderRadius: `${r(0,9)}px`
+        });
+
+        const oldBackground = box.style.background;
+
+        //event listeners
+        box.addEventListener("mouseover", async () => {
+            box.style.background = `rgb(${r(100, 175)}, ${r(100, 150)}, ${r(200, 235)})`;
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            box.style.background = oldBackground;
+        });
+
+        box.addEventListener("click",()=> {
+            box.style.background = "white";
+            setTimeout(() => {
+                box.style.background = oldBackground;
+            }, "1000");
+
+        });
+
+        box.animate([
+            {transform: `translateX(0px) translateY(0px) rotate(0deg)`},
+            {transform: `translateX(${r(0,400) * rPN() }px) translateY(${r(0,400) * rPN()}px) rotate(${r(0, 360) * rPN()}deg)`},
+            {transform: `translateX(0px) translateY(0px) rotate(0deg)`}
+        ], 
+        {
+            duration: r(5000, speed),
+            iterations: "Infinity"
+        });
+
+        return box;
+    };
+
+    // Create boxes
+    async function startProcess(element) {
+        await Tone.start();
+        synth.triggerAttackRelease("C4", "8n");
+        Array.from({ length: 50 }, () => document.body.appendChild(createBox()));
+        element.parentElement.style.display = "none";
+    }
+</script>
