@@ -1,0 +1,29 @@
+File Structure Changes:
+
+Dependecies and Files:
+    Dev Mode:
+    - src & public
+    - run from "/" root
+
+    Github Pages Problem:
+    - uses github repo, so the paths will need some additions to the front of it. after doing deploy.
+    the package.json gets fucked up. 
+
+    Location:
+    - homepage in package.json: you can change the roots of eveything
+
+    Javascript Programming: 
+    - always have constants, even if they are only used once or twice. to put them in the front. 
+
+    -NEVER have circular Dependecies
+
+Types Of Animations in CSS:
+- CSS Transition: iterpolate between 2 states. start to end only
+- CSS Keyframes + animation: timelined/choreographed dance, 0% 10% 100%
+- CSS Transform: special modes browser can offload
+- Javascript-animation: timeline controll
+- RequestAnimationFrame: per frame controll of animations 
+
+Rendering:
+    - double threaded program: 
+

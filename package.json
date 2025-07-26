@@ -1,6 +1,7 @@
 {
   "name": "ernie-site",
   "version": "0.1.0",
+  "homepage": "https://erniewang.github.io/erniewebpublic",
   "private": true,
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -20,7 +21,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "PUBLIC_URL=/ react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -45,6 +48,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1"
   }
