@@ -9,8 +9,8 @@ const rPN = () => ((Math.round(r(0,1))) ? -1 : 1);
 const possibleNotes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 const createBox = () => {
     const box = document.createElement("div");
-    const boxWidth = r(40, 190);
-    const boxHeight = r(25, 190);
+    const boxWidth = r(20, 120);
+    const boxHeight = r(25, 160);
     
     box.innerHTML = `<b>${possibleNotes[r(0,11)]}</b>`;
     //styles
@@ -26,17 +26,16 @@ const createBox = () => {
         left: `${r(-10, 100)}%`,
         top: `${r(-10, 100)}%`,
         transform: `rotate(${r(0, 90)}deg)`,
-        background: `radial-gradient(circle, rgb(${r(100, 175)}, ${r(100, 175)}, ${r(100, 175)}) 0%, rgb(${r(100, 175)}, ${r(100, 175)}, ${r(100, 175)}) 100%)`,
-        boxShadow: `0 10px 35px rgba(${r(100, 175)}, ${r(100, 175)}, ${r(100, 175)}, 0.3)`,
+        background: `rgb(${r(140, 220)}, ${r(120, 205)}, ${r(150, 235)})`,
+        boxShadow: `0 10px 65px rgba(${r(100, 175)}, ${r(100, 175)}, ${r(100, 175)}, 0.3)`,
         borderRadius: `${r(0,9)}px`,
         padding: "5px",
-        opacity: 0.7,
         zIndex: 1
     });
     
     //dynamic backgrounds
     const oldBackground = box.style.background;
-    const hoverBackground = `rgb(${r(150, 200)}, ${r(150, 200)}, ${r(150, 200)})`;
+    const hoverBackground = `rgb(${r(180, 200)}, ${r(180, 200)}, ${r(180, 200)})`;
     const clickBackground = "white";
     box.hoverTimer = false;
 
@@ -46,12 +45,10 @@ const createBox = () => {
         await initializeAndPlaySound();
         const colorAnim = box.animate([ //this starts a animation even if it the object is stored in a colorAnim object
             { 
-                opacity: 0.7,
                 scale: 1
             },
             { 
                 background: hoverBackground,
-                opacity: 1,
                 scale: 1.01
             }
         ], {
@@ -59,7 +56,7 @@ const createBox = () => {
             fill: "forwards"
         });
 
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 1200));
         await colorAnim.reverse();
     });
 
@@ -81,7 +78,7 @@ const createBox = () => {
             fill: "forwards"
         });
 
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 600));
         
         await colorAnim.reverse();
         box.style.zIndex = 1;
@@ -105,7 +102,7 @@ const createBox = () => {
 // Create boxes and start animation
 async function startBoxAnimation(element) {
     await tonicNote();
-    Array.from({ length: 50 }, () => document.body.appendChild(createBox()));
+    Array.from({ length: 35 }, () => document.body.appendChild(createBox()));
     element.parentElement.style.display = "none";
     document.getElementById("chordSelectors").style.display = "flex";
 }

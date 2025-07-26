@@ -14,26 +14,80 @@
         <style>
             .toneButton {
                 width: 60px;
-                height: 30px;
+                height: 24px;
                 background: white;
                 border-radius: 5%;
                 border: none;
+                margin-left: 4px;
+            }
+            .modeButton {
+                padding: 0;
                 z-index: 5;
-                margin-left: 10px;
-                margin-right: 10px;
+                padding-top: -6px;
+                width: 80px;
+                height: 60px;
+                background-color: gray;
+                border-radius: 5%;
+                border: none;
+                margin-right: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 4px;
+                padding-top: 8px;
+                color: white;
+                font-family: Arial, sans-serif;
             }
         </style>
         <div style="display: none; 
                     flex-direction: row; position: fixed; justify-content: center; align-items: center;
                     background: none; 
                     z-index: 10;
-                    width: 100%; height: 45px; bottom: 0;"
+                    width: 100%; height: 45px; bottom: 10px;"
                     id="chordSelectors">
-                    <select class="toneButton">Maj</select>
-                    <select class="toneButton">Min</select>
-                    <select class="toneButton">Dim</select>
-                    <select class="toneButton">Aug</select>
-                    <select class="toneButton">Sus</select>
+                    <button class="modeButton">
+                        Major
+                        <select class="toneButton">
+                            <option value="major-triad">Triad</option>
+                            <option value="major-sixth">6</option>
+                            <option value="major-seventh">7</option>
+                            <option value="major-ninth">9</option>
+                        </select>
+                    </button>
+                    <button class="modeButton">
+                        Minor
+                        <select class="toneButton">
+                            <option value="minor-triad">Triad</option>
+                            <option value="minor-sixth">6</option>
+                            <option value="minor-seventh">7</option>
+                            <option value="minor-ninth">9</option>
+                            <option value="minor-eleventh">11</option>
+                        </select>
+                    </button>
+                    <button class="modeButton">
+                        Dim
+                        <select class="toneButton">
+                            <option value="diminished-triad">Triad</option>
+                            <option value="diminished-seventh">7</option>
+                            <option value="diminished-halfDim7">Half 7</option>
+                        </select>
+                    </button>
+                    <button class="modeButton">
+                        Aug
+                        <select class="toneButton">
+                            <option value="augmented-triad">Triad</option>
+                            <option value="augmented-dom7">Dom 7</option>
+                            <option value="augmented-maj7">Maj 7</option>
+                        </select>
+                    </button>
+                    <button class="modeButton">
+                        Sus
+                        <select class="toneButton">
+                            <option value="sus-sus2">2</option>
+                            <option value="sus-sus4">4</option>
+                        </select>
+                    </button>
                 </div>
     </body>
 </html> 
