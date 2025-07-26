@@ -36,6 +36,7 @@ const createBox = () => {
     
     //dynamic backgrounds
     const oldBackground = box.style.background;
+    const hoverBackground = `rgb(${r(150, 200)}, ${r(150, 200)}, ${r(150, 200)})`;
     const clickBackground = "white";
     box.hoverTimer = false;
 
@@ -49,15 +50,16 @@ const createBox = () => {
                 scale: 1
             },
             { 
+                background: hoverBackground,
                 opacity: 1,
-                scale: 1.03
+                scale: 1.01
             }
         ], {
             duration: 100,
             fill: "forwards"
         });
 
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
         await colorAnim.reverse();
     });
 
@@ -69,15 +71,13 @@ const createBox = () => {
         
         const colorAnim = box.animate([
             {   
-                background: oldBackground,
-                scale: 1.03
+                background: hoverBackground,
             },
             { 
                 background: clickBackground,
-                scale: 1.2
             }
         ], {
-            duration: 300,
+            duration: 500,
             fill: "forwards"
         });
 
@@ -104,10 +104,10 @@ const createBox = () => {
 
 // Create boxes and start animation
 async function startBoxAnimation(element) {
-    document.getElementById("chordSelectors").display = "flex";
     await tonicNote();
     Array.from({ length: 50 }, () => document.body.appendChild(createBox()));
     element.parentElement.style.display = "none";
+    document.getElementById("chordSelectors").style.display = "flex";
 }
 
 // Export the function to make it available globally
