@@ -10,7 +10,7 @@ export function About() {
                 <iframe 
                     src="/gallery.html" 
                     title='fuck around'
-                    className='w-full h-full border-none'
+                    className='w-full h-full border-none rounded-md'
                 ></iframe>
             </div>
             <div className={`${pM ? 'w-full h-[55vh]' : 'w-[78vw] h-full'} flex flex-col text-white gap-6 p-9 overflow-y-scroll overflow-x-hidden`}>
