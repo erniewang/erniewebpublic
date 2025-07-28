@@ -24,6 +24,5 @@ Types Of Animations in CSS:
 - Javascript-animation: timeline controll
 - RequestAnimationFrame: per frame controll of animations 
 
-Rendering:
-    - double threaded program: 
+LifeCycle: Be sure to factor in if something is still alive when there are promises in mind because of lifecycle shit. 
     
