@@ -6,13 +6,13 @@ import { MovingWords } from '../movingWords/movingWords';
 //dumb componet vs smart componet
 export function Projects() {
     const pM = useContext(phoneMode);
-    const titleObject: string = "flex items-center justify-center text-white p-2 text-[90%] hover:opacity-70";
+    const titleObject: string = "flex items-center justify-center text-white p-2 text-[85%] hover:opacity-70";
     return <SubHeader>
         <div className="w-full h-full">
             {pM ? ( //mobile layout
                 <div className="flex flex-col h-full bg-gray-500">
-                    <div className="flex h-auto min-h-[70px]">
-                        <div className={`flex-1 bg-gray-950 ${titleObject}`}>
+                    <div className="flex h-auto min-h-[50px]">
+                        <div className={`flex-1 bg-gray-950 ${titleObject} text-[75%]`}>
                             <MovingWords>Harmonizer</MovingWords>
                         </div>
                         <div className={`flex-1 bg-gray-900 ${titleObject}`}>
