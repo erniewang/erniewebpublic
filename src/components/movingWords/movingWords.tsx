@@ -85,9 +85,8 @@ export function MovingWords({ children }: { children: React.ReactNode }) {
     }, []); // Empty dependency array since we only want to add listeners once
 
     return <div 
-        className="hover:text-gray-500"
-        ref={wordHolder} 
-    >
+        className="hover:text-gray-500 active:text-gray-800"
+        ref={wordHolder}>
         {children}
     </div>
 }
