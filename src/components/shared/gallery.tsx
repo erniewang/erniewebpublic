@@ -23,7 +23,7 @@ function GalleryImage({ src, index }: { src: string; index?: number }) {
             }}
         >
             <img
-                className="bg-gray-200 object-cover w-full h-full"
+                className="relative bg-gray-200 object-cover w-full h-full z-1"
                 alt="testing"
                 loading="lazy"
                 src={src}
@@ -36,7 +36,7 @@ export function Gallery(props: { imageList: string[] }) {
     const pM = useContext(phoneMode);
     //dense can violate the spirit of
     return (
-        <div className={`w-full h-full grid grid-cols-[repeat(auto-fit,minmax(1fr,2fr))] grid-flow-dense ${pM ? "overflow-y-hidden" : "overflow-y-scroll"}`}>
+        <div className={`w-full h-full grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-2 grid-flow-dense`}>
             {props.imageList.map((src, index) => {
                 return <GalleryImage key={index} src={src} index={index} />;
             })}
