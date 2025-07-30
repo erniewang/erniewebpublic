@@ -13,7 +13,7 @@ export function About() {
                     className='w-full h-full border-none rounded-md'
                 ></iframe>
             </div>
-            <div className={`${pM ? 'w-full h-[55vh]' : 'w-[78vw] h-full'} flex flex-col text-white gap-6 p-9 overflow-y-scroll overflow-x-hidden`}>
+            <div className={`${pM ? 'w-full h-[55vh]' : 'w-[78vw] h-full'} flex flex-col text-white gap-5 p-9 overflow-y-scroll overflow-x-hidden`}>
                 <p className='text-2xl'><b className='text-shadow-glow text-gray-100'>Hello! Thanks for checking out my website!</b></p>
                 <p className='text-xl text-gray-400'>
                     My name is Ernie, and I am a software engineer, web developer, musician, and photograher. I speak Mandarin Chinese and English I recently got my Bacholelors in Computer Science and Jazz Studies from Northwestern University. 
@@ -47,6 +47,7 @@ export function About() {
                 <p className='text-xl text-gray-400'>
                     As you would of guessed, I like to try out many things in my free time. I like to explore the world (see travel photos in the creative section), play video games such as SCP containment breach, and develop usefull and undiscovered applications for AI. I tried showcasing them all here. Please browse around!
                 </p>
+                <center><p className='text-3xl pt-2'><a href="https://example.com" className='text-shadow-glow text-gray-100 hover:text-gray-500'>Check Out My Resume!</a></p></center>
             </div>
         </div>
     </SubHeader>;

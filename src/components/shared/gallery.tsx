@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-// Subcomponent for rendering an individual image
 function GalleryImage({ src, index }: { src: string; index?: number }) {
 
     const [imgDimensions, setImgDimensions] = useState<[number, number]>([1, 1]);
-    
+
     var img = new Image(); 
     img.src = src;
 
+    //modify the dimensions of the picture so it fits somewhat
     img.onload = function() {
         const dimension:number = Math.round((img.width / img.height) * 2) / 2;
         setImgDimensions([(dimension < 1 ? 2 : 1),(dimension < 1 ? 1: dimension)]);
@@ -24,6 +24,7 @@ function GalleryImage({ src, index }: { src: string; index?: number }) {
             <img
                 className="bg-gray-200 object-cover w-full h-full"
                 alt="testing"
+                loading="lazy"
                 src={src}
             />
         </div>
