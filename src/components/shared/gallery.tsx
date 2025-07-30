@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { phoneMode } from "../../App";
 
 function GalleryImage({ src, index }: { src: string; index?: number }) {
 
@@ -32,9 +33,10 @@ function GalleryImage({ src, index }: { src: string; index?: number }) {
 }
 
 export function Gallery(props: { imageList: string[] }) {
+    const pM = useContext(phoneMode);
     //dense can violate the spirit of
     return (
-        <div className="w-full h-full grid grid-cols-[repeat(auto-fit,minmax(1fr,2fr))] grid-flow-dense overflow-y-scroll gap-1">
+        <div className={`w-full h-full grid grid-cols-[repeat(auto-fit,minmax(1fr,2fr))] grid-flow-dense ${pM ? "overflow-y-hidden" : "overflow-y-scroll"}`}>
             {props.imageList.map((src, index) => {
                 return <GalleryImage key={index} src={src} index={index} />;
             })}

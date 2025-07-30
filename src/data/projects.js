@@ -2,6 +2,7 @@ export var projectData = {
   "projects": [
     {
       "title": "Harmonizer | Har.MXL",
+      "tech": "Javascript Python-Music21-FastAPI",
       "description": [
         "Ever dreamt of effortlessly harmonizing your melodies? I built Har.MXL, a web app that takes your MusicXML (MXL) tunes and programmatically harmonizes them to perfection, all powered by FastAPI. It's like having a digital collaborator who understands harmony deep down.",
         "Under the hood, there's a massive JSON ruleset, a veritable bible of note-chord combinations and harmonization tricks. It can handle thousands of possibilities, ensuring your melodies always sound just right.",
@@ -11,6 +12,7 @@ export var projectData = {
     },
     {
       "title": "CV-Tuner | Resume Tuner ",
+      "tech": "Javascript-React-NextJS LLMs-GPT-API",
       "description": [
         "Navigating course selections can be a maze, right? I tackled that head-on by building a full-stack React application where students can search for classes and, even better, get smart recommendations from a GPT API! It's like having a personalized academic advisor, but online.",
         "To make those recommendations truly intelligent, I developed a system that processes and filters course information into embeddings. Then, using cosine similarity, I'd find the best matches for a user's query before handing it off to GPT for a final, refined suggestion. Think of it as finding the needle in a haystack, then polishing it to a shine.",
@@ -20,6 +22,7 @@ export var projectData = {
     },
     {
       "title": "Jottling Start",
+      "tech": "Javascript-React Python",
       "description": [
         "Who knew predicting the 'awesomeness' of a CD from Amazon reviews could be so fun? I collaborated on a machine learning model that did just that, and we hit a respectable 72% accuracy. It was a deep dive into the world of sentiment analysis, trying to capture that elusive 'awesome' factor.",
         "Data is king in machine learning, and I spent a good chunk of time cleaning and preprocessing review data using Pandas and NumPy. We structured this entire process within a Waterfall development cycle, ensuring every step was meticulously planned and executed.",
@@ -29,6 +32,7 @@ export var projectData = {
     },
     {
       "title": "D2M | Dance 2 Music",
+      "tech": "Javascript-P5.js LLMS-Vampnet",
       "description": [
         "Imagine turning your movements into music in real-time! That's exactly what I built with D2M (Dance to Music) — a web application that captures your poses using PoseNet (p5.js) and feeds them into a machine generation model (VampNet) to continuously create music. It's a truly immersive, interactive experience where your body becomes the conductor.",
         "Getting that real-time connection meant engineering precise tempo detection. I used FFT (Fast Fourier Transform) on joint velocity time-series data, leveraging JavaScript math libraries to ensure every beat and rhythm was captured with incredible precision. It was a fascinating challenge to bridge the visual and auditory worlds.",
@@ -37,6 +41,7 @@ export var projectData = {
     },
     {
       "title": "LoopAI | Looper Ai Music",
+      "tech": "Javascript-Tone.js",
       "description": [
         "As an Engineer for AI Training Data at G2i, I was on the front lines of improving large language models. My role involved meticulously evaluating and ranking outputs from Scale AI's LLM. This wasn't just about 'good' or 'bad' — I provided detailed feedback on everything from ethical considerations to language clarity and visual coherence. It was about shaping the future of AI responsibly.",
         "A core part of my work was ensuring factual accuracy. In the world of AI, precision matters, and I made sure responses met stringent standards to boost the model's overall performance and reliability. Every piece of feedback contributed directly to making the AI smarter and more trustworthy."

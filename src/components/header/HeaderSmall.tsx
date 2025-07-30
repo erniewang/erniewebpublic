@@ -21,7 +21,7 @@ export default function HeaderSmall({ setterFunction }: FuncProps): React.ReactE
 
     if (!toggled) {
         return (
-            <header className={`${tw.fixedBottom} ${tw.darkBg} text-white`}>
+            <header className={`${tw.fixedBottom} ${tw.darkBg} text-white z-100`}>
                 <div className="max-w-xl mx-auto">
                     <div className={`${tw.flexCenter} pl-5 w-full p-2`}>
                         <div className="text-3xl font-medium ml-2">

@@ -15,16 +15,16 @@ export function Projects() {
     const [photoList, setPhotoList] = useState<string[]>(Array.from({length: 15}, (_, i) => `images/Photography/${r(0,79)}.jpg`));
 
     useEffect(() => {
-        setPhotoList(Array.from({length: 15}, (_, i) => `images/Photography/${r(0,79)}.jpg`));
+        //setPhotoList(Array.from({length: 15}, (_, i) => `images/Photography/${r(0,79)}.jpg`));
     }, [selectedProject]);
 
     const titleObject: string = "flex items-center justify-center text-white p-[7px] text-[85%] hover:opacity-70 active:bg-black active:text-gray-800";
     return (
         <SubHeader>
-            <div className={`${!pM ? "w-[70%] h-full" : "w-[100%] h-[70%]"}`}>
+            <div className={`${!pM ? "w-[70%] h-full" : "w-[100%] h-auto overflow-y-scroll scrollbar-hide"}`}>
                 {pM ? ( //mobile layout
-                    <div className="flex flex-col h-full bg-gray-500">
-                        <div className="flex h-auto min-h-[50px]">
+                    <div className="flex flex-col h-auto bg-gray-500">
+                        <div className="flex h-auto min-h-[50px] fixed top-0 w-full z-10 bg-gray-500">
                             <div className={`flex-1 bg-gray-950 ${titleObject} text-[77%]`} onClick={() => setSelectedProject(0)}>
                                 Har.MXL
                             </div>
@@ -41,8 +41,11 @@ export function Projects() {
                                 LoopAI
                             </div>
                         </div>
-                        <div className="flex-1 bg-black overflow-hidden">
+                        <div className="flex-1 bg-black overflow-hidden pt-[50px]">
                             <ProjectHolder projectIndex={selectedProject}></ProjectHolder>
+                        </div>
+                        <div className="w-full h-auto bg-black -z-1">
+                            <Gallery imageList={photoList}></Gallery>
                         </div>
                     </div>
                 ) : (
@@ -70,9 +73,13 @@ export function Projects() {
                     </div>
                 )}
             </div>
-            <div className={`${!pM ? "w-[30%] h-full" : "w-full h-[30%]"} bg-black`}>
-                <Gallery imageList={photoList}></Gallery>
-            </div>
+            {/* Desktop gallery */}
+            {!pM && (
+                <div className="w-[30%] h-full bg-black">
+                    <Gallery imageList={photoList}></Gallery>
+                </div>
+            )}
+            {/* Mobile gallery */}
         </SubHeader>
     );
 }

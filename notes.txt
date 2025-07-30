@@ -26,3 +26,8 @@ Types Of Animations in CSS:
 
 LifeCycle: Be sure to factor in if something is still alive when there are promises in mind because of lifecycle shit. 
     
+Image Compressions: 
+- JPG image formats are not actually the actuall files. the raw data is usually much larger.
+    the decompression is delegated to the cpu. 
+- client size resizing of a image is also expensive. 
+
