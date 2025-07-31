@@ -15,7 +15,7 @@ export function Projects() {
     const [photoList, setPhotoList] = useState<string[]>(Array.from({length: 15}, (_, i) => `images/Photography/${r(0,79)}.jpg`));
 
     useEffect(() => {
-        //setPhotoList(Array.from({length: 15}, (_, i) => `images/Photography/${r(0,79)}.jpg`));
+        setPhotoList(Array.from({length: 15}, (_, i) => `images/Photography/${r(0,2209)}.jpg`));
     }, [selectedProject]);
 
     const titleObject: string = "flex items-center justify-center text-white p-[7px] text-[85%] hover:opacity-70 active:bg-black active:text-gray-800";
