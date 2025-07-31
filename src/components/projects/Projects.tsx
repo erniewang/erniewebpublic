@@ -21,7 +21,7 @@ export function Projects() {
     const titleObject: string = "flex items-center justify-center text-white p-[7px] text-[85%] hover:opacity-70 active:bg-black active:text-gray-800";
     return (
         <SubHeader>
-            <div className={`${!pM ? "w-[70%] h-full" : "w-[100%] h-auto overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-900"}`}>
+            <div className={`${!pM ? "w-[70%] h-full" : "w-[100%] h-auto overflow-y-scroll scrollbar-hide"}`}>
                 {pM ? ( //mobile layout
                     <div className="flex flex-col h-auto bg-gray-500">
                         <div className="flex h-auto min-h-[50px] fixed top-0 w-full z-10 bg-gray-500">
@@ -41,7 +41,7 @@ export function Projects() {
                                 LoopAI
                             </div>
                         </div>
-                        <div className="flex-1 bg-black overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-900 pt-[50px]">
+                        <div className="flex-1 bg-black overflow-hidden pt-[50px]">
                             <ProjectHolder projectIndex={selectedProject}></ProjectHolder>
                         </div>
                         <div className="w-full h-auto bg-black -z-1">
@@ -67,7 +67,7 @@ export function Projects() {
                                 <MovingWords>LoopAI</MovingWords>
                             </div>
                         </div>
-                        <div className="flex-1 bg-black overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-900">
+                        <div className="flex-1 bg-black overflow-hidden">
                             <ProjectHolder projectIndex={selectedProject}></ProjectHolder>
                         </div>
                     </div>
@@ -75,7 +75,7 @@ export function Projects() {
             </div>
             {/* Desktop gallery */}
             {!pM && (
-                <div className="w-[30%] h-full bg-black overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-900">
+                <div className="w-[30%] h-full bg-black">
                     <Gallery imageList={photoList}></Gallery>
                 </div>
             )}

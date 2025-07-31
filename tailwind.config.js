@@ -8,3 +8,18 @@ module.exports = {
   },
   plugins: [],
 } 
+
+/*
+CSS
+inconsistent sizing units. 
+inline style concatenation
+stacking context
+
+Images
+pre-generate image data
+
+Code
+data mixing/hardcoded values
+lack of sepeartion of concerns. UI | state managmenet | data acces
+-implement data layer
+*/

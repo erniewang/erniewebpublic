@@ -11,7 +11,7 @@ export function SubHeader({ children }: SubHeaderProps) {
     const pM = useContext(phoneMode);
     return (
         pM ? 
-        <div className="w-screen h-[93vh] mt-0 bg-white flex flex-col justify-evenly content-evenly overflow-hidden">{children}</div> : 
-        <div className="w-screen h-[93vh] mt-0 bg-white flex flex-row justify-evenly content-evenly overflow-hidden">{children}</div>
+        <div className="w-screen h-[91.41vh] mt-0 bg-white flex flex-col overflow-hidden">{children}</div> : 
+        <div className="w-screen h-[93vh] mt-0 bg-white flex flex-row overflow-hidden">{children}</div>
     );
 } 

@@ -1,36 +1,30 @@
 import { SubHeader } from '../shared/SubHeader';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { phoneMode } from '../../App';
+//import { ImagesSelector } from './imagesSelect';
 
 export function Creative() {
     const pM = useContext(phoneMode);
-    
-    return <SubHeader>
-        <div className="w-full h-full">
-            {pM ? (
-                // Mobile Layout
-                <div className="flex flex-col h-full bg-gray-500">
-                    <div className="h-[12vh] flex gap-2">
-                        <div className="flex-1 bg-gray-500" />
-                        <div className="flex-1 bg-gray-600" />
-                        <div className="flex-1 bg-gray-700" />
-                    </div>
-                    <div className="flex-1 bg-gray-800 overflow-y-scroll" />
-                </div>
-            ) : (
-                // Desktop Layout
-                <div className="flex h-full">
-                    <div className="w-[12vw] h-full flex flex-col justify-center gap-4 bg-gray-900">
-                        <div className="h-[12vh] bg-gray-500" />
-                        <div className="h-[12vh] bg-gray-600" />
-                        <div className="h-[12vh] bg-gray-700" />
-                    </div>
-                    <div className="flex-1 bg-gray-800 overflow-y-scroll" />
-                </div>
-            )}
-        </div>
-    </SubHeader>;
-} 
+    const [phoneFilters, setPhoneFilters] = useState<boolean>(false);
 
-//for creative it will be split into 3 sections. art photography, and music. 
+    return (
+        <SubHeader>
+            {pM && <div className='relative w-screen h-full bg-black'>
+                
+                <div
+                    className={` absolute top-0 left-0 right-0 bottom-[60px] bg-gray-400 overflow-y-auto`}></div>
+                {
+                    !phoneFilters ? 
+                    <div 
+                    onClick={() => {setPhoneFilters(!phoneFilters);}}
+                    className='absolute w-full h-[60px] bg-white bottom-0'></div> :
+                    <div 
+                    onClick={() => {setPhoneFilters(!phoneFilters);}}
+                    className='absolute w-full h-[300px] bg-white bottom-0'></div>}
+            </div>}
+            {!pM && <><div className='w-[25vw] h-full bg-gray-400'></div>
+                    <div className='absolute w-[75vw] h-[93.2vh] bg-black right-0'></div></>}
+        </SubHeader>
+    );
+} 
 //once 

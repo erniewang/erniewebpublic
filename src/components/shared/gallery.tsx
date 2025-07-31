@@ -36,7 +36,7 @@ export function Gallery(props: { imageList: string[] }) {
     const pM = useContext(phoneMode);
     //dense can violate the spirit of
     return (
-        <div className={`w-full h-full grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-2 grid-flow-dense`}>
+        <div className={`w-full h-full grid grid-cols-[repeat(auto-fit,minmax(1fr,2fr))] grid-flow-dense ${pM ? "overflow-y-hidden" : "overflow-y-scroll"}`}>
             {props.imageList.map((src, index) => {
                 return <GalleryImage key={index} src={src} index={index} />;
             })}
@@ -50,3 +50,5 @@ export function Gallery(props: { imageList: string[] }) {
 //add more images into the thing
 //turn the about images into numbers. and import them with a direct for loop type shit.
 //make it so the dimensions of the image are tall. or short. that is all
+
+
