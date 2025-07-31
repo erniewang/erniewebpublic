@@ -13,18 +13,27 @@ export function Creative() {
 
     return (
         <SubHeader>
-            {pM && <div className='relative w-screen h-full bg-black'>
+            {pM && <div className='relative w-screen h-full bg-black overflow-y-hidden'>
                 <div
-                    className={` absolute top-0 left-0 right-0 bottom-[60px] bg-black overflow-y-auto`}></div>
+                    className={` absolute top-0 left-0 right-0 bottom-[60px] bg-black`}></div>
                 {
                     !phoneFilters ? 
                     <div onClick={() => {setPhoneFilters(!phoneFilters);}}
                     className='absolute w-full h-[60px] bg-gray-400 bottom-0'></div> :
                     <div onClick={() => {setPhoneFilters(!phoneFilters);}}
-                    className='absolute w-full h-[300px] bg-gray-400 bottom-0'></div>}
+                    className='absolute w-full h-[300px] bg-gray-400 bottom-0'>
+                        <ImagesSelector></ImagesSelector>
+                        </div>}
             </div>}
-            {!pM && <><div className='w-[25vw] h-full bg-gray-400'></div>
-                    <div className='absolute w-[75vw] h-[93.2vh] bg-black right-0'></div></>}
+            {!pM && (
+                <>
+                    <div className='w-1/4 h-full bg-gray-400'>
+                    <ImagesSelector></ImagesSelector>
+                    </div>
+                    <div className='w-3/4 h-full bg-black'>
+                    </div>
+                </>
+            )}
         </SubHeader>
     );
 } 
