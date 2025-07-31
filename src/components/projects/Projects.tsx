@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from 'react';
 import { phoneMode } from '../../App';
 import { MovingWords } from '../movingWords/movingWords';
 import { ProjectHolder } from './projectContent';
-import { Gallery } from '../shared/gallery';
+import { Gallery } from '../shared/selectedGallery';
 
 //list of images for testing at this moment
 const r = (min:number, max:number) => Math.round(Math.random() * (max - min)) + min; //what the fuck is a spreading iterator
