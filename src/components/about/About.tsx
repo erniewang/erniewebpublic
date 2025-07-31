@@ -8,7 +8,7 @@ export function About() {
         <div className={`flex ${pM ? 'flex-col' : 'flex-row'} w-full h-full bg-black`}>
             <div className={`${pM ? 'w-full h-[45vh]' : 'w-[38vw] h-full'} bg-gray-800 flex flex-wrap overflow-hidden`}>
                 <iframe 
-                    src="/gallery.html" 
+                    src={process.env.PUBLIC_URL + '/gallery.html'} 
                     title='fuck around'
                     className='w-full h-full border-none rounded-md'
                 ></iframe>
@@ -20,22 +20,22 @@ export function About() {
                 </p>
                 <div className='w-full h-[200px] flex-none flex justify-between items-center gap-2'>
                     <img 
-                        src="/images/about/warsawleft.jpg" 
+                        src={process.env.PUBLIC_URL + '/images/about/warsawleft.jpg'} 
                         alt="me with saxophone" 
                         className={`h-full ${pM ? 'w-[31%]' : 'w-[22%]'} object-cover object-[45%_center] rounded-md`}
                     />
                     <img 
-                        src="/images/about/me.jpg" 
+                        src={process.env.PUBLIC_URL + '/images/about/me.jpg'} 
                         alt="me" 
                         className={`h-full ${pM ? 'w-[31%]' : 'w-[24%]'} object-cover rounded-md`}
                     />
                     <img 
-                        src="/images/about/mesax.jpg" 
+                        src={process.env.PUBLIC_URL + '/images/about/mesax.jpg'} 
                         alt="me with saxophone" 
                         className={`h-full ${pM ? 'w-[31%]' : 'w-[20%]'} object-cover object-[center_-5%] rounded-md`}
                     />
                     <img 
-                        src="/images/about/estonia.jpg" 
+                        src={process.env.PUBLIC_URL + '/images/about/estonia.jpg'} 
                         alt="me with saxophone" 
                         className={`h-full ${pM ? 'hidden' : 'w-[25%]'} object-cover rounded-md`}
                     />
