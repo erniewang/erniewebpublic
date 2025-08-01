@@ -1,9 +1,9 @@
-import { useRef } from "react"
+import { useRef, createContext } from "react"
 import { imgRanges } from "../../data/imageCountryData";
 import { CountrySelection } from "./countryButtons";
 
 //will take in a function from the parent that will be a useState changer. 
-export function ImagesSelector() {
+export function ImagesSelector({ onUpdate }: { onUpdate: (ids: number[]) => void }) {
     //declare a ref that will make sure the information lasts between renders
     return <div className="w-full h-full bg-gradient-to-b from-gray-800 to-black flex flex-col p-2 text-white">
         <p><b className="text-xl m-5">Filter By Location</b></p>
@@ -15,7 +15,7 @@ export function ImagesSelector() {
                     Reset
                 </button>
                 <button 
-                    onClick={() => {}} 
+                    onClick={() => onUpdate(fetchImages())} 
                     className="w-[45%] h-[45px] bg-gray-600 hover:bg-gray-700 text-white rounded-md shadow-[0_0_10px_rgba(255,255,255,0.2)] transition-all">
                     Update
                 </button>
@@ -23,8 +23,23 @@ export function ImagesSelector() {
     </div>
 }
 
-function fetchImages(places:[string, string][]):number[]{
-    const imageIndexs = places.map(place => imgRanges[place[0]][place[1]]);
-    //the best way to filter this
-    return [1];
+function fetchImages():number[]{
+    let imageIds:number[] = [];
+    Object.keys(imgRanges).forEach((nation:string) => {
+        Object.keys(imgRanges[nation]).forEach((city:string) => {
+            if (imgRanges[nation][city].selected) {
+                const placeRange = imgRanges[nation][city].ranges;
+                
+                //so a basic for loop would not fucking work? this shit fucking retarded bro
+
+                placeRange.forEach(([start, end]) => {
+                    for (let i = start; i <= end; i++) {
+                        imageIds.push(i);
+                    }
+                });
+            }
+        });
+    });
+    //console.log(imageIds);
+    return imageIds;
 }
