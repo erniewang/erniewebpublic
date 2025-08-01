@@ -2,6 +2,7 @@ import { SubHeader } from '../shared/SubHeader';
 import { useContext, useState } from 'react';
 import { phoneMode } from '../../App';
 import { ImagesSelector } from './imagesSelect';
+import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
 
 export function Creative() {
     const pM = useContext(phoneMode);
@@ -16,14 +17,20 @@ export function Creative() {
             {pM && <div className='relative w-screen h-full bg-black overflow-y-hidden'>
                 <div
                     className={` absolute top-0 left-0 right-0 bottom-[60px] bg-black`}></div>
-                {
-                    !phoneFilters ? 
-                    <div onClick={() => {setPhoneFilters(!phoneFilters);}}
-                    className='absolute w-full h-[60px] bg-gray-400 bottom-0'></div> :
-                    <div onClick={() => {setPhoneFilters(!phoneFilters);}}
-                    className='absolute w-full h-[300px] bg-gray-400 bottom-0'>
-                        <ImagesSelector></ImagesSelector>
-                        </div>}
+                {phoneFilters && (
+                    <div className='absolute w-full h-[340px] bg-gray-400 bottom-[60px]'>
+                        <ImagesSelector />
+                    </div>
+                )}
+                <div 
+                    onClick={() => {setPhoneFilters(!phoneFilters);}}
+                    className='absolute w-full h-[60px] bg-gray-400 bottom-0 cursor-pointer hover:bg-gray-500 transition-colors flex items-center justify-center'
+                >
+                    {phoneFilters ? 
+                        <ChevronDownIcon className="w-6 h-6 text-gray-700" /> :
+                        <ChevronUpIcon className="w-6 h-6 text-gray-700" />
+                    }
+                </div>
             </div>}
             {!pM && (
                 <>
