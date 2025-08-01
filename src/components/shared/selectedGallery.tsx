@@ -1,7 +1,6 @@
 import { GalleryImage } from "./gallery"
 import { useContext } from "react";
 import { phoneMode } from "../../App";
-//selected gallery
 
 export function Gallery(props: { imageList: string[] }) {
     const pM = useContext(phoneMode);
