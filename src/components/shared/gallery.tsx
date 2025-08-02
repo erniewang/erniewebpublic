@@ -2,8 +2,8 @@ import { useState, useContext } from "react";
 import { phoneMode } from "../../App";
 
 export function GalleryImage({ src, index }: { src: string; index?: number }) {
-
     const [imgDimensions, setImgDimensions] = useState<[number, number]>([1, 1]);
+    const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
 
     var img = new Image(); 
     img.src = src;
@@ -15,20 +15,38 @@ export function GalleryImage({ src, index }: { src: string; index?: number }) {
     };
 
     return (
-        <div 
-            className="relative"
-            style={{
-                gridRow: `span ${imgDimensions[0]}`,
-                gridColumn: `span ${imgDimensions[1]}`
-            }}
-        >
-            <img
-                className="relative bg-gray-200 object-cover w-full h-full z-1"
-                alt="testing"
-                loading="lazy"
-                src={src}
-            />
-        </div>
+        <>
+            <div 
+                className="relative cursor-pointer group"
+                style={{
+                    gridRow: `span ${imgDimensions[0]}`,
+                    gridColumn: `span ${imgDimensions[1]}`
+                }}
+                onClick={() => setIsFullscreen(true)}
+            >
+                <img
+                    className="relative bg-black object-cover w-full h-full z-1 transition-all duration-300 group-hover:grayscale"
+                    alt=""
+                    loading="lazy"
+                    src={src}
+                />
+            </div>
+
+            {/* Fullscreen Modal */}
+            {isFullscreen && (
+                <div 
+                    className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center cursor-pointer"
+                    onClick={() => setIsFullscreen(false)}
+                >
+                    <img
+                        className="max-h-[90vh] max-w-[90vw] object-contain"
+                        src={src}
+                        alt=""
+                        onClick={(e) => e.stopPropagation()}
+                    />
+                </div>
+            )}
+        </>
     );
 }
 

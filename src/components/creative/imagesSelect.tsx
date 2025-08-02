@@ -13,14 +13,18 @@ export function ImagesSelector({ onUpdate }: { onUpdate: (ids: number[]) => void
         <CountrySelection></CountrySelection>
         <div className="w-full h-[60px] flex flex-row justify-evenly items-center">
                 <button 
-                    onClick={() => { clearData(); onUpdate([]); setResetToggle(prev => !prev); }} 
+                    onClick={() => { 
+                        clearData(); 
+                        onUpdate([]); 
+                        setResetToggle(prev => !prev); 
+                    }} 
                     className="w-[45%] h-[45px] bg-gray-400 hover:bg-gray-500 text-white rounded-md shadow-[0_0_10px_rgba(255,255,255,0.2)] transition-all">
-                    Reset
+                    <span>Reset</span>
                 </button>
                 <button 
                     onClick={() => onUpdate(fetchImages())} 
                     className="w-[45%] h-[45px] bg-gray-600 hover:bg-gray-700 text-white rounded-md shadow-[0_0_10px_rgba(255,255,255,0.2)] transition-all">
-                    Update
+                    <span>Update</span>
                 </button>
             </div>
     </div>
@@ -43,9 +47,6 @@ function fetchImages():number[]{
         Object.keys(imgRanges[nation]).forEach((city:string) => {
             if (imgRanges[nation][city].selected) {
                 const placeRange = imgRanges[nation][city].ranges;
-                
-                //so a basic for loop would not fucking work? this shit fucking retarded bro
-
                 placeRange.forEach(([start, end]) => {
                     for (let i = start; i <= end; i++) {
                         imageIds.push(i);
@@ -54,6 +55,6 @@ function fetchImages():number[]{
             }
         });
     });
-    //console.log(imageIds);
+
     return imageIds;
 }

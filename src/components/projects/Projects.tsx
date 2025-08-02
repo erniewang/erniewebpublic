@@ -26,19 +26,19 @@ export function Projects() {
                     <div className="flex flex-col h-auto bg-gray-500">
                         <div className="flex h-auto min-h-[50px] fixed top-0 w-full z-10 bg-gray-500">
                             <div className={`flex-1 bg-gray-950 ${titleObject} text-[77%]`} onClick={() => setSelectedProject(0)}>
-                                Har.MXL
+                                <span>Har.MXL</span>
                             </div>
                             <div className={`flex-1 bg-gray-900 ${titleObject} text-[71%]`} onClick={() => setSelectedProject(1)}>
-                                <b>CV Tuner</b>
+                                <span><b>CV Tuner</b></span>
                             </div>
                             <div className={`flex-1 bg-gray-800 ${titleObject} text-[89%]`} onClick={() => setSelectedProject(2)} >
-                                Jottling
+                                <span>Jottling</span>
                             </div>
                             <div className={`flex-1 bg-gray-900 ${titleObject} text-[100%]`}  onClick={() => setSelectedProject(3)}  >
-                                D2M
+                                <span>D2M</span>
                             </div>
                             <div className={`flex-1 bg-gray-950 ${titleObject} text-[100%]`}  onClick={() => setSelectedProject(4)} >
-                                LoopAI
+                                <span>LoopAI</span>
                             </div>
                         </div>
                         <div className="flex-1 bg-black overflow-hidden pt-[50px]">

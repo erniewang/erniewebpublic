@@ -47,7 +47,7 @@ export function About() {
                 <p className='text-xl text-gray-400'>
                     As you would of guessed, I like to try out many things in my free time. I like to explore the world (see travel photos in the creative section), play video games such as SCP containment breach, and develop usefull and undiscovered applications for AI. I tried showcasing them all here. Please browse around!
                 </p>
-                <center><p className='text-3xl pt-2'><a href="https://example.com" className='text-shadow-glow text-gray-100 hover:text-gray-500'>Check Out My Resume!</a></p></center>
+                <center><p className='text-3xl pt-2'><a href={process.env.PUBLIC_URL + '/resume-1.pdf'} target="_blank" rel="noopener noreferrer" className='text-shadow-glow text-gray-100 hover:text-gray-500'>Check Out My Resume!</a></p></center>
             </div>
         </div>
     </SubHeader>;

@@ -4,7 +4,7 @@ import { resetAction } from "./imagesSelect";
 
 export function CountrySelection() {
   return (
-    <div className="flex-1 text-xl p-2 overflow-y-scroll scrollbar-hide h-screen">
+    <div className="flex-1 text-xl p-2 overflow-y-scroll h-screen [&::-webkit-scrollbar]:bg-black [&::-webkit-scrollbar-thumb]:bg-gray-800">
       {Object.keys(imgRanges).map((nation: string) => (
         <Country key={nation} nation={nation} />
       ))}
@@ -27,13 +27,13 @@ function Country({ nation }: { nation: string }) {
   }, [actionContext]);
 
   return (
-    <div>
+    <div className="Country">
       {/* Country header */}
       <div
         onClick={() => setCountrySelected((prev) => !prev)}
         className={`${countrySelected ? "text-white" : "text-gray-500"} cursor-pointer m-2 hover:text-gray-300`}
       >
-        {nation}
+        <span>{nation}</span>
       </div>
 
       {/* Cities */}
@@ -74,9 +74,9 @@ function City({
   return (
     <div
       onClick={() => setCitySelected((prev) => !prev)}
-      className={`${citySelected ? "text-white" : "text-gray-600"} hover:text-gray-300 cursor-pointer`}
+      className={`City ${citySelected ? "text-white" : "text-gray-600"} hover:text-gray-300 cursor-pointer`}
     >
-      {cityName}
+      <span>{cityName}</span>
     </div>
   );
 }

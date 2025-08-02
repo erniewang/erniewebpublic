@@ -10,10 +10,6 @@ export function Creative() {
     const [phoneFilters, setPhoneFilters] = useState<boolean>(false);
     const [selectedImages, setSelectedImages] = useState<number[]>([]);
 
-    //declare a const of selected stuff. it will be a json file of selected entires in the like "country, year, state, and shit like that"
-    //this will be a usestate that will be modified by the child ImageSelector. the selected stuff will be passed upwards from
-    //the child and thrown into its sibling, which will have a gallery featuring the pictures type shit
-
     return (
         <SubHeader>
             
@@ -38,14 +34,17 @@ export function Creative() {
                 </div>
             </div>}
             {!pM && (
-                <>
+                <div className="flex flex-row w-full h-full">
                     <div className='w-1/3 h-full bg-gray-400'>
                     <ImagesSelector onUpdate={setSelectedImages} />
                     </div>
-                    <div className='w-2/3 h-full bg-black'>
-                    <Gallery imageList={selectedImages.map(id => `images/photography/${id}.jpg`)} />
+                    <div className='w-1/3 h-full bg-black'>
+                    <Gallery imageList={selectedImages.slice(0, selectedImages.length/2).map(id => `images/photography/${id}.jpg`)} />
                     </div>
-                </>
+                    <div className='w-1/3 h-full bg-black'>
+                    <Gallery imageList={selectedImages.slice(selectedImages.length/2).map(id => `images/photography/${id}.jpg`)} />
+                    </div>
+                </div>
             )}
         
         </SubHeader>

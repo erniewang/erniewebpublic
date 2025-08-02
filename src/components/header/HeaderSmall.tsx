@@ -27,7 +27,7 @@ export default function HeaderSmall({ setterFunction }: FuncProps): React.ReactE
                 <div className="max-w-xl mx-auto max-h-[66px]">
                     <div className={`${tw.flexCenter} pl-5 w-full p-2`}>
                         <div className="text-[22px] sm:text-3xl font-medium sm:ml-2">
-                            Ernie Wang
+                            <span>Ernie Wang</span>
                         </div>
                         <button
                             onClick={() => setToggled(true)}
@@ -61,7 +61,7 @@ export default function HeaderSmall({ setterFunction }: FuncProps): React.ReactE
                     <a href="#about" className={tw.navLink} onClick={() => setterFunction(0)}><MovingWords>About</MovingWords></a>
                     <a href="#projects" className={tw.navLink} onClick={() => setterFunction(1)}><MovingWords>Projects</MovingWords></a>
                     <a href="#creative" className={tw.navLink} onClick={() => setterFunction(2)}><MovingWords>Creative</MovingWords></a>
-                    <a href="#resume" className={tw.navLink} onClick={() => setterFunction(3)}><MovingWords>Resume</MovingWords></a>
+                    <a href={process.env.PUBLIC_URL + '/resume-1.pdf'} target="_blank" rel="noopener noreferrer" className={tw.navLink}><MovingWords>Resume</MovingWords></a>
                 </div>
             </div>
         </div>

@@ -6,9 +6,12 @@ export function Gallery(props: { imageList: string[] }) {
     const pM = useContext(phoneMode);
     //dense can violate the spirit of
     return (
-        <div className={`w-full h-full grid grid-cols-[repeat(auto-fit,minmax(1fr,2fr))] grid-flow-dense ${pM ? "overflow-y-hidden" : "overflow-y-scroll"}`}>
+        <div 
+            key={props.imageList.join(',')} // Force remount when image list changes
+            className={`w-full h-full grid grid-cols-[repeat(auto-fit,minmax(1fr,2fr))] grid-flow-dense ${pM ? "overflow-y-hidden" : "overflow-y-scroll"}`}
+        >
             {props.imageList.map((src, index) => {
-                return <GalleryImage key={index} src={src} index={index} />;
+                return <GalleryImage key={src} src={src} index={index} />;
             })}
         </div>
     );

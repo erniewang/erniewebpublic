@@ -34,7 +34,7 @@ const Header : React.FC <FuncProps> = (props) => {
                         <a href="#about" className={tw.navLink} onClick={() => props.setterFunction(0)}><MovingWords>About</MovingWords></a>
                         <a href="#projects" className={tw.navLink} onClick={() => props.setterFunction(1)}><MovingWords>Projects</MovingWords></a>
                         <a href="#creative" className={tw.navLink} onClick={() => props.setterFunction(2)}><MovingWords>Creative</MovingWords></a>
-                        <a href="#resume" className={tw.navLink} onClick={() => props.setterFunction(3)}><MovingWords>Resume</MovingWords></a>
+                        <a href={process.env.PUBLIC_URL + '/resume-1.pdf'} target="_blank" rel="noopener noreferrer" className={tw.navLink}><MovingWords>Resume</MovingWords></a>
                     </nav>
                 </div>
             </div>
