@@ -1,23 +1,14 @@
 import { SubHeader } from '../shared/SubHeader';
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState, useEffect, createContext } from 'react';
 import { phoneMode } from '../../App';
 import { ImagesSelector } from './imagesSelect';
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
 import { Gallery } from '../shared/selectedGallery';
 
-
-
 export function Creative() {
     const pM = useContext(phoneMode);
     const [phoneFilters, setPhoneFilters] = useState<boolean>(false);
     const [selectedImages, setSelectedImages] = useState<number[]>([]);
-
-    useEffect(() => {
-        //console.log("shit has been updated", selectedImages);
-        const imagePathsReal:string[] = selectedImages.map(function(imageId:number) {
-            return "images/Photography/"+imageId+".jpg";
-        })
-    }, [selectedImages]);
 
     //declare a const of selected stuff. it will be a json file of selected entires in the like "country, year, state, and shit like that"
     //this will be a usestate that will be modified by the child ImageSelector. the selected stuff will be passed upwards from
@@ -25,6 +16,7 @@ export function Creative() {
 
     return (
         <SubHeader>
+            
             {pM && <div className='relative w-screen h-full bg-black overflow-y-hidden'>
                 <div
                     className={` absolute top-0 left-0 right-0 bottom-[60px] bg-black`}>
@@ -55,6 +47,7 @@ export function Creative() {
                     </div>
                 </>
             )}
+        
         </SubHeader>
     );
 } 

@@ -1,5 +1,6 @@
 import { imgRanges } from "../../data/imageCountryData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useContext} from "react";
+import { resetAction } from "./imagesSelect";
 
 export function CountrySelection() {
   return (
@@ -12,12 +13,18 @@ export function CountrySelection() {
 }
 
 function Country({ nation }: { nation: string }) {
+  const actionContext = useContext(resetAction);
+
   const [countrySelected, setCountrySelected] = useState<boolean>(false);
   useEffect(() => {
     Object.keys(imgRanges[nation]).forEach(function(city: string) {
         imgRanges[nation][city].selected = countrySelected;
     })
   }, [countrySelected]);
+
+  useLayoutEffect(() => {
+    setCountrySelected(false);
+  }, [actionContext]);
 
   return (
     <div>
@@ -48,7 +55,12 @@ function City({
   parentSelected: boolean;
   parentNation: string;
 }) {
+  const actionContext = useContext(resetAction);
   const [citySelected, setCitySelected] = useState<boolean>(false);
+
+  useLayoutEffect(() => {
+    setCitySelected(false);
+  }, [actionContext]);
 
   // Sync city selection when parent (country) toggles
   useEffect(() => {
