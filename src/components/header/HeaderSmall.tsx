@@ -17,10 +17,10 @@ export default function HeaderSmall(): React.ReactElement {
 
     if (!toggled) {
         return (
-            <header className={`${tw.fixedBottom} ${tw.darkBg} text-white`}>
-                <div className="max-w-xl mx-auto">
+            <header className={`${tw.fixedBottom} ${tw.darkBg} text-white fixed bottom-0 h-[65px]`}>
+                <div className="mx-auto">
                     <div className={`${tw.flexCenter} pl-5 w-full p-2`}>
-                        <div className="text-3xl font-medium ml-2">
+                        <div className="text-[5vw] font-medium sm:text-2xl">
                             Ernie Wang
                         </div>
                         <button
@@ -29,7 +29,7 @@ export default function HeaderSmall(): React.ReactElement {
                             aria-label="Open Table of Contents"
                         >
                             <span className="text-lg pb-1">☰</span>
-                            <span className='text-2xl'><small>Table of Contents</small></span>
+                            <span className='text-[6vw] sm:text-2xl'><small>Table of Contents</small></span>
                         </button>
                     </div>
                 </div>
@@ -39,7 +39,7 @@ export default function HeaderSmall(): React.ReactElement {
 
     return (
         <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-50"
+            className="fixed inset-0 bg-black bg-opacity-50 z-50 fixed bottom-0"
             onClick={() => setToggled(false)}
         >
             <div className={`${tw.darkBg} p-6 fixed bottom-0 w-full`}>

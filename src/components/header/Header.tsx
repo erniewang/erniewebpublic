@@ -17,8 +17,8 @@ const Header = () => {
 	const pM = useContext(phoneMode);
     
 	return !pM ? (
-		<header className={`${tw.darkBg} p-3 w-full`}>
-			<div className={`max-w-4xl mx-auto ${tw.flexCenter} pl-3 pr-2 w-full`}>
+		<header className={`${tw.darkBg} p-3 w-full h-[65px] fixed top-0`}>
+			<div className={`mx-auto ${tw.flexCenter} pl-4 pr-2 w-full`}>
 				<div>
 					<h1 className="text-white text-3xl">Ernie Wang</h1>
 				</div>

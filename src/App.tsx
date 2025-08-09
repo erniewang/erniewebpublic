@@ -1,6 +1,6 @@
 import { useState, createContext, useEffect } from 'react';
 import Header from './components/header/Header';
-import { ImageDeck } from './components/imageDeck/ImageDeck';
+import PageBase from './components/pageBase';
 
 export const phoneMode = createContext(false);
 
@@ -17,12 +17,10 @@ const App = () => {
     });
 
     return (
-        <div className="h-screen w-screen bg-gradient-to-b from-blue-900 via-gray-900 to-black">
+        <div className="h-[100vh] w-[100vw] bg-gradient-to-b from-blue-900 via-gray-900 to-black p-0 m-0">
             <phoneMode.Provider value={smallWidth}>
                 <Header />
-                <main className="flex-row items-center content-between h-auto w-auto">
-                    <ImageDeck></ImageDeck>
-                </main>
+                <PageBase></PageBase>
             </phoneMode.Provider>
         </div>
     );
