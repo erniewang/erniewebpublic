@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/erniewebpublic/static/css/main.fc7908b9.css",
-    "main.js": "/erniewebpublic/static/js/main.0df0968e.js",
+    "main.css": "/erniewebpublic/static/css/main.ee07b373.css",
+    "main.js": "/erniewebpublic/static/js/main.6bec7a84.js",
     "index.html": "/erniewebpublic/index.html",
-    "main.fc7908b9.css.map": "/erniewebpublic/static/css/main.fc7908b9.css.map",
-    "main.0df0968e.js.map": "/erniewebpublic/static/js/main.0df0968e.js.map"
+    "main.ee07b373.css.map": "/erniewebpublic/static/css/main.ee07b373.css.map",
+    "main.6bec7a84.js.map": "/erniewebpublic/static/js/main.6bec7a84.js.map"
   },
   "entrypoints": [
-    "static/css/main.fc7908b9.css",
-    "static/js/main.0df0968e.js"
+    "static/css/main.ee07b373.css",
+    "static/js/main.6bec7a84.js"
   ]
 }
