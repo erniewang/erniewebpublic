@@ -1,14 +1,16 @@
 import React, { useContext } from 'react';
 import { phoneMode } from '../../../App';
+import AboutRight from './aboutRight';
+
+//Flex rations can be easily over-ridden like a bitch
 
 export default function About() {
   const pM = useContext(phoneMode);
 
-  // PHONE MODE: stacked, 1/3 + 2/3 of available height
   if (pM) {
     return (
       <div id="about" className="flex flex-col w-full h-full">
-        <div className="w-full bg-gray-200 flex-[2] relative">
+        <div className="w-full bg-gray-200 h-[40vh] relative">
             <iframe
             className="absolute inset-0 w-full h-full border-0"
             src={`${process.env.PUBLIC_URL}/iframes/gallery.html`}
@@ -16,16 +18,16 @@ export default function About() {
             title="Interactive Gallery"
             />
         </div>
-        <div className="w-full p-4 bg-gray-400 flex-[3]">
+        <div className="w-full flex-1 bg-gray-400 overflow-hidden">
+            <AboutRight />
         </div>
       </div>
     );
   }
 
-  // DESKTOP: left 30% fixed, right fills
   return (
     <div id="about" className="flex flex-row w-full h-full">
-      <div className="flex-[1] bg-gray-200 relative">
+      <div className="flex-[1] bg-gray-200 relative h-full">
         <iframe
           className="absolute inset-0 w-full h-full border-0"
           src={`${process.env.PUBLIC_URL}/iframes/gallery.html`}
@@ -33,7 +35,8 @@ export default function About() {
           title="Interactive Gallery"
         />
       </div>
-      <div className="flex-[2] p-4 bg-black">
+      <div className="flex-[2] bg-black h-full overflow-hidden">
+        <AboutRight />
       </div>
     </div>
   );

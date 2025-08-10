@@ -1,5 +1,16 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
 
 @import url(custom-styles/text-shadow.css);
+
+/* Hide ALL scrollbars globally, but keep scroll functionality */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and old Edge */
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
