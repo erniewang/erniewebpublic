@@ -7,7 +7,7 @@ export default function PageBase({ children }: { children: ReactNode }) {
 
     return (
         <div
-            className="w-full h-screen bg-black text-white overflow-hidden"
+            className="w-full h-screen bg-black text-white overflow-hidden z-[2]"
             style={{
                 paddingTop: !pM ? `${headerHeight}px` : 0,
                 paddingBottom: pM ? `${headerHeight}px` : 0

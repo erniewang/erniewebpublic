@@ -22,7 +22,7 @@ const App = () => {
     const [currPage, setCurrPage] = useState<number>(0);
     
     return (
-        <div className="h-[100vh] w-[100vw] bg-gradient-to-b from-blue-900 via-gray-900 to-black p-0 m-0">
+        <div className="h-[100vh] w-[100vw] bg-gradient-to-b from-blue-900 via-gray-900 to-black p-0 m-0 z-[1]">
             <phoneMode.Provider value={smallWidth}>
                 <Header setCurrPage={setCurrPage} />
                 <PageBase>

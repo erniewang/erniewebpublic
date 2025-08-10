@@ -16,7 +16,7 @@ export default function About() {
             title="Interactive Gallery"
             />
         </div>
-        <div className="w-full p-4 bg-white flex-[3]">
+        <div className="w-full p-4 bg-gray-400 flex-[3]">
         </div>
       </div>
     );
@@ -33,7 +33,7 @@ export default function About() {
           title="Interactive Gallery"
         />
       </div>
-      <div className="flex-[2] p-4 bg-white">
+      <div className="flex-[2] p-4 bg-black">
       </div>
     </div>
   );
