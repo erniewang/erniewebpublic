@@ -1,0 +1,25 @@
+/* src/styles/textShadow.css */
+.text-shadow-glow {
+    /* Soft white glow */
+    text-shadow:
+      0 0 2px rgba(255, 255, 255, 0.15),
+      0 0 4px rgba(255, 255, 255, 0.10),
+      0 0 6px rgba(255, 255, 255, 0.08);
+  }
+  
+  .text-shadow-strong {
+    /* Subtle depth, slightly more intense than glow */
+    text-shadow:
+      0 0 3px rgba(255, 255, 255, 0.20),
+      0 0 6px rgba(255, 255, 255, 0.15),
+      0 0 12px rgba(255, 255, 255, 0.10);
+  }
+  
+  .text-shadow-colored {
+    /* Soft blue accent glow */
+    text-shadow:
+      0 0 2px rgba(0, 200, 255, 0.25),
+      0 0 6px rgba(0, 200, 255, 0.15),
+      0 0 10px rgba(0, 200, 255, 0.10);
+  }
+  
