@@ -6,9 +6,14 @@ export default function PageBase({ children }: { children: ReactNode }) {
     const headerHeight = 65;
 
     
+    // Container setup:
+    // - Removed flex centering to prevent layout conflicts with children
+    // - Using simple overflow-y-auto instead of scroll for smoother behavior
+    // - Removed overflow-x-hidden since width is constrained by children
+    // - Height set to screen to ensure full viewport coverage
     return (
         <div
-            className="w-full h-screen bg-black text-white overflow-x-hidden overflow-y-scroll z-[2] flex justify-center items-start"
+            className="w-full h-screen bg-black text-white overflow-y-auto z-[2]"
             style={{
                 paddingTop: !pM ? `${headerHeight}px` : 0,
                 paddingBottom: pM ? `${headerHeight}px` : 0

@@ -4,25 +4,30 @@ import { phoneMode } from '../../../App';
 export default function About() {
   const pM = useContext(phoneMode);
 
-  // PHONE MODE: stacked, 1/3 + 2/3 of available height
   if (pM) {
+    // Phone: vertical layout
     return (
-      <div id="about" className="flex flex-col w-full min-h-screen">
-        <div className="w-full p-4 bg-gray-200 flex-[1]">
-        </div>
-        <div className="w-full p-4 bg-white flex-[2]">
-        </div>
+      <div>
+        <div style={{ height: '33vh', width: '100%', background: 'gray' }}>Top</div>
+        <div style={{ height: '67vh', width: '100%', background: 'white' }}>Bottom</div>
       </div>
     );
   }
 
-  // DESKTOP: left 30% fixed, right fills
+  // Desktop: horizontal layout
   return (
-    <div id="about" className="flex flex-row w-full min-h-screen">
-      <div className="w-[25%] p-4 bg-gray-200">
-      </div>
-      <div className="flex-1 p-4 bg-white">
-      </div>
+    <div style={{ display: 'flex', height: '100vh', width: '100%' }}>
+      <div style={{ width: '30vw', height: '100vh', background: 'gray' }}>Left</div>
+      <div style={{ width: '70vw', height: '100vh', background: 'white' }}>Right</div>
     </div>
   );
 }
+
+function PhotoOptions() {
+    return (
+      <div className='w-full h-full bg-black flex items-center justify-center'>
+        {/* Added content to make the black box visible */}
+        <span className="text-white">Photo Options</span>
+      </div>
+    );
+  }

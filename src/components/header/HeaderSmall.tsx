@@ -74,8 +74,10 @@ const HeaderSmall: FC<HeaderSmallProps> = ({ setCurrPage }) => {
                         <MovingWords>Creative</MovingWords>
                     </a>
                     <a
-                        onClick={() => { setCurrPage(3); setToggled(false); }}
-                        href="#resume"
+                        onClick={() => setToggled(false)}
+                        href={`${process.env.PUBLIC_URL}/Resume-1.pdf`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={tw.navLink}
                     >
                         <MovingWords>Resume</MovingWords>
