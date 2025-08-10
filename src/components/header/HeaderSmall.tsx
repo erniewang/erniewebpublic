@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import React, { useState, Dispatch, SetStateAction, FC } from 'react';
 import { AiFillInstagram, AiFillYoutube, AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import HeaderLink from './shared/HeaderLink';
 import { MovingWords } from '../movingWords/movingWords';
 
-//tailwind shit that is repeated. so put them at the top. not sure if this is good practice
+export interface HeaderSmallProps {
+    setCurrPage: Dispatch<SetStateAction<number>>;
+}
+
 const tw = {
     navLink: "text-white hover:text-gray-500 text-2xl" as const,
     fixedBottom: "fixed bottom-0 w-full" as const,
@@ -11,8 +14,7 @@ const tw = {
     flexCenter: "flex items-center justify-between" as const,
 } as const;
 
-//header when mode is small. sizes are fixed because they have to go outside traditional dom placement
-export default function HeaderSmall(): React.ReactElement {
+const HeaderSmall: FC<HeaderSmallProps> = ({ setCurrPage }) => {
     const [toggled, setToggled] = useState<boolean>(false);
 
     if (!toggled) {
@@ -50,13 +52,38 @@ export default function HeaderSmall(): React.ReactElement {
                         <HeaderLink href="https://github.com/erniewang" icon={AiFillGithub} />
                         <HeaderLink href="https://www.linkedin.com/in/erniewang/" icon={AiFillLinkedin} />
                     </div>
-
-                    <a href="#about" className={tw.navLink}><MovingWords>About</MovingWords></a>
-                    <a href="#projects" className={tw.navLink}><MovingWords>Projects</MovingWords></a>
-                    <a href="#creative" className={tw.navLink}><MovingWords>Creative</MovingWords></a>
-                    <a href="#resume" className={tw.navLink}><MovingWords>Resume</MovingWords></a>
+                    <a
+                        onClick={() => { setCurrPage(0); setToggled(false); }}
+                        href="#about"
+                        className={tw.navLink}
+                    >
+                        <MovingWords>About</MovingWords>
+                    </a>
+                    <a
+                        onClick={() => { setCurrPage(1); setToggled(false); }}
+                        href="#projects"
+                        className={tw.navLink}
+                    >
+                        <MovingWords>Projects</MovingWords>
+                    </a>
+                    <a
+                        onClick={() => { setCurrPage(2); setToggled(false); }}
+                        href="#creative"
+                        className={tw.navLink}
+                    >
+                        <MovingWords>Creative</MovingWords>
+                    </a>
+                    <a
+                        onClick={() => { setCurrPage(3); setToggled(false); }}
+                        href="#resume"
+                        className={tw.navLink}
+                    >
+                        <MovingWords>Resume</MovingWords>
+                    </a>
                 </div>
             </div>
         </div>
     );
-} 
+};
+
+export default HeaderSmall;
