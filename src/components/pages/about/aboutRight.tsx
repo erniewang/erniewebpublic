@@ -18,14 +18,14 @@ export default function AboutRight() {
   
           <div className="w-full h-[300px] flex-none flex justify-between items-center bg-gray-900 rounded-md overflow-hidden">
           <img 
-                             src={`${process.env.PUBLIC_URL}/images/about/salzburg.jpg`}
-               alt="Salzburg" 
-               className="h-full w-1/3 object-cover"
+              src={`${process.env.PUBLIC_URL}/images/about/salzburg.jpg`}
+              alt="Face" 
+              className="h-full w-1/3 object-cover object-top"
             />
             <img 
               src={`${process.env.PUBLIC_URL}/images/about/saxophone.jpg`}
               alt="Saxophone" 
-              className="h-full w-1/3 object-cover object-top"
+              className="h-full w-1/3 object-cover"
             />
             <img 
               src={`${process.env.PUBLIC_URL}/images/about/warsaw.jpg`}

@@ -22,7 +22,7 @@ const Header = ({ setCurrPage }: HeaderProps) => {
 
     if (!pM) {
         return (
-            <header className={`${tw.darkBg} p-3 w-full h-[65px] fixed top-0 z-[3]`}>
+            <header className={`${tw.darkBg} p-3 w-full h-[65px] fixed top-0 z-[3]`} id='header'>
                 <div className={`mx-auto ${tw.flexCenter} pl-4 pr-2 w-full`}>
                     <div>
                         <h1 className="text-white text-3xl">Ernie Wang</h1>

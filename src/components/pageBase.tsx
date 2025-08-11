@@ -26,3 +26,6 @@ export default function PageBase({ children }: { children: ReactNode }) {
 
 
 //type ReactNode = ReactElement | string | number | null | undefined | ReactNode[];
+
+
+//fucking animations are so fucking fragile that it cant even render shit properly
