@@ -1,0 +1,45 @@
+/* Text animations (right to left) */
+@keyframes slideInText {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Div animations (left to right) */
+@keyframes slideInDiv {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Apply to all text elements */
+p, h1, h2, h3, h4, h5, h6 {
+  animation: slideInText 0.8s ease-out forwards;
+  opacity: 0; /* Start invisible */
+}
+
+/* Apply to all divs except those with specific classes we want to exclude */
+div:not(.no-animation):not([class*="overflow"]) {
+  animation: slideInDiv 0.5s ease-out forwards;
+  opacity: 0; /* Start invisible */
+}
+
+/* Stagger children animations */
+div > p, div > h1, div > h2, div > h3 {
+  animation-delay: 0.2s; /* Delay text inside divs slightly */
+}
+
+/* Optional: Add will-change for performance */
+p, h1, h2, h3, h4, h5, h6, div {
+  will-change: transform, opacity;
+}
