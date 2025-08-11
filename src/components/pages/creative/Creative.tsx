@@ -8,7 +8,7 @@ export default function About() {
     // Phone: vertical layout
     return (
       <div>
-        <div style={{ height: '33vh', width: '100%', background: 'gray' }}>Top</div>
+        <div style={{ height: '33vh', width: '100%', background: 'gray' }}><PhotoOptions></PhotoOptions></div>
         <div style={{ height: '67vh', width: '100%', background: 'white' }}>Bottom</div>
       </div>
     );
@@ -17,7 +17,7 @@ export default function About() {
   // Desktop: horizontal layout
   return (
     <div style={{ display: 'flex', height: '100vh', width: '100%' }}>
-      <div style={{ width: '30vw', height: '100vh', background: 'gray' }}>Left</div>
+      <div style={{ width: '30vw', height: '100vh', background: 'gray' }}><PhotoOptions></PhotoOptions></div>
       <div style={{ width: '70vw', height: '100vh', background: 'white' }}>Right</div>
     </div>
   );

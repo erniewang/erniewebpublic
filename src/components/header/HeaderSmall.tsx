@@ -69,7 +69,7 @@ const HeaderSmall: FC<HeaderSmallProps> = ({ setCurrPage }) => {
                     <a
                         onClick={() => { setCurrPage(2); setToggled(false); }}
                         href="#creative"
-                        className={tw.navLink}
+                        className={`${tw.navLink} hidden`}
                     >
                         <MovingWords>Creative</MovingWords>
                     </a>

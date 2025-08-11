@@ -38,7 +38,7 @@ const Header = ({ setCurrPage }: HeaderProps) => {
                         <nav className="flex gap-6 ml-2">
                             <a onClick={() => setCurrPage(0)} href="#about" className={tw.navLink}><MovingWords>About</MovingWords></a>
                             <a onClick={() => setCurrPage(1)} href="#projects" className={tw.navLink}><MovingWords>Projects</MovingWords></a>
-                            <a onClick={() => setCurrPage(2)} href="#creative" className={tw.navLink}><MovingWords>Creative</MovingWords></a>
+                            <a onClick={() => setCurrPage(2)} href="#creative" className={`${tw.navLink} hidden`}><MovingWords>Creative</MovingWords></a>
                             <a href={`${process.env.PUBLIC_URL}/Resume-1.pdf`} target="_blank" rel="noopener noreferrer" className={tw.navLink}><MovingWords>Resume</MovingWords></a>
                         </nav>
                     </div>
@@ -46,7 +46,6 @@ const Header = ({ setCurrPage }: HeaderProps) => {
             </header>
         );
     }
-
     return <HeaderSmall setCurrPage={setCurrPage} />;
 };
 

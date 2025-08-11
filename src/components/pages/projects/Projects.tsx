@@ -1,22 +1,12 @@
-import { useContext } from 'react';
-import { phoneMode } from '../../../App';
-import { projectData } from '../../../data/projectDesc';
-import { Project } from '../../../data/projectDesc';
+import { SProject } from './projectSections';
 
 const tS = "text-shadow-strong text-gray-300 text-[clamp(20px,5vw,39px)] ml-2";
 const gridS =
   "rounded-md overflow-hidden bg-gray-200 w-full h-auto mb-4 " +
-  "grid grid-cols-1 sm:grid-cols-2 gap-3";
+  "grid grid-cols-1 sm:grid-cols-2 gap-0";
 
 const gridSOdd = "rounded-md overflow-hidden bg-gray-200 w-full h-auto mb-4 " +
-  "grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-3";
-
-//conficts between css is the bane of existence
-function SProject() {
-  return (
-    <div className="w-full h-[14vh] min-h-[60px] bg-gray-400"></div>
-  );
-}
+  "grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-0";
 
 export default function Projects() {
     //why does turning the 100% into a screen or full fuck it up?
@@ -33,33 +23,35 @@ export default function Projects() {
         id="projects"
         className="max-w-[1400px] w-full mx-auto h-auto flex flex-col gap-1 p-4 pt-0 scroll-mt-[65px]"
     >
-      <p className={tS}><center>In Progress</center></p>
+      <center><p className={tS}>In Progress</p></center>
       <div className={gridS}>
-        <SProject />
-        <SProject />
+        <SProject objectIndex={0}/> 
+        <SProject objectIndex={1}/>
       </div>
 
-      <p className={tS}><center>AI Focused</center></p>
+      <center><p className={tS}>AI Focused</p></center>
       <div className={gridSOdd}>
-        <SProject />
-        <SProject />
-        <SProject />
+        <SProject objectIndex={2}/>
+        <SProject objectIndex={3}/>
+        <SProject objectIndex={4}/>
       </div>
 
-      <p className={tS}><center>Musical Programming</center></p>
+      <center><p className={tS}>Musical Programming</p></center>
       <div className={gridS}>
-        <SProject />
-        <SProject />
-        <SProject />
-        <SProject />
+        <SProject objectIndex={5}/>
+        <SProject objectIndex={6}/>
+        <SProject objectIndex={7}/>
+        <SProject objectIndex={8}/>
       </div>
 
-      <p className={tS}><center>Performance | Composition</center></p>
+      <center><p className={tS}>Performance | Composition</p></center>
       <div className={gridSOdd}>
-        <SProject />
-        <SProject />
-        <SProject />
+        <SProject objectIndex={9}/>
+        <SProject objectIndex={10}/>
+        <SProject objectIndex={11}/>
       </div>
     </div>
   );
 }
+
+//watch out for center inside p. its gonna cause some hydration error or some bullshit. 
