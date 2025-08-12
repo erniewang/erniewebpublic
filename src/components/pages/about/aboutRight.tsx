@@ -16,8 +16,22 @@ export default function AboutRight() {
             Bachelor’s in Computer Science and Jazz Studies from Northwestern University.
           </p>
   
-          <div className="w-full h-[300px] flex-none flex justify-between items-center gap-2 bg-gray-900 rounded-md">
-            {/* Reserved space for future content */}
+          <div className="w-full h-[300px] flex-none flex justify-between items-center bg-gray-900 rounded-md overflow-hidden">
+          <img 
+              src={`${process.env.PUBLIC_URL}/images/about/salzburg.jpg`}
+              alt="Face" 
+              className="h-full w-1/3 object-cover object-top"
+            />
+            <img 
+              src={`${process.env.PUBLIC_URL}/images/about/saxophone.jpg`}
+              alt="Saxophone" 
+              className="h-full w-1/3 object-cover"
+            />
+            <img 
+              src={`${process.env.PUBLIC_URL}/images/about/warsaw.jpg`}
+              alt="Warsaw" 
+              className="h-full w-1/3 object-cover"
+            />
           </div>
   
           <p className="text-xl text-gray-400">

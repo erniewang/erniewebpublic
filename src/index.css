@@ -14,3 +14,38 @@
   width: 0;
   height: 0;
 }
+
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Animate text elements (headings, paragraphs) by sliding in from right */
+body :not(#header) h1,
+body :not(#header) h2,
+body :not(#header) h3,
+body :not(#header) h4,
+body :not(#header) h5,
+body :not(#header) h6,
+body :not(#header) p {
+  animation: slideInRight 0.8s ease-out;
+}
+
+/* Remove generic div animation; keeping only text animations */
+/* Extend slide-in-right to additional text elements */
+body :not(#header) span,
+body :not(#header) a,
+body :not(#header) li {
+  animation: slideInRight 0.8s ease-out;
+}
+
+/* Animate div elements by sliding in from left (faster than text) */
+body :not(#header) div {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+/* Note: header and its children are excluded via :not(#header) selector */

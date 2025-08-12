@@ -2,7 +2,7 @@ import { useState, createContext, useEffect } from 'react';
 import Header from './components/header/Header';
 import About from './components/pages/about/About';
 import Projects from './components/pages/projects/Projects';
-import Creative from './components/pages/creative/Creative';
+import { Creative } from './components/pages/creative/Creative';
 import PageBase from './components/pageBase';
 
 export const phoneMode = createContext(false);

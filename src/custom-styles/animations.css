@@ -1,0 +1,38 @@
+/* Slide and fade-in for paragraphs */
+@keyframes slideFadeInP {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Slide and fade-in for divs */
+@keyframes slideFadeInDiv {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply to all paragraph elements */
+p {
+  animation: slideFadeInP 1s ease-out forwards;
+}
+
+/* Apply to all div elements */
+div {
+  animation: slideFadeInDiv 0.8s ease-out forwards;
+}
+
+
+b {
+    animation: slideFadeInP 4.5s ease-out backwards;
+}

@@ -8,7 +8,7 @@ export default function PageBase({ children }: { children: ReactNode }) {
     
     return (
         <div
-            className="w-full h-screen bg-black text-white overflow-x-hidden overflow-y-scroll z-[2] flex justify-center items-start"
+            className="w-full h-screen bg-gray-500 text-white overflow-x-hidden overflow-y-scroll z-[3] flex justify-center items-start"
             style={{
                 paddingTop: !pM ? `${headerHeight}px` : 0,
                 paddingBottom: pM ? `${headerHeight}px` : 0

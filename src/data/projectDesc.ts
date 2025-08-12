@@ -1,155 +1,137 @@
-import { HtmlHTMLAttributes } from "react";
-
 export interface Project {
     title: string;
     tech: string;
-    description: string[];  // Array of description paragraphs
-    colorPalette: string[];  // Array of "rgb(r,g,b)" strings
+    description: string[];  // Array of HTML strings (supports basic tags like <b>, <i>)
+    colorPalette: string[];  // Array of "hsl(h, s%, l%)" strings
     images: string[];  // URLs or paths to images
 }
   
 export const projectData: Project[] = [
     {
         title: "Harmonizer | Har.MXL",
-        tech: "Javascript Python-Music21-FastAPI",
+        tech: "Python Music21 FastAPI",
         description: [
-            "Ever dreamt of effortlessly harmonizing your melodies? I built Har.MXL, a comprehensive web application that takes your MusicXML (MXL) tunes and programmatically harmonizes them to perfection, all powered by FastAPI and advanced music theory algorithms. It's like having a digital collaborator who understands harmony deep down to the molecular level. The application uses sophisticated voice-leading algorithms and constraint satisfaction problems to ensure each harmonized note follows proper classical and jazz conventions.",
-            "Under the hood, there's a massive JSON ruleset—a veritable bible of note-chord combinations and harmonization tricks spanning everything from Bach chorales to Bill Evans piano voicings. This rule engine can handle thousands of harmonic possibilities, analyzing melodic contour, rhythmic patterns, and tonal context to ensure your melodies always sound professionally crafted. The system implements parallel fifth detection, proper voice leading, and even considers the harmonic rhythm to create musically intelligent progressions.",
-            "I've architected it to remember your favorite harmonization styles locally in your browser using IndexedDB for lightning-fast access. Users can create custom presets, adjust harmonic complexity levels, and even specify preferred chord extensions. Future plans include migrating to a robust SQLite database with user authentication for cloud-based preset synchronization. This project was a constant dance of adding new features—from MIDI export capabilities to real-time playback—while ensuring everything stayed rock-solid through comprehensive unit testing and integration testing.",
-            "The RESTful APIs I crafted ensure that your MusicXML files seamlessly flow between client and server, with proper error handling, file validation, and optimized parsing. I implemented streaming file uploads for large orchestral scores, async processing queues for batch harmonization jobs, and WebSocket connections for real-time collaboration features. The backend handles everything from simple lead sheets to complex multi-movement symphonies.",
-            "One of the most challenging aspects was implementing the chord progression analysis engine. Using graph theory and dynamic programming, the system can analyze existing chord progressions and suggest harmonically consistent continuations. It considers factors like circle of fifths relationships, common tone retention, and even stylistic period preferences (Baroque vs. Romantic vs. Jazz). The frontend provides an intuitive drag-and-drop interface where musicians can quickly audition different harmonization options.",
-            "Performance optimization was crucial—I implemented Redis caching for frequently harmonized passages and used Web Workers for computationally intensive harmonic analysis. The application can process a typical pop song in under 2 seconds while maintaining broadcast-quality harmonic sophistication. Error handling includes graceful degradation for malformed MusicXML files and intelligent suggestions for resolving harmonic ambiguities."
+            "Har.MXL is a web application that harmonizes MusicXML melodies using FastAPI and advanced music theory algorithms, ensuring each note follows classical and jazz conventions. It uses a large JSON ruleset of chord combinations inspired by everything from Bach chorales to Bill Evans voicings.",
+            "Users can store favorite harmonization styles in IndexedDB, create presets, and adjust complexity. The backend supports large file uploads, async processing, and WebSocket collaboration for real-time harmonization.",
+            "A chord progression analysis engine applies graph theory and dynamic programming to suggest stylistically consistent continuations. The frontend offers a drag-and-drop interface for auditioning harmonization options.",
+            "Performance optimizations include Redis caching and Web Workers for fast analysis, processing a pop song in under 2 seconds. Error handling gracefully addresses malformed files and harmonic ambiguities."
         ],
         colorPalette: [
-            "rgb(150,170,255)",  // Light blue
-            "rgb(130,150,235)",  // Medium blue
-            "rgb(110,130,215)"   // Dark blue
+            "hsl(220, 85%, 85%)",
+            "hsl(220, 75%, 80%)",
+            "hsl(220, 65%, 75%)"
         ],
         images: []
     },
     {
         title: "CV-Tuner | Resume Tuner",
-        tech: "Javascript-React-NextJS LLMs-GPT-API",
+        tech: "React NextJS LLMs Flask",
         description: [
-            "Navigating course selections can be a maze, right? I tackled that head-on by building a sophisticated full-stack React application where students can search for classes and, even better, get intelligent recommendations from a GPT API enhanced with custom embedding models! It's like having a personalized academic advisor available 24/7, but with the computational power to analyze thousands of course combinations instantly. The application handles complex degree requirements, prerequisite chains, and even considers factors like professor ratings, class difficulty, and scheduling conflicts.",
-            "To make those recommendations truly intelligent, I developed a comprehensive system that processes and filters massive course datasets into high-dimensional embeddings using sentence transformers. The pipeline involves scraping course catalogs, cleaning inconsistent data formats, and generating semantic embeddings that capture not just course content but also difficulty levels, student reviews, and historical enrollment patterns. Using cosine similarity algorithms optimized with NumPy and Scikit-learn, I'd find the best matches for a user's query before handing it off to GPT for contextual refinement and personalized suggestions.",
-            "A key breakthrough was integrating OpenAI's function calling capabilities with custom prompt engineering. This allowed the AI to dynamically adjust and improve class suggestions based on real-time factors like seat availability, grade distributions, and even weather patterns affecting outdoor classes. The system maintains conversation context across multiple interactions, learning from user preferences and adapting its recommendation strategy. I implemented sophisticated prompt injection prevention and response validation to ensure academic integrity.",
-            "The technical architecture involved Next.js for server-side rendering, Redux Toolkit for state management, and a PostgreSQL database with optimized indexing for lightning-fast course queries. I built custom React hooks for managing async operations and implemented infinite scrolling for large result sets. The backend features rate limiting, caching layers, and comprehensive error logging. Working on this project was a fantastic dive into an Agile Scrum environment where we practiced test-driven development, conducted daily standups, and used GitLab CI/CD for automated testing and deployment.",
-            "One of the most complex challenges was handling the prerequisite dependency graph. I implemented a topological sorting algorithm that could detect circular dependencies and suggest alternative course sequences. The system considers multiple graduation paths simultaneously and can optimize for different goals—fastest completion, highest GPA, or best preparation for specific careers. Students can visualize their entire degree plan with interactive flowcharts and what-if scenarios.",
-            "Performance optimization was critical given the real-time nature of course recommendations. I implemented Redis caching for frequently accessed course data, database connection pooling, and even edge caching for static course information. The application handles peak registration periods with thousands of concurrent users while maintaining sub-200ms response times. Integration with the university's existing systems required careful API design and extensive testing to ensure data consistency."
+            "Built a React app where students search for classes and get GPT-powered recommendations using custom embedding models. It analyzes degree requirements, prerequisites, professor ratings, and scheduling conflicts.",
+            "Data is processed into embeddings via sentence transformers, then filtered with cosine similarity before GPT refines results. The system adapts suggestions based on seat availability and other live factors.",
+            "Architecture includes Next.js SSR, Redux Toolkit, PostgreSQL, custom hooks, infinite scrolling, and a rate-limited, cached backend. Agile practices ensured consistent delivery.",
+            "A topological sorting algorithm detects circular dependencies and suggests alternate course paths. Performance is optimized with Redis caching, connection pooling, and edge caching for peak loads."
         ],
         colorPalette: [
-            "rgb(120,230,170)",  // Light green
-            "rgb(100,210,150)",  // Medium green
-            "rgb(80,190,130)"    // Dark green
+            "hsl(140, 75%, 85%)",
+            "hsl(140, 65%, 80%)",
+            "hsl(140, 55%, 75%)"
         ],
         images: []
     },
     {
         title: "Jottling Start",
-        tech: "Javascript-React Python",
+        tech: "React Python",
         description: [
-            "Who knew predicting the 'awesomeness' of a CD from Amazon reviews could be such a fascinating journey into the depths of natural language processing and sentiment analysis? I collaborated on an advanced machine learning model that tackled this seemingly subjective task, ultimately achieving a respectable 72% accuracy rate. This project was a comprehensive deep dive into the world of sentiment analysis, attempting to capture that elusive 'awesome' factor through sophisticated feature engineering, ensemble methods, and extensive hyperparameter optimization. We analyzed over 100,000 music reviews, extracting linguistic patterns that correlate with highly-rated albums.",
-            "Data is absolutely king in machine learning, and I spent considerable time architecting a robust data preprocessing pipeline using Pandas, NumPy, and custom Python scripts. The raw Amazon review data was incredibly messy—inconsistent formatting, HTML artifacts, spam reviews, and varying review lengths ranging from single words to multi-paragraph analyses. We implemented comprehensive data cleaning procedures including duplicate detection, outlier removal, and text normalization. The entire process was structured within a rigorous Waterfall development cycle, ensuring every step was meticulously planned, documented, and validated through cross-functional team reviews.",
-            "We didn't stop at basic preprocessing! Through careful feature engineering, text vectorization using TF-IDF and Word2Vec embeddings, and sophisticated data augmentation techniques, we managed to boost our model's performance from an initial 61% to an impressive 76% accuracy. The F1 score improvement from 0.69 to 0.75 was particularly satisfying, representing a significant enhancement in both precision and recall. This involved implementing custom feature extraction methods that captured review sentiment, linguistic complexity, temporal patterns, and even reviewer credibility scores based on their review history.",
-            "We conducted extensive experimentation with various machine learning algorithms, including Naive Bayes for baseline sentiment classification, Random Forest for handling non-linear relationships in our feature space, Support Vector Machines for high-dimensional text data, and Gradient Boosting Decision Trees for capturing complex feature interactions. Each model underwent rigorous hyperparameter tuning using GridSearchCV and Randomized Search. We implemented k-fold cross-validation with stratified sampling to ensure robust performance estimates and prevent overfitting to our specific dataset.",
-            "The feature engineering process was particularly sophisticated—we extracted linguistic features like sentiment polarity, subjectivity scores, readability metrics, and even emoji usage patterns. We built custom functions to identify music-specific terminology, analyze review authenticity, and detect sarcasm or irony. The final ensemble model combined predictions from multiple algorithms using weighted voting, where weights were determined through Bayesian optimization. We also implemented LIME (Local Interpretable Model-agnostic Explanations) to understand which features most strongly influenced our 'awesomeness' predictions.",
-            "Model deployment involved creating a Flask API with proper input validation, error handling, and response formatting. We implemented comprehensive logging and monitoring to track model performance in production. The entire codebase followed best practices with comprehensive unit tests, documentation, and version control through Git. Performance optimization included vectorized operations, parallel processing for batch predictions, and memory-efficient data structures for handling large review datasets."
+            "Created a sentiment analysis model predicting CD 'awesomeness' from Amazon reviews, reaching 76% accuracy through feature engineering and ensemble methods. Analyzed over 100,000 music reviews for linguistic patterns.",
+            "Data preprocessing cleaned messy reviews, removed duplicates, and normalized text. Feature engineering included TF-IDF, Word2Vec, sentiment polarity, and reviewer credibility scores.",
+            "Experimented with Naive Bayes, Random Forest, SVM, and Gradient Boosting, with hyperparameter tuning and stratified k-fold validation. LIME explained model predictions.",
+            "Deployed via a Flask API with input validation, logging, and parallel processing for batch predictions. Optimized with vectorized operations and memory-efficient data structures."
         ],
         colorPalette: [
-            "rgb(255,190,160)",  // Light coral
-            "rgb(235,170,140)",  // Medium coral
-            "rgb(215,150,120)"   // Dark coral
+            "hsl(15, 85%, 85%)",
+            "hsl(15, 75%, 80%)",
+            "hsl(15, 65%, 75%)"
         ],
         images: []
     },
     {
         title: "D2M | Dance 2 Music",
-        tech: "Javascript-P5.js LLMS-Vampnet",
+        tech: "P5.js LLMS Vampnet",
         description: [
-            "Imagine turning your movements into music in real-time! That's exactly what I built with D2M (Dance to Music)—a revolutionary web application that captures your poses using PoseNet (p5.js) and feeds them into a sophisticated machine generation model (VampNet) to continuously create dynamic, responsive music. It's a truly immersive, interactive experience where your body becomes the conductor of an AI orchestra. The system processes skeletal tracking data at 30fps, analyzing joint angles, velocity vectors, and movement patterns to generate musically coherent compositions that adapt to your dance style in real-time.",
-            "Getting that seamless real-time connection between movement and music meant engineering precise tempo detection algorithms and sophisticated signal processing pipelines. I used Fast Fourier Transform (FFT) analysis on joint velocity time-series data, leveraging JavaScript math libraries like ml-matrix and DSP.js to ensure every beat, rhythm, and melodic phrase was captured with incredible precision. The system implements advanced smoothing algorithms to filter noise from pose detection while preserving the intentional nuances of human movement. It was a fascinating challenge to bridge the visual and auditory worlds through computational creativity.",
-            "The frontend isn't just pretty; it's intelligently designed with adaptive controls that modulate the music model's inputs in near real-time. This meant developing a sophisticated middleware layer that processes pose data streams, applies music theory heuristics, and manages the complex state between visual tracking and audio generation. I implemented custom React hooks for managing WebGL rendering, audio context manipulation, and pose estimation pipelines. The system uses the most recent pose data while maintaining musical coherence through harmonic analysis and rhythmic quantization.",
-            "The VampNet integration required deep understanding of transformer architectures and music generation models. I built custom preprocessing pipelines that convert pose coordinates into musical features—mapping arm positions to chord progressions, leg movements to percussion patterns, and torso rotations to melodic variations. The system maintains temporal consistency through attention mechanisms and ensures generated music follows proper musical structure through constraint satisfaction algorithms. Performance optimization involved Web Workers for pose processing and AudioWorklets for low-latency audio synthesis.",
-            "One of the most challenging technical aspects was implementing the bidirectional feedback loop between movement and music. The system not only generates music from dance but also provides visual feedback that influences the dancer's movements, creating a symbiotic human-AI performance. I developed sophisticated algorithms for beat detection, phrase segmentation, and dynamic tempo adjustment that respond to both the dancer's energy and the evolving musical context. The application handles multiple simultaneous dancers with separate tracking and individual musical contributions that blend harmonically.",
-            "The machine learning pipeline involves real-time feature extraction, dimensionality reduction through PCA, and continuous model inference using optimized TensorFlow.js implementations. I implemented sophisticated caching strategies for pose embeddings and music generation parameters to maintain fluid 60fps performance. The system includes comprehensive error handling for pose tracking failures, network latency issues, and audio buffer underruns. The entire application showcases the cutting-edge intersection of computer vision, machine learning, and interactive media arts."
+            "D2M turns your movements into music using PoseNet for pose capture and VampNet for AI-driven generation. It analyzes joint angles and movement patterns to create music in real time.",
+            "Pose data streams through smoothing algorithms and music theory heuristics before reaching the audio model. React hooks manage WebGL rendering, audio context, and pose estimation pipelines.",
+            "VampNet maps body movements to chord, percussion, and melodic changes while keeping harmonic coherence. Web Workers and AudioWorklets ensure low-latency performance.",
+            "A bidirectional feedback loop lets visuals influence the dancer’s movement. Multiple dancers can perform simultaneously, each contributing to a harmonic blend."
         ],
         colorPalette: [
-            "rgb(200,150,255)",  // Light lavender
-            "rgb(180,130,235)",  // Medium lavender
-            "rgb(160,110,215)"   // Dark lavender
+            "hsl(270, 75%, 85%)",
+            "hsl(270, 65%, 80%)",
+            "hsl(270, 55%, 75%)"
         ],
         images: []
     },
     {
         title: "LoopAI | Looper Ai Music",
-        tech: "Javascript-Tone.js",
+        tech: "Tone.js NextJS Python",
         description: [
-            "As an Engineer for AI Training Data at G2i, I was on the front lines of improving large language models through meticulous evaluation and ranking of outputs from Scale AI's cutting-edge LLM systems. This wasn't just about simple 'good' or 'bad' classifications—I provided detailed, nuanced feedback on everything from ethical considerations and bias detection to language clarity, factual accuracy, and visual coherence in multimodal outputs. It was about shaping the future of AI responsibly, ensuring these powerful models would serve humanity ethically and effectively across diverse applications and cultural contexts.",
-            "A core part of my work involved ensuring factual accuracy and combating AI hallucinations through sophisticated verification processes. In the rapidly evolving world of AI, precision matters more than ever, and I made sure responses met stringent standards through cross-referencing multiple authoritative sources, implementing fact-checking protocols, and developing custom evaluation rubrics. Every piece of feedback contributed directly to making these models smarter, more reliable, and more trustworthy for deployment in critical applications like healthcare, education, and legal assistance.",
-            "The technical aspects of this role involved working with large-scale annotation platforms, developing automated quality assurance tools, and creating comprehensive evaluation frameworks for different types of model outputs. I built custom Python scripts for batch processing evaluation tasks, implemented statistical analysis tools for tracking model performance trends, and designed efficient workflows for handling thousands of daily evaluations. The work required deep understanding of transformer architectures, attention mechanisms, and the latest developments in large language model training methodologies.",
-            "Beyond technical evaluation, I focused heavily on bias detection and mitigation across diverse demographic groups, languages, and cultural contexts. This involved developing sophisticated testing protocols that could identify subtle forms of discrimination, stereotyping, or cultural insensitivity in model outputs. I worked closely with ethicists, linguists, and domain experts to ensure our evaluation criteria reflected real-world diversity and inclusivity requirements. The feedback loop directly influenced model training procedures and safety protocols.",
-            "The scale of this operation was massive—processing and evaluating millions of model interactions across text, code, mathematical reasoning, creative writing, and multimodal tasks. I developed expertise in efficiently managing large datasets, implementing quality control measures, and maintaining consistency across distributed annotation teams. The role required staying current with the latest research in AI safety, alignment, and evaluation methodologies while contributing to the practical implementation of these theoretical concepts.",
-            "My contributions extended beyond individual evaluations to systematic improvements in the training data pipeline. I identified patterns in model failures, proposed new evaluation categories, and helped design more effective training scenarios. This meta-level analysis helped improve not just individual model responses but the fundamental training processes that create more capable and aligned AI systems. The work directly influenced the development of models that millions of users interact with daily."
+            "At G2i, evaluated LLM outputs for ethical considerations, bias, clarity, and factual accuracy. Feedback improved model reliability across diverse applications.",
+            "Ensured factual accuracy by implementing verification protocols and evaluation rubrics. Designed quality assurance tools and frameworks for multiple output types.",
+            "Developed bias detection protocols across demographic, linguistic, and cultural contexts. Collaborated with ethicists to refine evaluation criteria.",
+            "Analyzed model failures, proposed new evaluation categories, and improved training data pipelines to enhance AI alignment."
         ],
         colorPalette: [
-            "rgb(150,255,220)",  // Light aqua
-            "rgb(130,235,200)",  // Medium aqua
-            "rgb(110,215,180)"   // Dark aqua
+            "hsl(160, 85%, 85%)",
+            "hsl(160, 75%, 80%)",
+            "hsl(160, 65%, 75%)"
         ],
         images: []
     },
     {
         title: "This Webpage!",
-        tech: "Javascript-React-Tailwind",
+        tech: "React Tailwind",
         description: [
-            "Yeah, I built this entire portfolio website from scratch too. While it might look elegantly simple, there's actually sophisticated engineering underneath the hood. Built with React, TypeScript, and Tailwind CSS, this site represents a masterclass in modern web development practices, responsive design principles, and performance optimization. The component architecture is meticulously planned with reusable design patterns, custom hooks for state management, and optimized rendering strategies that ensure buttery-smooth user interactions across all device types and screen sizes.",
-            "The styling system goes far beyond basic Tailwind utilities—I've implemented custom CSS configurations, advanced responsive breakpoints, and sophisticated animation systems that create engaging user experiences without sacrificing performance. The color schemes are programmatically generated and dynamically applied, with careful attention to accessibility standards including proper contrast ratios, keyboard navigation support, and screen reader compatibility. Every pixel was intentionally placed to create visual hierarchy and guide user attention through the content flow.",
-            "Behind the scenes, the site employs advanced React patterns including context providers for global state management, custom hooks for data fetching and caching, and optimized component lifecycle management to minimize unnecessary re-renders. I implemented sophisticated routing strategies, lazy loading for performance optimization, and comprehensive error boundaries to ensure graceful degradation when things go wrong. The TypeScript integration provides robust type safety while maintaining developer productivity and code maintainability.",
-            "The deployment pipeline showcases modern DevOps practices with automated GitHub Actions workflows, comprehensive testing suites, and optimized build processes that generate highly compressed, cacheable assets. I implemented advanced webpack configurations for code splitting, implemented service worker strategies for offline functionality, and optimized the critical rendering path for lightning-fast initial page loads. The site achieves perfect Lighthouse scores across performance, accessibility, best practices, and SEO metrics.",
-            "Interactive elements throughout the site demonstrate advanced JavaScript capabilities including complex animations, gesture recognition, smooth scrolling implementations, and dynamic content loading. The portfolio sections feature sophisticated filtering and sorting algorithms, search functionality with fuzzy matching, and interactive data visualizations that help tell the story of my technical journey. Each component is thoroughly tested with Jest and React Testing Library to ensure reliability and maintainability.",
-            "The main goal was creating something that showcases both technical skill and design sensibility—proving that developers can create beautiful, functional interfaces without compromising on code quality or performance. The site serves as a living demonstration of modern web development capabilities while maintaining clean, readable, and maintainable source code that other developers can learn from and build upon."
+            "Built this portfolio with React, TypeScript, and Tailwind CSS, focusing on responsive design, performance, and reusable architecture.",
+            "Implemented custom CSS configs, advanced breakpoints, and accessible color schemes. Styling meets contrast and keyboard navigation standards.",
+            "Used context providers, custom hooks, lazy loading, and error boundaries for robust performance. TypeScript ensures type safety.",
+            "Deployed with GitHub Actions, optimized builds, service workers, and perfect Lighthouse scores. Components are tested with Jest and RTL."
         ],
         colorPalette: [
-            "rgb(255,150,255)",  // Light pink
-            "rgb(235,130,235)",  // Medium pink
-            "rgb(215,110,215)"   // Dark pink
+            "hsl(300, 85%, 85%)",
+            "hsl(300, 75%, 80%)",
+            "hsl(300, 65%, 75%)"
         ],
         images: []
     },
     {
         title: "Timeality | Productivity Tracker",
-        tech: "Javascript Chrome Extension Graph.js",
+        tech: "Graph.js",
         description: [
-            "Built a comprehensive Chrome extension that revolutionizes productivity tracking by measuring detailed user interactions including mouse movements, click patterns, keyboard press frequency, scroll behavior, and application focus time. This isn't just another basic time tracker—it's a sophisticated behavioral analytics platform that provides deep insights into work patterns, distraction triggers, and productivity optimization opportunities. The extension captures granular interaction data while maintaining complete user privacy through local-only data storage and advanced anonymization techniques.",
-            "The data aggregation system is remarkably sophisticated, implementing real-time event streaming, efficient local storage management, and complex statistical analysis algorithms that transform raw interaction data into meaningful productivity insights. Using Graph.js and D3.js, the extension generates beautiful, interactive visualizations including timeline charts, heat maps, activity distribution graphs, and productivity trend analysis. The dashboard reveals patterns like peak productivity hours, most distracting websites, typing speed variations, and focus duration metrics.",
-            "Advanced features include intelligent break recommendations based on productivity science, automated goal setting with adaptive thresholds, and comprehensive reporting systems that help users understand their work habits at unprecedented detail. The extension implements machine learning algorithms for pattern recognition, predictive analytics for optimal work scheduling, and personalized recommendations for improving focus and efficiency. It can detect productivity slumps, suggest optimal break timing, and even identify which types of tasks perform best at different times of day.",
-            "The technical implementation involves sophisticated event listeners, efficient data serialization, background script optimization for minimal performance impact, and advanced caching strategies to handle large datasets without affecting browser performance. I implemented robust privacy controls, data export capabilities, and integration APIs for popular productivity tools. The extension handles edge cases like multiple monitor setups, different input devices, and varying browser configurations while maintaining consistent tracking accuracy.",
-            "Performance optimization was critical given the real-time nature of interaction tracking—I implemented event debouncing, efficient data structures for storing time-series data, and optimized rendering for large datasets. The extension provides insights into user behavior patterns that would be impossible to capture manually, revealing subconscious productivity habits and providing actionable feedback for improvement. It includes comprehensive settings for customization, privacy controls, and data retention policies.",
-            "The analytical capabilities extend beyond simple time tracking to provide psychological insights into work patterns, stress indicators, and flow state detection. The extension can identify when users are in deep focus mode, experiencing decision fatigue, or engaging in procrastination behaviors. This level of behavioral analytics provides unprecedented self-awareness for knowledge workers seeking to optimize their productivity and well-being."
+            "Chrome extension tracking detailed user interactions like mouse, keyboard, scrolls, and focus time for productivity analysis.",
+            "Processes event streams locally with anonymization. Graph.js and D3.js visualize patterns like peak hours and distraction triggers.",
+            "Features intelligent break recommendations, goal setting, and predictive analytics for focus optimization.",
+            "Implements debouncing, efficient structures, and privacy controls for smooth real-time tracking."
         ],
         colorPalette: [
-            "rgb(180,100,180)",  // Light purple
-            "rgb(160,80,160)",   // Medium purple
-            "rgb(140,60,140)"    // Dark purple
+            "hsl(290, 75%, 85%)",
+            "hsl(290, 65%, 80%)",
+            "hsl(290, 55%, 75%)"
         ],
         images: []
     },
     {
         title: "LSD Simulator | Chrome Extension",
-        tech: "Javascript Chrome Extension",
+        tech: "javascript",
         description: [
-            "Created an experimental Chrome extension that completely transforms the visual experience of web browsing by applying sophisticated psychedelic visual effects, color manipulations, and reality-distorting animations. This project was born from curiosity about perception, consciousness, and the malleability of digital reality. The extension implements advanced CSS transformations, WebGL shaders, and canvas manipulations to create immersive visual experiences that challenge conventional web interaction paradigms while maintaining underlying functionality.",
-            "The technical implementation involves complex DOM manipulation algorithms that dynamically inject visual effects without breaking website functionality. Using advanced CSS filters, transform matrices, and keyframe animations, the extension creates flowing color gradients, morphing geometric patterns, kaleidoscopic effects, and reality-bending visual distortions. The system implements multiple effect layers that can be combined and customized, from subtle color shifts to complete visual reality reconstruction that maintains usability while providing extraordinary sensory experiences.",
-            "Advanced features include real-time audio visualization that synchronizes visual effects with ambient sound, customizable intensity controls that let users dial in their preferred level of visual transformation, and sophisticated algorithms that adapt effects based on website content and structure. The extension preserves text readability through intelligent contrast adjustment, maintains clickable elements through spatial awareness, and provides emergency override controls for returning to normal vision instantly.",
-            "The project explores the intersection of technology, consciousness, and perception while demonstrating advanced web development capabilities including WebGL programming, audio processing, real-time animation systems, and complex state management. I implemented sophisticated performance optimizations to ensure smooth 60fps animations even with intensive visual effects, memory management for handling large DOM trees, and compatibility testing across different websites and browser configurations.",
-            "Beyond the technical achievement, this extension serves as a digital art platform and consciousness exploration tool that challenges users' perceptions of reality and demonstrates the power of creative coding. It includes educational components about perception psychology, visual processing, and the relationship between technology and consciousness. The extension has been used by digital artists, researchers studying perception, and individuals interested in alternative states of consciousness.",
-            "The development process involved extensive research into visual perception, color theory, and psychoactive visual patterns. I implemented safety features including seizure prevention algorithms, gradual intensity ramping, and comprehensive warning systems. The extension demonstrates how creative coding can push the boundaries of conventional software applications while exploring fundamental questions about reality, perception, and human consciousness in the digital age."
+            "Experimental extension applying psychedelic visual effects via CSS transforms, WebGL shaders, and canvas manipulation.",
+            "Effects include gradients, geometric patterns, and visual distortions while preserving usability. Layers can be customized.",
+            "Audio visualization syncs visuals with sound; controls allow intensity adjustment. Content-aware algorithms adapt effects per site.",
+            "Includes safety features like seizure prevention and override controls, blending creative coding with perception research."
         ],
         colorPalette: [
-            "rgb(180,100,180)",  // Light purple
-            "rgb(160,80,160)",   // Medium purple
-            "rgb(140,60,140)"    // Dark purple
+            "hsl(290, 75%, 85%)",
+            "hsl(290, 65%, 80%)",
+            "hsl(290, 55%, 75%)"
         ],
         images: []
     },
@@ -157,53 +139,47 @@ export const projectData: Project[] = [
         title: "Saxophone Performance",
         tech: "Audio Recording",
         description: [
-            "My saxophone performance portfolio represents decades of dedicated musical study, encompassing both classical and jazz traditions with extensive exploration of contemporary and experimental techniques. This collection showcases performances across the complete saxophone family—soprano, alto, tenor, and baritone—demonstrating mastery of diverse stylistic approaches from baroque transcriptions and romantic concertos to bebop standards, fusion compositions, and avant-garde contemporary works. Each recording captures the nuanced expressiveness and technical precision that comes from years of rigorous practice and performance experience.",
-            "The technical aspects of saxophone performance involve sophisticated breath control, embouchure management, and complex fingering techniques that enable seamless transitions between altissimo passages, multiphonics, and extended techniques. My approach emphasizes the development of a personal sound concept while maintaining stylistic authenticity across different musical periods and genres. The recordings demonstrate advanced techniques including circular breathing for sustained passages, quarter-tone bending for microtonal expression, and extended techniques like growling, flutter tonguing, and harmonic series manipulation.",
-            "Jazz performance constitutes a significant portion of this portfolio, featuring improvisation over complex harmonic progressions, sophisticated rhythmic displacement, and melodic development techniques drawn from the great masters of the saxophone tradition. My improvisational approach combines theoretical knowledge of scales, modes, and harmonic substitutions with intuitive musical expression, creating solos that balance technical virtuosity with emotional authenticity. The recordings span multiple jazz subgenres including swing, bebop, cool jazz, hard bop, modal jazz, and contemporary fusion styles.",
-            "Classical performance requirements demand precise intonation, refined dynamics, and sophisticated musical interpretation of composed works ranging from baroque transcriptions to contemporary commissioned pieces. The repertoire includes major concertos by Glazunov, Creston, and Ibert, as well as chamber music collaborations and solo recital pieces that showcase the saxophone's versatility as both a lead instrument and ensemble member. Each performance demonstrates careful attention to stylistic period practices, phrasing conventions, and the unique acoustic properties of different performance spaces.",
-            "Contemporary and experimental music performances push the boundaries of traditional saxophone technique, incorporating extended techniques, electronic processing, and interdisciplinary collaboration with dancers, visual artists, and multimedia creators. These performances explore the saxophone's potential for sound design, textural exploration, and integration with technology including live electronics, real-time audio processing, and interactive music systems. The recordings document my contributions to expanding the saxophone's role in contemporary music creation.",
-            "The recording process itself represents a crucial aspect of musical development, involving careful microphone selection, acoustic space optimization, and post-production techniques that capture the authentic sound of the instrument while enhancing the listening experience. Each recording session serves as both documentation of current abilities and motivation for continued growth, providing objective feedback that guides future practice and performance development. These recordings serve as a comprehensive portfolio demonstrating both technical mastery and artistic maturity across diverse musical contexts."
+            "Portfolio of performances across saxophone types, spanning classical, jazz, and experimental styles. Demonstrates decades of technical mastery.",
+            "Covers advanced techniques like circular breathing, microtones, multiphonics, and stylistic authenticity in multiple genres.",
+            "Jazz solos combine harmonic knowledge with improvisational expression, covering swing to fusion styles.",
+            "Classical repertoire includes major concertos, chamber works, and extended techniques integrated with multimedia projects."
         ],
         colorPalette: [
-            "rgb(200,120,100)",  // Light orange
-            "rgb(180,100,80)",   // Medium orange
-            "rgb(160,80,60)"     // Dark orange
+            "hsl(20, 85%, 85%)",
+            "hsl(20, 75%, 80%)",
+            "hsl(20, 65%, 75%)"
         ],
         images: []
     },
     {
         title: "Composition Showcase",
-        tech: "Audio & Score",
+        tech: "Finale MuseScore Bandlab Logic-Pro ",
         description: [
-            "My composition portfolio spans multiple genres and mediums, representing a comprehensive exploration of musical creativity from intimate chamber works and solo pieces to large ensemble compositions and multimedia collaborations. Each composition demonstrates sophisticated understanding of harmonic language, structural development, and instrumental writing while pushing creative boundaries through innovative approaches to melody, rhythm, and form. The portfolio includes detailed scores, professional recordings, and extensive documentation of the creative process behind each work.",
-            "Classical and contemporary acoustic compositions form the core of this portfolio, featuring works for various ensemble configurations including string quartets, wind quintets, jazz big band, and full orchestra. These pieces demonstrate mastery of traditional compositional techniques including counterpoint, harmonic progression, and formal structures while incorporating contemporary harmonic language, extended techniques, and innovative notation systems. Each score reflects careful consideration of instrumental idioms, performer capabilities, and acoustic balance across different ensemble combinations.",
-            "Jazz composition represents a significant area of focus, with works that explore both traditional jazz forms and contemporary harmonic innovations. These compositions feature complex chord progressions, sophisticated rhythmic patterns, and carefully crafted head arrangements that provide frameworks for improvisation while maintaining compositional integrity. The works demonstrate understanding of jazz orchestration techniques, section writing, and the balance between composed material and improvisational freedom that defines great jazz composition.",
-            "Film and multimedia scoring projects showcase the ability to create music that enhances narrative storytelling, supports emotional development, and integrates seamlessly with visual media. These compositions demonstrate proficiency with digital audio workstations, orchestral sample libraries, and the unique challenges of syncing music to picture while maintaining artistic integrity. The works span multiple genres from intimate indie film scores to epic orchestral soundtracks, each tailored to specific narrative requirements and aesthetic goals.",
-            "Experimental and electronic compositions push the boundaries of traditional music creation through integration of field recordings, synthesized sounds, and innovative production techniques. These works explore the intersection of acoustic and electronic sound sources, utilizing advanced audio processing, spatial audio techniques, and interactive music systems. The compositions demonstrate proficiency with various software platforms, hardware synthesizers, and the unique aesthetic possibilities that emerge from electronic music creation.",
-            "The compositional process involves extensive sketching, harmonic analysis, and iterative refinement that ensures each work achieves its intended artistic goals while maintaining technical sophistication. Documentation includes detailed compositional notes, harmonic analyses, and reflections on the creative decisions that shaped each piece. This portfolio demonstrates not only technical compositional skill but also the artistic vision and creative voice that distinguishes meaningful musical expression from mere technical exercise."
+            "Portfolio of works from chamber pieces to large ensembles, blending traditional and modern compositional techniques.",
+            "Includes classical, jazz, film, and experimental works with mastery of orchestration and harmonic language.",
+            "Film scores integrate seamlessly with visuals, using orchestral libraries and DAWs for diverse narrative moods.",
+            "Electronic works explore field recordings, synthesis, and interactive systems."
         ],
         colorPalette: [
-            "rgb(200,120,100)",  // Light orange
-            "rgb(180,100,80)",   // Medium orange
-            "rgb(160,80,60)"     // Dark orange
+            "hsl(20, 85%, 85%)",
+            "hsl(20, 75%, 80%)",
+            "hsl(20, 65%, 75%)"
         ],
         images: []
     },
     {
         title: "Curriculum Planner | Chatbot",
-        tech: "Node.js ChatGPT Web Scraping",
+        tech: "Node.js ChatGPT Beautiful-Soup Selenium",
         description: [
-            "Built a sophisticated curriculum planning chatbot that combines advanced web scraping, natural language processing, and AI-powered recommendations to help students navigate complex academic requirements. The system runs on a local Node.js server that systematically scrapes Northwestern University's course catalogs, processes vast amounts of academic data, and uses ChatGPT's advanced reasoning capabilities to provide personalized course recommendations based on degree requirements, career goals, and individual student preferences.",
-            "The web scraping component represents a masterclass in data extraction engineering, implementing robust crawling algorithms that navigate Northwestern's complex course management systems while respecting rate limits and avoiding detection. The scraper handles dynamic content loading, JavaScript-rendered pages, and complex authentication flows to extract detailed course information including prerequisites, credit hours, professor ratings, historical grade distributions, and real-time enrollment data. Advanced error handling ensures reliable data collection even when university systems are under heavy load.",
-            "Data processing pipelines transform raw scraped content into structured knowledge graphs that capture complex relationships between courses, prerequisites, degree requirements, and academic programs. The system implements sophisticated parsing algorithms that handle inconsistent data formats, extract semantic meaning from course descriptions, and maintain referential integrity across the entire academic catalog. Natural language processing techniques identify course topics, difficulty levels, and prerequisite relationships that aren't explicitly stated in official descriptions.",
-            "The ChatGPT integration goes far beyond simple prompt engineering, implementing sophisticated conversation management, context preservation across multiple interactions, and dynamic prompt generation based on student profiles and academic histories. The system maintains detailed student models that track academic progress, learning preferences, career aspirations, and constraint factors like scheduling conflicts or prerequisite gaps. Advanced prompt engineering ensures responses are academically accurate, appropriately detailed, and tailored to individual student needs.",
-            "Recommendation algorithms combine multiple data sources including course content analysis, prerequisite dependency mapping, professor quality metrics, and historical student success patterns to generate optimal course sequences. The system can handle complex scenarios like double majors, study abroad requirements, accelerated degree programs, and non-traditional student pathways. Advanced optimization algorithms ensure recommended schedules meet graduation requirements while maximizing GPA potential and career preparation effectiveness.",
-            "The conversational interface provides intuitive natural language interaction for complex academic planning scenarios, allowing students to explore what-if scenarios, understand prerequisite chains, and receive explanations for recommendation decisions. The system handles ambiguous queries, provides clarifying questions when needed, and maintains conversation context for multi-turn planning sessions. Comprehensive logging and analytics track system performance, user satisfaction, and recommendation accuracy to enable continuous improvement of the planning algorithms."
+            "Node.js chatbot scrapes Northwestern course catalogs, processes academic data, and uses ChatGPT for tailored course advice.",
+            "Scraper handles dynamic content, authentication, and errors. Data is structured into knowledge graphs with semantic parsing.",
+            "ChatGPT integration maintains student profiles, adapts recommendations, and preserves multi-turn context.",
+            "Algorithms generate optimal course sequences for varied academic paths, considering prerequisites and constraints."
         ],
         colorPalette: [
-            "rgb(70,180,120)",   // Light green
-            "rgb(60,160,100)",   // Medium green
-            "rgb(50,140,80)"     // Dark green
+            "hsl(140, 75%, 85%)",
+            "hsl(140, 65%, 80%)",
+            "hsl(140, 55%, 75%)"
         ],
         images: []
     },
@@ -211,17 +187,15 @@ export const projectData: Project[] = [
         title: "Music Recommender",
         tech: "Node.js ChatGPT AWS Cognito AWS S3",
         description: [
-            "Developed a comprehensive music recommendation application that leverages ChatGPT's advanced natural language processing capabilities to understand user preferences and generate highly personalized song suggestions. The system goes beyond simple genre matching, using sophisticated AI analysis to understand musical mood, lyrical themes, tempo preferences, and even emotional context to deliver recommendations that feel intuitively matched to user desires. Built on a robust Node.js architecture with AWS cloud services for scalability and reliability.",
-            "The ChatGPT integration represents cutting-edge prompt engineering and conversation management, implementing sophisticated context preservation, preference learning, and dynamic response formatting that creates natural, engaging interactions. The system maintains detailed user preference profiles that evolve over time, learning from interaction patterns, feedback responses, and listening history to refine recommendation accuracy. Advanced prompt engineering ensures responses include properly formatted song suggestions with artist information, release details, and personalized explanations for why each recommendation fits the user's taste profile.",
-            "AWS Cognito provides enterprise-grade authentication and user management, implementing secure sign-up workflows, multi-factor authentication options, and seamless integration with social media login providers. The authentication system handles complex user lifecycle management including account verification, password reset flows, and security monitoring for suspicious activity. Advanced user pool configurations enable detailed user profiling while maintaining privacy compliance and data protection standards.",
-            "AWS S3 serves as the backbone for data storage, managing user profiles, listening history, recommendation cache, and performance analytics with optimized storage classes for different data access patterns. The system implements intelligent data archiving, automated backup procedures, and cost-effective storage optimization while maintaining rapid access to frequently used data. Advanced S3 features including lifecycle policies, cross-region replication, and encryption at rest ensure data durability and security.",
-            "The recommendation engine combines multiple AI models and data sources to generate suggestions that consider not just musical similarity but contextual factors like time of day, weather, user activity, and emotional state. Machine learning algorithms analyze listening patterns, skip rates, and user feedback to continuously improve recommendation quality. The system can handle complex scenarios like playlist generation for specific activities, mood-based discovery, and collaborative filtering for social music experiences.",
-            "Performance optimization includes sophisticated caching strategies, API rate limiting, and efficient data serialization that enables real-time recommendation generation even during peak usage periods. The application handles thousands of concurrent users with sub-second response times while maintaining recommendation quality and system reliability. Comprehensive monitoring and analytics provide insights into user engagement, recommendation effectiveness, and system performance to guide continuous improvement efforts."
+            "Music recommendation app using ChatGPT to analyze mood, lyrics, tempo, and context for personalized suggestions.",
+            "Maintains evolving preference profiles, learning from history and feedback. Responses include artist and release info.",
+            "AWS Cognito manages authentication; AWS S3 stores profiles, history, and analytics with secure, optimized policies.",
+            "Recommendation engine combines AI models, contextual factors, and collaborative filtering with real-time performance."
         ],
         colorPalette: [
-            "rgb(70,180,120)",   // Light green
-            "rgb(60,160,100)",   // Medium green
-            "rgb(50,140,80)"     // Dark green
+            "hsl(140, 75%, 85%)",
+            "hsl(140, 65%, 80%)",
+            "hsl(140, 55%, 75%)"
         ],
         images: []
     }

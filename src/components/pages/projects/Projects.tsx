@@ -1,12 +1,12 @@
 import { SProject, ProjectSelected } from "./project";
 import { useState } from "react";
 
-const tS = "text-shadow-strong text-gray-300 text-[clamp(20px,4.4vw,39px)] ml-2";
+const tS = "text-shadow-strong text-black text-[clamp(20px,4.4vw,39px)] ml-2";
 const gridS =
-  "rounded-md overflow-hidden bg-gray-200 w-full h-auto mb-4 " +
+  "rounded-md overflow-hidden bg-gray-200 w-full h-auto" +
   "grid grid-cols-1 sm:grid-cols-2 gap-0";
 
-const gridSOdd = "rounded-md overflow-hidden bg-gray-200 w-full h-auto mb-4 " +
+const gridSOdd = "rounded-md overflow-hidden bg-gray-200 w-full h-auto " +
   "grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-0 box-shadow-glow";
 
 export default function Projects() {
@@ -16,21 +16,21 @@ export default function Projects() {
     selectedProject === -1 ? (
       <div
         id="projects"
-        className="w-[clamp(300px,96vw,100%)] h-auto flex flex-col items-start gap-1 p-4"
+        className="w-[clamp(300px,96vw,100%)] h-auto flex flex-col items-start gap-1 p-4 bg-gray-400"
       >
-        <p className={tS}>In Progress</p>
+        <p className={tS}><b>In Progress</b></p>
         <div className={gridS}>
           <SProject pageIndex={0} setIndexFunc={setSelectedProject}/>
           <SProject pageIndex={1} setIndexFunc={setSelectedProject}/>
         </div>
-        <p className={tS}>AI Focused</p>
+        <p className={tS}><b>AI Focused</b></p>
         <div className={gridSOdd}>
           <SProject pageIndex={2} setIndexFunc={setSelectedProject}/>
                     <SProject pageIndex={3} setIndexFunc={setSelectedProject}/>
           <SProject pageIndex={4} setIndexFunc={setSelectedProject}/>
         </div>
 
-        <p className={tS}>Musical Programming</p>
+        <p className={tS}><b>Musical Programming</b></p>
         <div className={gridS}>
           <SProject pageIndex={5} setIndexFunc={setSelectedProject}/>
           <SProject pageIndex={6} setIndexFunc={setSelectedProject}/>
@@ -38,7 +38,7 @@ export default function Projects() {
           <SProject pageIndex={8} setIndexFunc={setSelectedProject}/>
         </div>
 
-        <p className={tS}>Performance | Composition</p>
+        <p className={tS}><b>Performance | Composition</b></p>
         <div className={gridSOdd}>
           <SProject pageIndex={9} setIndexFunc={setSelectedProject}/>
           <SProject pageIndex={10} setIndexFunc={setSelectedProject}/>
