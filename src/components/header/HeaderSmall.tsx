@@ -19,8 +19,7 @@ const HeaderSmall: FC<HeaderSmallProps> = ({ setCurrPage }) => {
 
     if (!toggled) {
         return (
-            <header className={`${tw.fixedBottom} ${tw.darkBg} text-white fixed bottom-0 h-[65px]`}
-            id='header'>
+            <header className={`${tw.fixedBottom} ${tw.darkBg} text-white fixed bottom-0 h-[65px]`}>
                 <div className="mx-auto">
                     <div className={`${tw.flexCenter} pl-5 w-full p-2`}>
                         <div className="text-[5vw] font-medium sm:text-2xl">
@@ -41,7 +40,7 @@ const HeaderSmall: FC<HeaderSmallProps> = ({ setCurrPage }) => {
     }
 
     return (
-        <div    id='header'
+        <div
             className="fixed inset-0 bg-black bg-opacity-50 z-50 fixed bottom-0"
             onClick={() => setToggled(false)}
         >
@@ -70,7 +69,7 @@ const HeaderSmall: FC<HeaderSmallProps> = ({ setCurrPage }) => {
                     <a
                         onClick={() => { setCurrPage(2); setToggled(false); }}
                         href="#creative"
-                        className={`${tw.navLink} hidden`}
+                        className={tw.navLink}
                     >
                         <MovingWords>Creative</MovingWords>
                     </a>
