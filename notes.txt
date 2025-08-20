@@ -6,3 +6,11 @@ CSS:
 Javascript-Specific:
 
 React: 
+
+Development Philosophy:
+- Frontend in the past
+    = 1990s: complexity never exploded because the webpage was so simple.
+    = 2010s: jQuery -> SPAs.
+        - Ajax: fetching data asynchronously to reduce interference with shit. 
+    = 2015+: React, Typescript, Webpack
+    = 2020: Npm trees.
