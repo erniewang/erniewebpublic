@@ -1,0 +1,3 @@
+- flexboxes shrink if there is nothing inside of em
+- setting the z indexs of the first child of a div is super importiant
+- default line height exists for text which is retarded
