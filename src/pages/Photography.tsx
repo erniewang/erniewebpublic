@@ -1,9 +1,11 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import Papa from 'papaparse';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect,useEffect, useState } from 'react';
 
 const position:LatLngTuple = [51.505, -0.09];
+
+//TODO: add maxbounds
 
 const Photography = () => {
     const [cityList, setCityList]:any = useState();
@@ -12,16 +14,25 @@ const Photography = () => {
         download: true,
         header: true,
         complete: (result) => {
+            //you cannot trust. the order this prints is not the same as what actuall happens
+            //console.log("resulting",result.data);
             setCityList(result.data);
+            //console.log("city should be set",cityList);
             }
         });
     }, []);
+
+    useEffect(() => {
+        //console.log('cityList actually updated', cityList);
+      }, [cityList]);
+
     return (
         <div className="fixed top-0 w-screen h-[92vh] bg-gray-500 md:top-[8vh]">
             <MapContainer
                 center={[51.505, -0.09]}
                 zoom={4}
-                maxZoom={6}
+                maxZoom={7}
+                minZoom={3}
                 scrollWheelZoom
                 className="h-full w-full"   // or style={{ height: '100%', width: '100%' }}
             >
@@ -32,6 +43,18 @@ const Photography = () => {
                     subdomains={['a', 'b', 'c', 'd']}
                     maxZoom={20}
                 />
+                {cityList ?
+                cityList.map((city:any) => {
+                    const pos:LatLngTuple = [city.Lat,city.Lon];
+                    if (pos[0] == undefined) return "";
+                    return <Marker position={pos} key={pos[0]}>
+                        <Popup>
+                            {city.Name + " "+city.Region}
+                        </Popup>
+                    </Marker>;
+                })
+                : 
+                ""}
                 <Marker position={position}>
                     <Popup>
                         A pretty CSS3 popup. <br /> Easily customizable.
