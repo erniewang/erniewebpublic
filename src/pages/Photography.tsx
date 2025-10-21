@@ -4,7 +4,6 @@ import Papa from 'papaparse';
 import { useLayoutEffect,useEffect, useState } from 'react';
 
 const position:LatLngTuple = [51.505, -0.09];
-
 //TODO: add maxbounds
 //Size of the Marker Determines amount of pictures taken at that place
 
@@ -42,10 +41,9 @@ const Photography = () => {
                 className="h-full md:w-2/3 w-full lg:w-[67vw]"   // or style={{ height: '100%', width: '100%' }}
             >
                 <TileLayer
-                    url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy;
-                    <a href="https://carto.com/attributions">CARTO</a>'
-                    subdomains={['a', 'b', 'c', 'd']}
+                    url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+                    attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank" rel="noreferrer">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank" rel="noreferrer">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a> contributors'
+                    minZoom={0}
                     maxZoom={20}
                 />
                 {cityList ?

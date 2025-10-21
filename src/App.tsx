@@ -1,7 +1,7 @@
 import { Header } from "./components/header";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import About from "./pages/About";
-import Blog from "./pages/Blog";
+import Blog from "./pages/Blog/Blog";
 import Music from "./pages/Music/Music";
 import Photography from "./pages/Photography";
 
