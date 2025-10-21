@@ -6,6 +6,7 @@ import { useLayoutEffect,useEffect, useState } from 'react';
 const position:LatLngTuple = [51.505, -0.09];
 
 //TODO: add maxbounds
+//Size of the Marker Determines amount of pictures taken at that place
 
 const Photography = () => {
     const [cityList, setCityList]:any = useState();
@@ -27,14 +28,18 @@ const Photography = () => {
       }, [cityList]);
 
     return (
-        <div className="fixed top-0 w-screen h-[92vh] bg-gray-500 md:top-[8vh]">
+        <div className="fixed top-0 w-screen h-[92vh] bg-gray-500 md:top-[8vh] flex flex-row">
             <MapContainer
                 center={[51.505, -0.09]}
                 zoom={4}
                 maxZoom={7}
                 minZoom={3}
+                maxBounds={[
+                    [0, -180],    // Southwest corner (0°N, 180°W)
+                    [65, 170]     // Northeast corner (65°N, 170°E)
+                  ]}                    
                 scrollWheelZoom
-                className="h-full w-full"   // or style={{ height: '100%', width: '100%' }}
+                className="h-full md:w-2/3 w-full lg:w-[67vw]"   // or style={{ height: '100%', width: '100%' }}
             >
                 <TileLayer
                     url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
@@ -55,8 +60,12 @@ const Photography = () => {
                 })
                 : 
                 ""}
-                <Marker position={position}>
-                    <Popup>
+                <Marker 
+                riseOnHover={true}
+                position={position}
+                >
+                    <Popup
+                    className='w-[15px]'>
                         A pretty CSS3 popup. <br /> Easily customizable.
                     </Popup>
                 </Marker>
