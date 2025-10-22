@@ -29,7 +29,6 @@ export const skillIcons = [
 // Social Media Icons
 export const socialIcons = [
     { icon: SiGithub, color: "text-white", link: "https://github.com" },
-    { icon: SiYoutube, color: "text-red-500", link: "https://youtube.com" },
     { icon: SiInstagram, color: "text-pink-500", link: "https://instagram.com" },
     { icon: SiLinkedin, color: "text-blue-500", link: "https://linkedin.com" },
     { icon: SiGmail, color: "text-red-400", link: "mailto:your.email@gmail.com" },
@@ -40,8 +39,7 @@ export const instruments = [
     { icon: GiSaxophone, color: "text-amber-400", rating: "★ ★ ★ ★ ★" },
     { icon: GiGrandPiano, color: "", rating: "★ ★ ☆ ☆ ☆" },
     { icon: GiFlute, color: "text-sky-300", rating: "★ ★ ★ ★ ☆" },
-    { icon: GiClarinet, color: "text-amber-900", rating: "★ ★ ☆ ☆ ☆" },
-    { icon: GiMicrophone, color: "", rating: "★ ☆ ☆ ☆ ☆" },
+    { icon: GiClarinet, color: "text-amber-900", rating: "★ ★ ☆ ☆ ☆" }
 ];
 
 // Reusable Icon Component

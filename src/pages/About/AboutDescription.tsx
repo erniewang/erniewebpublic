@@ -35,7 +35,7 @@ const AboutDescription = () => {
             <p>Of course some repetition is required for modern society to function, so I extend my <i>greatest respects</i> for people who work in occupations that include
                 extensive repetition.
             </p>
-            <div className={`flex items-center centralized ${iconGap} flex-wrap w-full h-[50px] bg-black`}>
+            <div className={`flex items-center centralized ${iconGap} flex-wrap w-full h-[70px] bg-gradient-to-tr from-slate-900 to-slate-600 rounded-xl p-1`}>
                 {socialIcons.map((item, index) => (
                     <a key={index} href={item.link} target="_blank" rel="noopener noreferrer">
                         <Icon icon={item.icon} className={`${iconStyle} ${item.color}`} />
