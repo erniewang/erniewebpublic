@@ -1,33 +1,30 @@
 projects:
-  - name: ""
-    languages: []
-    tools: []
-    year: null
-    description: []
 
   - name: "Computer Vision Developer"
-    languages: ["JavaScript", "Python"]
-    tools: ["Node.js", "Flask", "p5.js", "PoseNet", "VampNet", "Socket.io"]
+    languages: ["js", "python"]
+    tools: ["nodejs", "flask", "socketio"]
     year: 2024
     description:
       - "Implemented an interactive browser app using PoseNet (p5.js) to capture and analyze body movement and generate responsive music via the VampNet model."
       - "Built a dual system: Node.js for data ingestion and Flask (Python) for AI model inference, communicating via Socket.io."
       - "Implemented real-time tempo estimation by applying FFT on pose-derived velocity data to sync motion with music."
       - "Designed adaptive interface controls for normalization, frame rate, and sensitivity tuning."
+    smallDescription: "Built a real-time browser app that syncs your body motion to AI-generated music using PoseNet + VampNet over a dual Flask/Node.js pipeline."
 
   - name: "Harmonizer"
-    languages: ["Python", "JavaScript"]
-    tools: ["FastAPI", "Music21", "AWS", "JSON", "XML"]
+    languages: ["python", "js"]
+    tools: ["fastapi", "aws"]
     year: 2024
     description:
       - "Built a full-stack app to upload melodies (MusicXML/MXL) and generate harmonized versions using rule-based heuristics."
       - "Used Music21 to support thousands of note–chord combinations and style presets rooted in music theory."
       - "Accelerated XML runtime by 9× via JSON caching with localStorage."
       - "Added fallback harmonization to ensure consistent output on edge-case inputs."
+    smallDescription: "Full-stack melody harmonizer using Music21 + FastAPI; supports XML/MXL input and rule-based chord generation with style presets."
 
   - name: "Resume Tuner"
-    languages: ["JavaScript", "Python"]
-    tools: ["Electron.js", "React", "Tailwind CSS", "Node.js", "LLM APIs"]
+    languages: ["js", "python"]
+    tools: ["electron", "reactjs", "tailwindcss", "nodejs"]
     year: 2025
     description:
       - "Created an ElectronJS app that uses LLMs to tailor resumes to job descriptions by selecting optimal project experience."
@@ -35,13 +32,15 @@ projects:
       - "Implemented task queuing + caching to cut token usage by 50% and improve section-level optimization."
       - "Supported multi-provider LLM setup with secure credential storage and selection UI."
       - "Stored optimized resume–job mappings locally to retain previous results."
+    smallDescription: "Electron app that uses LLMs to auto-tune resumes for job descriptions with edit/review workflows and local result caching."
 
   - name: "Music Catalog"
-    languages: ["JavaScript", "SQL"]
-    tools: ["Node.js", "AWS-RDS", "AWS-EC2", "Spotify API", "ChatGPT API"]
+    languages: ["js"]
+    tools: ["nodejs", "mysql", "aws", "openai"]
     year: 2023
     description:
       - "Built a music rec engine using OpenAI's GPT and Spotify Web API for natural language playlist creation."
       - "Used Amazon RDS (MySQL) to persist user accounts, playlists, and search history."
       - "Deployed backend on EC2 with secure user auth and API routing."
       - "Documented a RESTful API for playlist discovery, history tracking, and refinement endpoints."
+    smallDescription: "Natural-language music recommender powered by ChatGPT + Spotify API, deployed on AWS with persistent playlist history and user auth."

@@ -3,9 +3,9 @@ import { RouterProvider } from "react-router/dom";
 import { useState, useEffect } from "react";
 import { MobileProvider } from "./context/MobileContext";
 //custom componets
-import About from "./pages/About/About";
-import Projects from "./pages/Projects/Projects";
-import Creative from "./pages/Creative/Creative";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Creative from "./pages/Creative";
 
 const router = createBrowserRouter([
     { path: "/", Component: About },

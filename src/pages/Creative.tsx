@@ -1,5 +1,5 @@
-import { Header } from "../../components/header";
-import { ContentPage } from "../../components/contentPage";
+import { Header } from "../components/header";
+import { ContentPage } from "../components/contentPage";
 
 const Creative = () => {
   return (

@@ -1,5 +1,5 @@
-import { Header } from "../../components/header";
-import { ContentPage } from "../../components/contentPage";
+import { Header } from "../components/header";
+import { ContentPage } from "../components/contentPage";
 import StackIcon from "tech-stack-icons";
 import { FaInstagram, FaYoutube, FaReddit, FaMusic } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
