@@ -9,3 +9,18 @@
     width: 100%;
   }
 }
+
+
+.element {
+    scrollbar-width: none;
+  }
+  
+  /* For Internet Explorer and Edge */
+  .element {
+    -ms-overflow-style: none;
+  }
+  
+  /* For Chrome and Safari */
+  .element::-webkit-scrollbar {
+    display: none;
+  }

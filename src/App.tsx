@@ -1,22 +1,36 @@
-import { Header } from "./components/header";
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import About from "./pages/About";
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
+import { useState, useEffect } from "react";
+import { MobileProvider } from "./context/MobileContext";
+//custom componets
+import About from "./pages/About/About";
 import Projects from "./pages/Projects/Projects";
 import Creative from "./pages/Creative/Creative";
 
+const router = createBrowserRouter([
+    { path: "/", Component: About },
+    { path: "/projects", Component: Projects },
+    { path: "/creative", Component: Creative}
+  ]);
+
 function App() {
+  const [isMobile, setIsMobile] = useState(!window.matchMedia("(min-width: 768px)").matches);
+
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 768px)");
+    media.onchange = (e) => setIsMobile(!e.matches);
+    return () => { 
+      media.onchange = null;
+    }
+  }, []);
+
   return (
-    <Router>
-      <div className="w-screen h-screen">
-        <Header />
-        <Routes>
-        <Route path="/" element={<About/>} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/creative" element={<Creative />} />
-        </Routes>
-      </div>
-    </Router>
+        <div className="w-screen h-screen overflow-hidden">
+            <MobileProvider isMobile={isMobile}>
+              <RouterProvider router={router} />
+            </MobileProvider>
+        </div>
   )
 }
-export default App
+
+export default App;

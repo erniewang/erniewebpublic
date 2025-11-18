@@ -1,0 +1,47 @@
+projects:
+  - name: ""
+    languages: []
+    tools: []
+    year: null
+    description: []
+
+  - name: "Computer Vision Developer"
+    languages: ["JavaScript", "Python"]
+    tools: ["Node.js", "Flask", "p5.js", "PoseNet", "VampNet", "Socket.io"]
+    year: 2024
+    description:
+      - "Implemented an interactive browser app using PoseNet (p5.js) to capture and analyze body movement and generate responsive music via the VampNet model."
+      - "Built a dual system: Node.js for data ingestion and Flask (Python) for AI model inference, communicating via Socket.io."
+      - "Implemented real-time tempo estimation by applying FFT on pose-derived velocity data to sync motion with music."
+      - "Designed adaptive interface controls for normalization, frame rate, and sensitivity tuning."
+
+  - name: "Harmonizer"
+    languages: ["Python", "JavaScript"]
+    tools: ["FastAPI", "Music21", "AWS", "JSON", "XML"]
+    year: 2024
+    description:
+      - "Built a full-stack app to upload melodies (MusicXML/MXL) and generate harmonized versions using rule-based heuristics."
+      - "Used Music21 to support thousands of note–chord combinations and style presets rooted in music theory."
+      - "Accelerated XML runtime by 9× via JSON caching with localStorage."
+      - "Added fallback harmonization to ensure consistent output on edge-case inputs."
+
+  - name: "Resume Tuner"
+    languages: ["JavaScript", "Python"]
+    tools: ["Electron.js", "React", "Tailwind CSS", "Node.js", "LLM APIs"]
+    year: 2025
+    description:
+      - "Created an ElectronJS app that uses LLMs to tailor resumes to job descriptions by selecting optimal project experience."
+      - "Built a React/Tailwind multi-page interface with Accept/Reject/Edit AI suggestion workflow."
+      - "Implemented task queuing + caching to cut token usage by 50% and improve section-level optimization."
+      - "Supported multi-provider LLM setup with secure credential storage and selection UI."
+      - "Stored optimized resume–job mappings locally to retain previous results."
+
+  - name: "Music Catalog"
+    languages: ["JavaScript", "SQL"]
+    tools: ["Node.js", "AWS-RDS", "AWS-EC2", "Spotify API", "ChatGPT API"]
+    year: 2023
+    description:
+      - "Built a music rec engine using OpenAI's GPT and Spotify Web API for natural language playlist creation."
+      - "Used Amazon RDS (MySQL) to persist user accounts, playlists, and search history."
+      - "Deployed backend on EC2 with secure user auth and API routing."
+      - "Documented a RESTful API for playlist discovery, history tracking, and refinement endpoints."
