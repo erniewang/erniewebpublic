@@ -3,8 +3,11 @@ import { ContentPage } from "../components/contentPage";
 import { useEffect, useState } from "react";
 import yaml from 'js-yaml';
 import StackIcon from "tech-stack-icons";
+import { useMobile } from "../context/MobileContext";
 
 //have some over-rides for all these divs and type shit
+
+//what is that plugin that lets you fix the css everyhwere such that the order does not fuck shit up
 
 interface Project {
   name: string;
@@ -15,8 +18,8 @@ interface Project {
   smallDescription: string;
 }
 
-const skillContainerClasses = "w-full xl:w-auto h-[50px] flex flex-row gap-2 items-center justify-start rounded-xl p-3";
-const defaultIconClasses = "w-[20px] h-[20px] rounded-sm ";
+const skillContainerClasses = "w-full xl:w-auto h-[25px] flex flex-row gap-2 items-center justify-start rounded-xl pl-2 pt-1";
+const defaultIconClasses = "w-[20px] h-[20px] rounded-lg ";
 
 //moving words hover and shit
 const Projects = () => {
@@ -32,8 +35,8 @@ const Projects = () => {
         <>
         <Header />
         <ContentPage>
-            <div className="flex flex-col w-full sm:w-[89vw] md:w-[80vw] lg:w-[70vw] h-full p-5 gap-3 overflow-y-auto text-gray-300 text-lg element bg-gradient-to-b from-slate-700 to-gray-900 shadow-xl">
-                <h1 className="mt-3 text-5xl text-white mb-1">Featured Projects</h1>
+            <div className="flex flex-col w-full sm:w-[89vw] md:w-[80vw] lg:w-[70vw] h-full p-3 gap-3 overflow-y-auto text-gray-300 text-lg element bg-gradient-to-b from-slate-700 to-gray-900 shadow-xl">
+                <h1 className="mt-3 text-5xl text-white mb-1 pl-2">Featured Projects</h1>
                 <p className="mb-1 ml-2 text-md">Come back later to see If I put any new ones! Codebases for most projects are available on Github!
                 </p>
                 {projData.projects.map((project, index) => <RenderProject key={index} project={project} />)}
@@ -44,7 +47,7 @@ const Projects = () => {
 };
 
 function RenderProject({ project }: { project: Project }) {
-    return <div className="flex flex-col gap-3 w-full h-[20vh] min-h-[150px] shadow-[0_0_10px_rgba(0,0,0,0.3)] p-3 rounded-lg">
+    return <div className="flex flex-col gap-3 w-full h-[20vh] min-h-[150px] shadow-[0_0_10px_rgba(0,0,0,0.3)] p-3 rounded-lg overflow-hidden">
         <div className="w-full flex flex-row justify-between items-between">
             <div className="flex flex-col">
                 <p className="text-2xl pl-2">{project.name}</p>
@@ -68,7 +71,10 @@ function RenderProject({ project }: { project: Project }) {
             </div>
             <p>{project.year}</p>
         </div>
-        <p className="pl-6">{project.smallDescription}</p>
+         <div className="pl-2 text-sm">
+             {!useMobile() && `${project.smallDescription} ${project.description.join(' ')}`}
+             {useMobile() && (project.smallDescription + project.description.join(' '))}
+         </div>
     </div>;
 }
 

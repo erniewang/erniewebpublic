@@ -3,7 +3,8 @@ projects:
   - name: "Computer Vision Developer"
     languages: ["js", "python"]
     tools: ["nodejs", "flask", "socketio"]
-    year: 2024
+    startDate: "2024-01"
+    endDate: "2024-06"
     description:
       - "Implemented an interactive browser app using PoseNet (p5.js) to capture and analyze body movement and generate responsive music via the VampNet model."
       - "Built a dual system: Node.js for data ingestion and Flask (Python) for AI model inference, communicating via Socket.io."
@@ -14,7 +15,8 @@ projects:
   - name: "Harmonizer"
     languages: ["python", "js"]
     tools: ["fastapi", "aws"]
-    year: 2024
+    startDate: "2024-03"
+    endDate: "2024-09"
     description:
       - "Built a full-stack app to upload melodies (MusicXML/MXL) and generate harmonized versions using rule-based heuristics."
       - "Used Music21 to support thousands of note–chord combinations and style presets rooted in music theory."
@@ -25,7 +27,8 @@ projects:
   - name: "Resume Tuner"
     languages: ["js", "python"]
     tools: ["electron", "reactjs", "tailwindcss", "nodejs"]
-    year: 2025
+    startDate: "2024-11"
+    endDate: "2025-01"
     description:
       - "Created an ElectronJS app that uses LLMs to tailor resumes to job descriptions by selecting optimal project experience."
       - "Built a React/Tailwind multi-page interface with Accept/Reject/Edit AI suggestion workflow."
@@ -37,7 +40,8 @@ projects:
   - name: "Music Catalog"
     languages: ["js"]
     tools: ["nodejs", "mysql", "aws", "openai"]
-    year: 2023
+    startDate: "2023-08"
+    endDate: "2023-12"
     description:
       - "Built a music rec engine using OpenAI's GPT and Spotify Web API for natural language playlist creation."
       - "Used Amazon RDS (MySQL) to persist user accounts, playlists, and search history."
