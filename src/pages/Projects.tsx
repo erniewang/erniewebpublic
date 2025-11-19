@@ -35,9 +35,9 @@ const Projects = () => {
         <>
         <Header />
         <ContentPage>
-            <div className="flex flex-col w-full sm:w-[89vw] md:w-[80vw] lg:w-[70vw] h-full p-3 gap-3 overflow-y-auto text-gray-300 text-lg element bg-gradient-to-b from-slate-700 to-gray-900 shadow-xl">
-                <h1 className="mt-3 text-5xl text-white mb-1 pl-2">Featured Projects</h1>
-                <p className="mb-1 ml-2 text-md">Come back later to see If I put any new ones! Codebases for most projects are available on Github!
+            <div className="flex flex-col w-full sm:w-[89vw] md:w-[80vw] lg:w-[70vw] h-full p-3 gap-3 overflow-y-auto text-gray-300 text-base md:text-lg element bg-gradient-to-b from-slate-700 to-gray-900 shadow-xl">
+                <h1 className="mt-3 text-3xl md:text-5xl font-bold text-white mb-1 pl-2">Featured Projects</h1>
+                <p className="mb-1 ml-2 text-sm md:text-base text-gray-400">Come back later to see If I put any new ones! Codebases for most projects are available on Github!
                 </p>
                 {projData.projects.map((project, index) => <RenderProject key={index} project={project} />)}
             </div>
@@ -47,10 +47,22 @@ const Projects = () => {
 };
 
 function RenderProject({ project }: { project: Project }) {
+    let darkness:number = 225;
+    const darken = () => {
+        const mobile = useMobile();
+        if (mobile) {
+            darkness -= 3.5;
+        }
+        else {
+            darkness -= 1.5;
+        }
+        darkness = darkness < 0 ? 0 : darkness;
+    };
+
     return <div className="flex flex-col gap-3 w-full h-[20vh] min-h-[150px] shadow-[0_0_10px_rgba(0,0,0,0.3)] p-3 rounded-lg overflow-hidden">
         <div className="w-full flex flex-row justify-between items-between">
             <div className="flex flex-col">
-                <p className="text-2xl pl-2">{project.name}</p>
+                <p className="text-lg md:text-2xl font-semibold pl-2 text-white">{project.name}</p>
                 <div className={skillContainerClasses}>
                     {project.languages.map((lang, index) => (
                         <StackIcon 
@@ -69,11 +81,15 @@ function RenderProject({ project }: { project: Project }) {
                     ))}
                 </div>
             </div>
-            <p>{project.year}</p>
+            <p className="text-xs md:text-sm text-gray-400 font-medium pr-2">{project.year}</p>
         </div>
-         <div className="pl-2 text-sm">
-             {!useMobile() && `${project.smallDescription} ${project.description.join(' ')}`}
-             {useMobile() && (project.smallDescription + project.description.join(' '))}
+         <div className="pl-2 text-xs md:text-sm leading-relaxed">
+             {project.smallDescription.split(" ").map((word, index) => {
+                darken();
+                return <b key={index} style={{color: `rgb(${darkness}, ${darkness}, ${darkness})`}}> {word}</b>;})}
+            {project.description.join(' ').split(" ").map((word, index) => {
+                darken();
+                return <b key={index} style={{color: `rgb(${darkness}, ${darkness}, ${darkness})`}}> {word}</b>;})}
          </div>
     </div>;
 }
