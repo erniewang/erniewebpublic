@@ -3,7 +3,6 @@ import { ContentPage } from "../components/contentPage";
 import { useEffect, useState } from "react";
 import yaml from 'js-yaml';
 import StackIcon from "tech-stack-icons";
-import { useMobile } from "../context/MobileContext";
 
 //have some over-rides for all these divs and type shit
 
@@ -13,13 +12,15 @@ interface Project {
   name: string;
   languages: string[];
   tools: string[];
-  year: number;
+  startDate: string;
+  endDate: string;
   description: string[];
   smallDescription: string;
+  baseColor: string;
 }
 
-const skillContainerClasses = "w-full xl:w-auto h-[25px] flex flex-row gap-2 items-center justify-start rounded-xl pl-2 pt-1";
-const defaultIconClasses = "w-[20px] h-[20px] rounded-lg ";
+const skillContainerClasses = "w-full h-[25px] flex flex-row gap-2 items-center justify-start";
+const defaultIconClasses = "w-[25px] h-[25px] rounded-lg ";
 
 //moving words hover and shit
 const Projects = () => {
@@ -35,62 +36,47 @@ const Projects = () => {
         <>
         <Header />
         <ContentPage>
-            <div className="flex flex-col w-full sm:w-[89vw] md:w-[80vw] lg:w-[70vw] h-full p-3 gap-3 overflow-y-auto text-gray-300 text-base md:text-lg element bg-gradient-to-b from-slate-700 to-gray-900 shadow-xl">
+            <div className="flex flex-col w-full sm:w-[90vw] md:w-[80vw] lg:w-[85vw] xl:w-[80vw] 2xl:w-[75vw] h-full p-3 gap-3 overflow-y-auto text-gray-300 text-base md:text-lg element bg-gradient-to-b from-slate-700 to-gray-900 shadow-xl">
                 <h1 className="mt-3 text-3xl md:text-5xl font-bold text-white mb-1 pl-2">Featured Projects</h1>
                 <p className="mb-1 ml-2 text-sm md:text-base text-gray-400">Come back later to see If I put any new ones! Codebases for most projects are available on Github!
                 </p>
-                {projData.projects.map((project, index) => <RenderProject key={index} project={project} />)}
+                <div className="w-full h-[250vh] grid grid-cols-1 lg:grid-cols-2 gap-3">
+                    {projData.projects.map((project, index) => <RenderProject key={index} project={project} />)}
+                </div>
             </div>
         </ContentPage>
         </>
   );
 };
 
+//need to clean up shit because the tailwind is gonna be so fucked up
 function RenderProject({ project }: { project: Project }) {
-    let darkness:number = 225;
-    const darken = () => {
-        const mobile = useMobile();
-        if (mobile) {
-            darkness -= 3.5;
-        }
-        else {
-            darkness -= 1.5;
-        }
-        darkness = darkness < 0 ? 0 : darkness;
-    };
-
-    return <div className="flex flex-col gap-3 w-full h-[20vh] min-h-[150px] shadow-[0_0_10px_rgba(0,0,0,0.3)] p-3 rounded-lg overflow-hidden">
-        <div className="w-full flex flex-row justify-between items-between">
-            <div className="flex flex-col">
-                <p className="text-lg md:text-2xl font-semibold pl-2 text-white">{project.name}</p>
+    return <div className="min-h-[300px] flex flex-col rounded-lg overflow-hidden"
+    style={{ background: `linear-gradient(to left, rgb(69, 69, 69) 0%, ${project.baseColor} 1%, rgb(21, 19, 22) 70%)`, border: '2px solid rgb(29, 29, 29)' }}>
+        <div className="flex-1 flex flex-row">
+            <div className="w-auto p-5 flex flex-col justify-center gap-3"
+            >
+                <p className="text-xl 2xl:text-2xl text-white font-bold">{project.name}</p>
                 <div className={skillContainerClasses}>
-                    {project.languages.map((lang, index) => (
-                        <StackIcon 
-                            key={`lang-${index}`}
-                            name={lang} 
-                            className={lang === "mysql" ? `${defaultIconClasses} bg-white p-1` : defaultIconClasses} 
-                        />
-                    ))}
-                    <span className="text-gray-400">|</span>
-                    {project.tools.map((tool, index) => (
-                        <StackIcon 
-                            key={`tool-${index}`}
-                            name={tool} 
-                            className={tool === "mysql" ? `${defaultIconClasses} bg-white p-1` : defaultIconClasses} 
-                        />
-                    ))}
+                    {project.languages.map((language, index) => <StackIcon key={index} name={language} className={defaultIconClasses}></StackIcon>)}
+                    | {project.tools.map((tool, index) => <StackIcon key={index} name={tool} className={defaultIconClasses}></StackIcon>)}
                 </div>
             </div>
-            <p className="text-xs md:text-sm text-gray-400 font-medium pr-2">{project.year}</p>
         </div>
-         <div className="pl-2 text-xs md:text-sm leading-relaxed">
-             {project.smallDescription.split(" ").map((word, index) => {
-                darken();
-                return <b key={index} style={{color: `rgb(${darkness}, ${darkness}, ${darkness})`}}> {word}</b>;})}
-            {project.description.join(' ').split(" ").map((word, index) => {
-                darken();
-                return <b key={index} style={{color: `rgb(${darkness}, ${darkness}, ${darkness})`}}> {word}</b>;})}
-         </div>
+        <div className="p-4 bg-gray-900 text-white text-sm sm:text-md 2xl:text-lg pt-2" 
+            style={{ boxShadow: '0 0 60px rgba(86, 86, 86, 0.4)' }}
+         >
+            {project.smallDescription}
+        </div>
+        <div className="p-3 glow-sm"
+            style={{ background: `linear-gradient(to bottom, rgb(20, 20, 20) 0%, rgb(0, 0, 0) 100%)` }}>
+        
+            <div className="flex flex-row justify-evenly items-center text-white">
+                <p>Github</p>
+                <p>Preview</p>
+                <p>Video Demo</p>
+            </div>
+        </div>
     </div>;
 }
 

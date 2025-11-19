@@ -5,18 +5,20 @@ projects:
     tools: ["nodejs", "flask", "socketio"]
     startDate: "2024-01"
     endDate: "2024-06"
+    baseColor: "#6a2bd9"
     description:
       - "Implemented an interactive browser app using PoseNet (p5.js) to capture and analyze body movement and generate responsive music via the VampNet model."
       - "Built a dual system: Node.js for data ingestion and Flask (Python) for AI model inference, communicating via Socket.io."
       - "Implemented real-time tempo estimation by applying FFT on pose-derived velocity data to sync motion with music."
       - "Designed adaptive interface controls for normalization, frame rate, and sensitivity tuning."
-    smallDescription: "Built a real-time browser app that syncs your body motion to AI-generated music using PoseNet + VampNet over a dual Flask/Node.js pipeline."
+    smallDescription: "Built a real-time browser app that syncs your body motion to AI-generated music using PoseNet + VampNet over a dual Flask/Node.js pipeline. Move faster and the tempo picks up, creating an interactive musical experience."
 
-  - name: "Harmonizer"
+  - name: "Harmonizer ♪♪"
     languages: ["python", "js"]
     tools: ["fastapi", "aws"]
     startDate: "2024-03"
     endDate: "2024-09"
+    baseColor: "#047857"
     description:
       - "Built a full-stack app to upload melodies (MusicXML/MXL) and generate harmonized versions using rule-based heuristics."
       - "Used Music21 to support thousands of note–chord combinations and style presets rooted in music theory."
@@ -29,19 +31,21 @@ projects:
     tools: ["electron", "reactjs", "tailwindcss", "nodejs"]
     startDate: "2024-11"
     endDate: "2025-01"
+    baseColor: "#1d4ed8"
     description:
       - "Created an ElectronJS app that uses LLMs to tailor resumes to job descriptions by selecting optimal project experience."
       - "Built a React/Tailwind multi-page interface with Accept/Reject/Edit AI suggestion workflow."
       - "Implemented task queuing + caching to cut token usage by 50% and improve section-level optimization."
       - "Supported multi-provider LLM setup with secure credential storage and selection UI."
       - "Stored optimized resume–job mappings locally to retain previous results."
-    smallDescription: "Electron app that uses LLMs to auto-tune resumes for job descriptions with edit/review workflows and local result caching."
+    smallDescription: "Electron app that uses LLMs to auto-tune resumes for job descriptions with edit/review workflows and local result caching. Helps tailor each application to maximize your chances of getting noticed."
 
   - name: "Music Catalog"
     languages: ["js"]
     tools: ["nodejs", "mysql", "aws", "openai"]
     startDate: "2023-08"
     endDate: "2023-12"
+    baseColor: "#a52a2a"
     description:
       - "Built a music rec engine using OpenAI's GPT and Spotify Web API for natural language playlist creation."
       - "Used Amazon RDS (MySQL) to persist user accounts, playlists, and search history."
