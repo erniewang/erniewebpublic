@@ -17,6 +17,9 @@ interface Project {
   description: string[];
   smallDescription: string;
   baseColor: string;
+  githubLink?: string;
+  previewLink?: string;
+  videoDemoLink?: string;
 }
 
 const skillContainerClasses = "w-full h-[25px] flex flex-row gap-2 items-center justify-start";
@@ -50,11 +53,13 @@ const Projects = () => {
 };
 
 //need to clean up shit because the tailwind is gonna be so fucked up
+
+//get rid of the bottom one for things that do not have links
 function RenderProject({ project }: { project: Project }) {
     return <div className="min-h-[300px] flex flex-col rounded-lg overflow-hidden"
-    style={{ background: `linear-gradient(to left, rgb(69, 69, 69) 0%, ${project.baseColor} 1%, rgb(21, 19, 22) 70%)`, border: '2px solid rgb(29, 29, 29)' }}>
+    style={{ background: `linear-gradient(to left, rgb(69, 69, 69) 0%, ${project.baseColor} 1%, rgb(21, 19, 22) 99%)`, border: '2px solid rgb(29, 29, 29)' }}>
         <div className="flex-1 flex flex-row">
-            <div className="w-auto p-5 flex flex-col justify-center gap-3"
+            <div className="w-auto p-5 pl-7 flex flex-col justify-center gap-3"
             >
                 <p className="text-xl 2xl:text-2xl text-white font-bold">{project.name}</p>
                 <div className={skillContainerClasses}>
@@ -64,19 +69,32 @@ function RenderProject({ project }: { project: Project }) {
             </div>
         </div>
         <div className="p-4 bg-gray-900 text-white text-sm sm:text-md 2xl:text-lg pt-2" 
-            style={{ boxShadow: '0 0 60px rgba(86, 86, 86, 0.4)' }}
+            style={{ boxShadow: '0 0 60px rgba(86, 86, 86, 0.4)',  background: `linear-gradient(to right, rgb(34, 34, 34) 0%, rgb(21, 19, 22) 70%)`, border: '2px solid rgb(29, 29, 29)'  }}
          >
             {project.smallDescription}
         </div>
-        <div className="p-3 glow-sm"
-            style={{ background: `linear-gradient(to bottom, rgb(20, 20, 20) 0%, rgb(0, 0, 0) 100%)` }}>
-        
-            <div className="flex flex-row justify-evenly items-center text-white">
-                <p>Github</p>
-                <p>Preview</p>
-                <p>Video Demo</p>
+        {(project.githubLink || project.previewLink || project.videoDemoLink) && (
+            <div className="p-3 glow-sm"
+                style={{ background: `linear-gradient(to bottom, rgb(20, 20, 20) 0%, rgb(0, 0, 0) 100%)` }}>
+                <div className="flex flex-row flex-wrap justify-evenly items-center gap-4 text-white text-sm">
+                    {project.githubLink && (
+                        <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                            Github
+                        </a>
+                    )}
+                    {project.previewLink && (
+                        <a href={project.previewLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                            Preview
+                        </a>
+                    )}
+                    {project.videoDemoLink && (
+                        <a href={project.videoDemoLink} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                            Video Demo
+                        </a>
+                    )}
+                </div>
             </div>
-        </div>
+        )}
     </div>;
 }
 
@@ -89,4 +107,4 @@ export default Projects;
 //or you could immedieetley destructure the object. 
 //for passing multiple props. it is still one prop. 
 
-//
+//have creatviethings where some of them wont have any links. 

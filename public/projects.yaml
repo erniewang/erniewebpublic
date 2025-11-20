@@ -19,6 +19,8 @@ projects:
     startDate: "2024-03"
     endDate: "2024-09"
     baseColor: "#047857"
+    githubLink: "https://github.com/erniewang/harmonizer"
+    previewLink: "https://harmonizer.app"
     description:
       - "Built a full-stack app to upload melodies (MusicXML/MXL) and generate harmonized versions using rule-based heuristics."
       - "Used Music21 to support thousands of note–chord combinations and style presets rooted in music theory."
@@ -32,6 +34,7 @@ projects:
     startDate: "2024-11"
     endDate: "2025-01"
     baseColor: "#1d4ed8"
+    githubLink: "https://github.com/erniewang/resume-tuner"
     description:
       - "Created an ElectronJS app that uses LLMs to tailor resumes to job descriptions by selecting optimal project experience."
       - "Built a React/Tailwind multi-page interface with Accept/Reject/Edit AI suggestion workflow."
@@ -46,9 +49,63 @@ projects:
     startDate: "2023-08"
     endDate: "2023-12"
     baseColor: "#a52a2a"
+    githubLink: "https://github.com/erniewang/music-catalog"
+    videoDemoLink: "https://youtu.be/music-catalog-demo"
     description:
       - "Built a music rec engine using OpenAI's GPT and Spotify Web API for natural language playlist creation."
       - "Used Amazon RDS (MySQL) to persist user accounts, playlists, and search history."
       - "Deployed backend on EC2 with secure user auth and API routing."
       - "Documented a RESTful API for playlist discovery, history tracking, and refinement endpoints."
     smallDescription: "Natural-language music recommender powered by ChatGPT + Spotify API, deployed on AWS with persistent playlist history and user auth."
+
+  - name: "Machine Learning Project"
+    languages: ["python"]
+    tools: ["conda", "pandas", "scikit-learn", "jupyter"]
+    startDate: "2023-05"
+    endDate: "2023-05"
+    baseColor: "#10b981"
+    description:
+      - "Group project centering around building a machine learning model predicting the 'awesomeness' of CDs based on Amazon reviews, reaching 72% accuracy"
+      - "Employed Python's Pandas and NumPy libraries to clean and preprocess raw data, ensuring readiness for training and testing within a Waterfall development framework"
+      - "Improved accuracy from 61% to 76% and F-Score from .69 to .75 by using relevance trimming using vectorization"
+      - "Tested models including Naive Bayes, Random Forest, and Decision Trees based on relevant columns from Amazon CD reviews"
+    smallDescription: "Built a machine learning model to predict CD 'awesomeness' from Amazon reviews, achieving 76% accuracy using Python, Pandas, and various ML algorithms including Random Forest and Decision Trees."
+
+  - name: "Curriculum Planner"
+    languages: ["python", "javascript"]
+    tools: ["linux", "selenium", "beautifulsoup", "fastapi", "reactjs"]
+    startDate: "2022-10"
+    endDate: "2022-12"
+    baseColor: "#f59e0b"
+    githubLink: "https://github.com/erniewang/curriculum-planner"
+    description:
+      - "Collaborated to assemble an application employing a language learning model for personalized course recommendations based on degree progress and preferences"
+      - "Extracted and generated keywords for each class based on various sections of a class description"
+      - "Undertook the making of an interface to integrate with the team's custom GPT session using Fast-API and React"
+      - "Participated in Agile Scrum, collaborating with team members to meet project milestones"
+    smallDescription: "Developed a personalized course recommendation system using machine learning and GPT integration, with a React frontend and FastAPI backend for degree planning and academic progress tracking."
+
+  - name: "Task-Tunes"
+    languages: ["python", "javascript"]
+    tools: ["linux", "html", "css", "http"]
+    startDate: "2023-08"
+    endDate: "2023-08"
+    baseColor: "#8b5cf6"
+    description:
+      - "Launched a web platform providing users and jazz musicians a place to self-document productivity and compare metrics with other users"
+      - "Customer credentials are stored using salted hashing algorithms to maintain password security and session-based authentication are implemented to user sessions maintain access"
+      - "Customer data is stored in a relational database with indexed columns for data retrieval and SQL queries are designed for comparing user metrics, pulling rankings, and displaying leader-boards"
+      - "Minimized data required for functionality so individual data storage does not exceed 1 MB"
+    smallDescription: "Built a productivity tracking web platform for jazz musicians with secure user authentication, relational database storage, and leaderboard features for comparing productivity metrics across users."
+
+  - name: "Activity Measure"
+    languages: ["javascript"]
+    tools: ["html", "css", "chartjs"]
+    startDate: "2021-10"
+    endDate: "2021-10"
+    baseColor: "#ef4444"
+    description:
+      - "Created a browser extension to quantify and visualize an user's daily digital activity on the browser. The data display utilizes the open-source Chart.js library"
+      - "Refactored a browser extension to guarantee cross-compatibility between both Chrome and Firefox"
+      - "Utilizes sync storage, and has been tuned to leverage below 10% of the max write operations per minute/hour for Chrome"
+    smallDescription: "Developed a cross-browser extension that tracks and visualizes daily browsing activity using Chart.js, optimized for Chrome and Firefox with efficient sync storage usage."

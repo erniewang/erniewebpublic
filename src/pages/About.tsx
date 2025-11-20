@@ -15,8 +15,8 @@ const About = () => {
     <>
       <Header />
       <ContentPage>
-        <div className="flex flex-col w-full sm:w-[89vw] md:w-[80vw] lg:w-[70vw] h-full p-5 gap-3 overflow-y-auto text-gray-300 text-lg element bg-gradient-to-b from-slate-700 to-gray-900 shadow-lg">
-            <h1 className="mt-3 text-5xl mb-2 text-white">Ernie Wang</h1>
+        <div className="flex flex-col w-full sm:w-[89vw] md:w-[80vw] lg:w-[70vw] h-full p-5 gap-3 overflow-y-auto text-gray-300 text-lg element bg-gradient-to-b from-slate-800 to-black shadow-lg border-2 border-gray-900">
+            <h1 className="mt-3 text-6xl mb-2 text-white">Ernie Wang</h1>
             <p className="mb-1 ml-2 text-lg">
             My name is Ernie, and I am a software engineer, web developer, musician, and photographer. I recently earned my Bachelor’s in Computer Science and Jazz Studies from Northwestern University.
             Thanks for checking out my website!
