@@ -1,11 +1,13 @@
 projects:
 
   - name: "Computer Vision Developer"
+    variant: "secondary"
     languages: ["js", "python"]
     tools: ["nodejs", "flask", "socketio"]
     startDate: "2024-01"
     endDate: "2024-06"
-    baseColor: "#6a2bd9"
+    baseColor: "#4d1f9a"
+    imageFile: "poseNet.png"
     description:
       - "Implemented an interactive browser app using PoseNet (p5.js) to capture and analyze body movement and generate responsive music via the VampNet model."
       - "Built a dual system: Node.js for data ingestion and Flask (Python) for AI model inference, communicating via Socket.io."
@@ -14,11 +16,13 @@ projects:
     smallDescription: "Built a real-time browser app that syncs your body motion to AI-generated music using PoseNet + VampNet over a dual Flask/Node.js pipeline. Move faster and the tempo picks up, creating an interactive musical experience."
 
   - name: "Harmonizer ♪♪"
+    variant: "primary"
     languages: ["python", "js"]
     tools: ["fastapi", "aws"]
     startDate: "2024-03"
     endDate: "2024-09"
-    baseColor: "#047857"
+    baseColor: "#02573d"
+    imageFile: "harmonizer.png"
     githubLink: "https://github.com/erniewang/harmonizer"
     previewLink: "https://harmonizer.app"
     description:
@@ -29,11 +33,13 @@ projects:
     smallDescription: "Full-stack melody harmonizer using Music21 + FastAPI; supports XML/MXL input and rule-based chord generation with style presets."
 
   - name: "Resume Tuner"
+    variant: "primary"
     languages: ["js", "python"]
     tools: ["electron", "reactjs", "tailwindcss", "nodejs"]
     startDate: "2024-11"
     endDate: "2025-01"
-    baseColor: "#1d4ed8"
+    baseColor: "#163aa5"
+    imageFile: "resumeTuner.png"
     githubLink: "https://github.com/erniewang/resume-tuner"
     description:
       - "Created an ElectronJS app that uses LLMs to tailor resumes to job descriptions by selecting optimal project experience."
@@ -44,11 +50,12 @@ projects:
     smallDescription: "Electron app that uses LLMs to auto-tune resumes for job descriptions with edit/review workflows and local result caching. Helps tailor each application to maximize your chances of getting noticed."
 
   - name: "Music Catalog"
+    variant: "tertiary"
     languages: ["js"]
     tools: ["nodejs", "mysql", "aws", "openai"]
     startDate: "2023-08"
     endDate: "2023-12"
-    baseColor: "#a52a2a"
+    baseColor: "#7d1f1f"
     githubLink: "https://github.com/erniewang/music-catalog"
     videoDemoLink: "https://youtu.be/music-catalog-demo"
     description:
@@ -59,11 +66,13 @@ projects:
     smallDescription: "Natural-language music recommender powered by ChatGPT + Spotify API, deployed on AWS with persistent playlist history and user auth."
 
   - name: "Machine Learning Project"
+    variant: "secondary"
     languages: ["python"]
     tools: ["conda", "pandas", "scikit-learn", "jupyter"]
     startDate: "2023-05"
     endDate: "2023-05"
-    baseColor: "#10b981"
+    baseColor: "#0c8c62"
+    imageFile: "machineLearning.png"
     description:
       - "Group project centering around building a machine learning model predicting the 'awesomeness' of CDs based on Amazon reviews, reaching 72% accuracy"
       - "Employed Python's Pandas and NumPy libraries to clean and preprocess raw data, ensuring readiness for training and testing within a Waterfall development framework"
@@ -72,11 +81,13 @@ projects:
     smallDescription: "Built a machine learning model to predict CD 'awesomeness' from Amazon reviews, achieving 76% accuracy using Python, Pandas, and various ML algorithms including Random Forest and Decision Trees."
 
   - name: "Curriculum Planner"
-    languages: ["python", "javascript"]
+    variant: "secondary"
+    languages: ["python", "js"]
     tools: ["linux", "selenium", "beautifulsoup", "fastapi", "reactjs"]
     startDate: "2022-10"
     endDate: "2022-12"
-    baseColor: "#f59e0b"
+    imageFile: "practicum.png"
+    baseColor: "#bc7908"
     githubLink: "https://github.com/erniewang/curriculum-planner"
     description:
       - "Collaborated to assemble an application employing a language learning model for personalized course recommendations based on degree progress and preferences"
@@ -86,11 +97,12 @@ projects:
     smallDescription: "Developed a personalized course recommendation system using machine learning and GPT integration, with a React frontend and FastAPI backend for degree planning and academic progress tracking."
 
   - name: "Task-Tunes"
-    languages: ["python", "javascript"]
-    tools: ["linux", "html", "css", "http"]
+    variant: "tertiary"
+    languages: ["python", "js"]
+    tools: ["linux", "html5", "css3", "http"]
     startDate: "2023-08"
     endDate: "2023-08"
-    baseColor: "#8b5cf6"
+    baseColor: "#6946bc"
     description:
       - "Launched a web platform providing users and jazz musicians a place to self-document productivity and compare metrics with other users"
       - "Customer credentials are stored using salted hashing algorithms to maintain password security and session-based authentication are implemented to user sessions maintain access"
@@ -99,11 +111,12 @@ projects:
     smallDescription: "Built a productivity tracking web platform for jazz musicians with secure user authentication, relational database storage, and leaderboard features for comparing productivity metrics across users."
 
   - name: "Activity Measure"
-    languages: ["javascript"]
-    tools: ["html", "css", "chartjs"]
+    variant: "tertiary"
+    languages: ["js"]
+    tools: ["html5", "css3", "chartjs"]
     startDate: "2021-10"
     endDate: "2021-10"
-    baseColor: "#ef4444"
+    baseColor: "#b73434"
     description:
       - "Created a browser extension to quantify and visualize an user's daily digital activity on the browser. The data display utilizes the open-source Chart.js library"
       - "Refactored a browser extension to guarantee cross-compatibility between both Chrome and Firefox"

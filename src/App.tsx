@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { MobileProvider } from "./context/MobileContext";
 //custom componets
 import About from "./pages/About";
-import Projects from "./pages/Projects";
+import Projects from "./projects/Projects";
 import Creative from "./pages/Creative";
 
 const router = createBrowserRouter([

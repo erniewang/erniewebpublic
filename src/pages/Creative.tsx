@@ -7,9 +7,9 @@ const Creative = () => {
     <>
       <Header />
       <ContentPage>
-      <div className="w-screen h-full flex flex-row">
-            <div className="bg-white w-1/4 h-full"></div>
-            <div className="bg-black w-3/4 h-full"></div>
+      <div className="w-screen h-full flex flex-col md:flex-row">
+            <div className="bg-white w-full h-1/5 md:h-full md:w-1/5"></div>
+            <div className="bg-black w-full h-4/5 md:h-full md:w-4/5"></div>
         </div>
       </ContentPage>
     </>
