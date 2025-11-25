@@ -2,6 +2,8 @@ import { Header } from "../components/header";
 import { ContentPage } from "../components/contentPage";
 import { useMobile } from "../context/MobileContext";
 
+//have moving notes on the left and right of the screen
+
 const Creative = () => {
   return (
     <>
