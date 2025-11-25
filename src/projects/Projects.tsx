@@ -25,7 +25,7 @@ const Projects = () => {
                 <h1 className="mt-3 text-3xl md:text-5xl font-bold text-white mb-1 pl-2">Featured Projects And Experiences</h1>
                 <p className="mb-1 ml-2 text-sm md:text-base text-gray-300">Come back later to see If I put any new ones! Codebases for most projects are available on Github! Most are open soure! Feel free to contribute and improve upon them!
                 </p>
-                <div className="w-full h-auto grid grid-cols-1 lg:grid-cols-2  auto-rows-[175px] gap-4 grid-flow-dense">
+                <div className="w-full h-auto grid grid-cols-1 lg:grid-cols-2  auto-rows-[175px] gap-4 grid-flow-dense p-1">
                     {projData.projects.map((project, index) => <RenderProject key={index} project={project} />)}
                 </div>
             </div>
@@ -45,5 +45,11 @@ function RenderProject({ project }: { project: Project }) {
             return <PrimaryCard project={project}></PrimaryCard>;
       }
 }
+
+//have a project seciton that changes the background color gradient smoothly to the selected project's basecolor. with prop drilling
+
+//music wave file thing at the bottom
+
+//think of IOS things as a priority. so no hover. just click
 
 export default Projects;
