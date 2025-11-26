@@ -10,8 +10,8 @@
   }
 }
 
-
-.element {
+@layer utilities {
+  .element {
     scrollbar-width: none;
   }
   
@@ -24,3 +24,49 @@
   .element::-webkit-scrollbar {
     display: none;
   }
+
+  .gradient-overlay {
+    background: linear-gradient(
+      to right,
+      rgba(15, 23, 42, 1) 0%,
+      rgba(15, 23, 42, 0.6) 75%,
+      rgba(15, 23, 42, 0.45) 88%,
+      rgba(15, 23, 42, 0.3) 100%
+    );
+  }
+
+  @media (min-width: 768px) {
+    .gradient-overlay {
+      background: linear-gradient(
+        to right,
+        rgba(15, 23, 42, 0.98) 0%,
+        rgba(15, 23, 42, 0.95) 65%,
+        rgba(15, 23, 42, 0.1) 95%
+      );
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gradient-overlay {
+      background: linear-gradient(
+        to right,
+        rgba(15, 23, 42, 0.97) 0%,
+        rgba(15, 23, 42, 0.93) 65%,
+        rgba(15, 23, 42, 0.83) 77%,
+        rgba(15, 23, 42, 0.33) 100%
+      );
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .gradient-overlay {
+      background: linear-gradient(
+        to right,
+        rgba(15, 23, 42, 0.99) 0%,
+        rgba(15, 23, 42, 0.94) 40%,
+        rgba(15, 23, 42, 0.87) 60%,
+        rgba(15, 23, 42, 0.1) 100%
+      );
+    }
+  }
+}

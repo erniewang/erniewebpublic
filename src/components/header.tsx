@@ -14,11 +14,11 @@ export function Header() {
     }, [isMobile]);
 
     return (
-        <div className="w-screen h-[8vh] min-h-[60px] fixed bottom-0 md:top-0 bg-black text-white z-1 bg-gradient-to-b from-zinc-900 to-black">
+        <div className="w-screen h-[8vh] min-h-[60px] fixed bottom-0 md:top-0 bg-black text-white z-25">
             {isMobile ? (
                 <>
                 { !expanded ? <div className={`centralized flex-col text-4xl ${hoverEffectClasses}`} onClick={() => setExpanded(!expanded)}>↑</div> :
-                <div className='fixed bottom-0 h-[55vh] min-h-[190px] w-full bg-black flex-shrink-0 flex flex-col p-[20px] pb-0 items-center justify-evenly text-[29px] bg-gradient-to-b from-zinc-900 to-black' onClick={() => setExpanded(!expanded)}>
+                <div className='fixed bottom-0 h-[55vh] min-h-[190px] w-full bg-black flex-shrink-0 flex flex-col p-[20px] pb-0 items-center justify-evenly text-[29px] bg-black' onClick={() => setExpanded(!expanded)}>
                     <NavLink to="/" className={`${hoverEffectClasses}`}>About</NavLink>
                     <NavLink to="/projects" className={`${hoverEffectClasses}`}>Projects</NavLink>
                     <NavLink to="/creative" className={`${hoverEffectClasses}`}>Creative</NavLink>
@@ -28,7 +28,7 @@ export function Header() {
                 }
                 </>
                 ) : (
-                <div className="centralized flex-row">
+                <div className="centralized flex-row z-25">
                     <div className='centralized gap-4 text-lg w-1/2 h-full'>
                         <div className='w-[50px] h-[22px] rounded-xl bg-white flex-shrink-0'
                         onClick={() => {console.log("invert shit idk");}}
