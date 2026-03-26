@@ -1,10 +1,9 @@
-import type { ReactElement } from "react";
-import { useMobile } from "../context/MobileContext";
+import type { ReactNode } from "react";
 
-const contentPageStylesNormal = "w-full mt-[8vh] h-[92vh] bg-gray-100 flex bg-gradient-to-b from-slate-800 to-zinc-900";
-const contentPageStylesMobile = "w-full mb-[8vh] h-[92vh] bg-gray-200 flex justify-center bg-gradient-to-b from-slate-800 to-zinc-900"
-
-export function ContentPage({children} : {children:ReactElement}) {
-    const isMobile = useMobile();
-    return <div className={isMobile ? contentPageStylesMobile : contentPageStylesNormal}>{children}</div>;
+export function ContentPage({ children }: { children: ReactNode }) {
+    return (
+        <div className="w-full mb-0 mt-[8vh] h-[92vh] flex justify-center md:justify-start bg-gradient-to-b from-slate-800 to-zinc-900">
+            {children}
+        </div>
+    );
 }
