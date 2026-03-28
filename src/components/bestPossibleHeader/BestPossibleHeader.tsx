@@ -1,10 +1,11 @@
-import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import { useMediaQuery } from './useMediaQuery';
+import { useGracefullAnimation } from '../utils/gracefull';
 
 const mobileQuery = '(max-width: 767px)';
-const menuAnimationMs = 240;
-const hoverEffectClasses = 'hover:text-gray-300 hover:scale-105 cursor-pointer transition-transform duration-200 hover:animate-pulse';
+const menuAnimationMs = 300;
+const hoverEffectClasses = 'hover:text-gray-300 cursor-pointer';
 const mobilePanelClasses = 'fixed top-[8vh] left-0 z-20 min-h-[190px] w-full bg-black p-7 text-[25px] flex flex-col items-center justify-start gap-10 shadow-xl';
 
 const navItems = [
@@ -19,13 +20,18 @@ type MobileBarProps = {
 };
 
 type MobileMenuProps = {
-    isClosing: boolean;
+    exiting: boolean;
     onNavigate: (to: string) => void;
 };
 
+const menuMotionClasses = (exiting: boolean) =>
+    exiting
+        ? 'animate-out fade-out slide-out-to-top duration-300 fill-mode-forwards'
+        : 'animate-in fade-in slide-in-from-top duration-300';
+
 const DesktopNav = memo(function DesktopNav() {
     return (
-        <div className="fade-in flex centralized flex-row z-25 h-full">
+        <div className="flex centralized flex-row z-25 h-full animate-in fade-in duration-300">
             <div className="centralized gap-4 text-lg w-1/2 h-full">
                 <span className="w-auto text-white text-xl font-semibold whitespace-nowrap pr-3">
                     Ernie Wang
@@ -59,18 +65,18 @@ const MobileBar = memo(function MobileBar({ menuOpen, onToggle }: MobileBarProps
             className="centralized flex-row text-4xl p-2 pt-[10px] pl-7 pr-6 justify-between w-full text-left"
         >
             <span className="text-4xl">Ernie Wang</span>
-            <span className="hover:text-gray-300 transition-transform duration-200 hover:scale-105 text-5xl">
+            <span className="hover:text-gray-300 text-5xl">
                 {menuOpen ? 'x' : '☰'}
             </span>
         </button>
     );
 });
 
-const MobileMenu = memo(function MobileMenu({ isClosing, onNavigate }: MobileMenuProps) {
+const MobileMenu = memo(function MobileMenu({ exiting, onNavigate }: MobileMenuProps) {
     return (
         <div
             id="best-possible-header-menu"
-            className={`${isClosing ? 'shrink-from-top' : 'grow-from-top'} ${mobilePanelClasses}`}
+            className={`${mobilePanelClasses} ${menuMotionClasses(exiting)}`}
         >
             {navItems.map((item) => (
                 <button
@@ -93,41 +99,25 @@ export function BestPossibleHeader() {
     const navigate = useNavigate();
     const isMobile = useMediaQuery(mobileQuery);
     const [menuMounted, setMenuMounted] = useState(false);
-    const [isClosing, setIsClosing] = useState(false);
-    const closeTimerRef = useRef<number | null>(null);
+    const { exiting, exit } = useGracefullAnimation({ speed: menuAnimationMs });
 
-    const clearCloseTimer = useCallback(() => {
-        if (closeTimerRef.current !== null) {
-            window.clearTimeout(closeTimerRef.current);
-            closeTimerRef.current = null;
-        }
-    }, []);
-
-    const finishClose = useCallback((afterClose?: () => void) => {
-        clearCloseTimer();
-        setIsClosing(false);
-        setMenuMounted(false);
-        afterClose?.();
-    }, [clearCloseTimer]);
-
-    const closeMenu = useCallback((afterClose?: () => void) => {
-        if (!menuMounted || isClosing) {
-            afterClose?.();
-            return;
-        }
-
-        setIsClosing(true);
-        clearCloseTimer();
-        closeTimerRef.current = window.setTimeout(() => {
-            finishClose(afterClose);
-        }, menuAnimationMs);
-    }, [clearCloseTimer, finishClose, isClosing, menuMounted]);
+    const closeMenu = useCallback(
+        (afterClose?: () => void) => {
+            if (!menuMounted) {
+                afterClose?.();
+                return;
+            }
+            exit(() => {
+                setMenuMounted(false);
+                afterClose?.();
+            });
+        },
+        [menuMounted, exit]
+    );
 
     const openMenu = useCallback(() => {
-        clearCloseTimer();
-        setIsClosing(false);
         setMenuMounted(true);
-    }, [clearCloseTimer]);
+    }, []);
 
     const toggleMenu = useCallback(() => {
         if (menuMounted) {
@@ -138,30 +128,27 @@ export function BestPossibleHeader() {
         openMenu();
     }, [closeMenu, menuMounted, openMenu]);
 
-    const handleNavigate = useCallback((to: string) => {
-        closeMenu(() => {
-            navigate(to);
-        });
-    }, [closeMenu, navigate]);
+    const handleNavigate = useCallback(
+        (to: string) => {
+            closeMenu(() => {
+                navigate(to);
+            });
+        },
+        [closeMenu, navigate]
+    );
 
     useEffect(() => {
         if (!isMobile) {
-            finishClose();
+            setMenuMounted(false);
         }
-    }, [finishClose, isMobile]);
-
-    useEffect(() => {
-        return () => {
-            clearCloseTimer();
-        };
-    }, [clearCloseTimer]);
+    }, [isMobile]);
 
     return (
         <header className="w-screen h-[8vh] min-h-[60px] fixed top-0 bg-black text-white z-25 shadow-xl">
             {isMobile ? (
-                <div className="h-auto fade-in">
-                    <MobileBar menuOpen={menuMounted && !isClosing} onToggle={toggleMenu} />
-                    {menuMounted && <MobileMenu isClosing={isClosing} onNavigate={handleNavigate} />}
+                <div className="h-auto animate-in fade-in duration-300">
+                    <MobileBar menuOpen={menuMounted && !exiting} onToggle={toggleMenu} />
+                    {menuMounted && <MobileMenu exiting={exiting} onNavigate={handleNavigate} />}
                 </div>
             ) : (
                 <DesktopNav />

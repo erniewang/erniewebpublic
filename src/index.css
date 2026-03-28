@@ -1,82 +1,18 @@
 @import "tailwindcss";
-
-@layer components {
-  .centralized {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-  }
-  .grow-from-top {
-    transform-origin: top;
-    animation: growFromTop 0.25s ease-out forwards;
-  }
-
-  .shrink-from-top {
-    transform-origin: top;
-    animation: shrinkFromTop 0.25s ease-out forwards;
-  }
-  @keyframes shrinkFromTop {
-    from {
-      transform: scaleY(1);
-      opacity: 1;
-    }
-    to {
-      transform: scaleY(0);
-      opacity: 0;
-    }
-  }
-
-  @keyframes growFromTop {
-    from {
-      transform: scaleY(0);
-      opacity: 0;
-    }
-    to {
-      transform: scaleY(1);
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-
-  .fade-in {
-    animation: fadeIn 550ms ease-out forwards;
-  }
-
-  .fade-out {
-    animation: fadeOut 550ms ease-out forwards;
-  }
-}
-
+@import "tailwind-animate";
+@import "./global-animations.css";
+@import "./extras.css";
 
 @layer utilities {
   .element {
     scrollbar-width: none;
   }
-  
+
   /* For Internet Explorer and Edge */
   .element {
     -ms-overflow-style: none;
   }
-  
+
   /* For Chrome and Safari */
   .element::-webkit-scrollbar {
     display: none;

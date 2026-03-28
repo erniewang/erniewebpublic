@@ -1,0 +1,12 @@
+/**
+ * Shared layout helpers (no motion).
+ */
+@layer components {
+  .centralized {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+}

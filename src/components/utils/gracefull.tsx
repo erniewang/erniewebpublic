@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 type GracefullProps = {
     speed?: number;
@@ -6,18 +6,14 @@ type GracefullProps = {
 
 export const useGracefullAnimation = ({ speed = 500 }: GracefullProps = {}) => {
     const [exiting, setExiting] = useState(false);
-    const exit = (onFinish?: () => void) => {
+    const speedRef = useRef(speed);
+    speedRef.current = speed;
+    const exit = useCallback((onFinish?: () => void) => {
         setExiting(true);
         setTimeout(() => {
             setExiting(false);
             onFinish?.();
-        }, speed);
-    };
+        }, speedRef.current);
+    }, []);
     return { exiting, exit };
 };
-
-
-//problems with the old one: 
-//  usefeffect that ran exit animation
-//  in react, function props get new identity?
-//
