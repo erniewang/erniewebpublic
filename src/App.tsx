@@ -4,7 +4,7 @@ import { RootLayout } from "./components/RootLayout";
 import About from "./pages/about";
 import Projects from "./pages/Projects";
 import Creative from "./pages/Creative";
-import Photos from "./pages/Photos";
+import Photos from "./pages/photos";
 import { createContext, useState } from "react";
 
 //some picky ass bullshit
@@ -12,9 +12,9 @@ export const SwitchingTabs = createContext<any>([]);
 
 const router = createBrowserRouter([
     {
-        path: "/",
-        Component: RootLayout,
-        children: [
+        path: "/", //default path and the starting one
+        Component: RootLayout, //the layout that each router should use
+        children: [ //the different paths
             { index: true, Component: About },
             { path: "projects", Component: Projects },
             { path: "creative", Component: Creative },

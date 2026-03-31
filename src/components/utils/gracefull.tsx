@@ -4,7 +4,10 @@ type GracefullProps = {
     speed?: number;
 };
 
-export const useGracefullAnimation = ({ speed = 500 }: GracefullProps = {}) => {
+/** Outbound transition — must match `ContentPage` fade-out (`duration-[400ms]`). */
+export const PAGE_EXIT_MS = 400;
+
+export const useGracefullAnimation = ({ speed = PAGE_EXIT_MS }: GracefullProps = {}) => {
     const [exiting, setExiting] = useState(false);
     const speedRef = useRef(speed);
     speedRef.current = speed;

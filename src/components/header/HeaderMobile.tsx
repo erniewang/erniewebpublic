@@ -1,18 +1,13 @@
-import { useEffect, useState, useContext } from 'react';
-import { useNavigate } from "react-router";
+import { useState, useContext } from 'react';
+import { useNavigate, useLocation } from "react-router";
 import { useGracefullAnimation } from "../utils/gracefull";
-import { SwitchingTabs } from '../../App';
-
-const hoverEffectClasses = "hover:text-gray-300 cursor-pointer";
-const closeAnimationMs = 300;
-
-type HeaderMobileProps = {
-    phoneMode: boolean;
-};
+import { SwitchingTabs } from "../../App";
+import { HEADER_NAV_BUTTON_CLASS, HEADER_TEXT_LINK_CLASS } from "./navClasses";
+const closeAnimationMs = 400;
 
 type MobileMenuProps = {
     exiting: boolean;
-    onClose: (callback?: () => void) => void;
+    closeMenu: (sameTab?:boolean, afterClose?: () => void) => void;
 };
 
 const menuMotionClasses = (exiting: boolean) =>
@@ -20,34 +15,55 @@ const menuMotionClasses = (exiting: boolean) =>
         ? "animate-out fade-out slide-out-to-top duration-300 fill-mode-forwards"
         : "animate-in fade-in slide-in-from-top duration-300";
 
-function MobileMenu({ exiting, onClose }: MobileMenuProps) {
+function MobileMenu({ exiting, closeMenu }: MobileMenuProps) {
+    const location = useLocation();
     const navigate = useNavigate();
+
+    const go = (path: string) => {
+        const sameTabInput:boolean = location.pathname === path ? true : false;
+        //a boolean and a function is passed in
+        closeMenu(sameTabInput, () => {
+            navigate(path);
+        });
+    };
+
     return (
         <div
             className={`z-[1] fixed top-[8vh] left-0 h-auto min-h-[190px] w-full bg-black flex-shrink-0 flex flex-col items-center justify-start gap-10 p-7 text-[25px] shadow-xl ${menuMotionClasses(exiting)}`}
         >
-            <button type="button" onClick={() => onClose(() => navigate("/"))} className={`${hoverEffectClasses} border-0 bg-transparent p-0 text-inherit`}>About</button>
-            <button type="button" onClick={() => onClose(() => navigate("/projects"))} className={`${hoverEffectClasses} border-0 bg-transparent p-0 text-inherit`}>Projects</button>
-            <button type="button" onClick={() => onClose(() => navigate("/creative"))} className={`${hoverEffectClasses} border-0 bg-transparent p-0 text-inherit`}>Creative</button>
-            <button type="button" onClick={() => onClose(() => navigate("/photos"))} className={`${hoverEffectClasses} border-0 bg-transparent p-0 text-inherit`}>Photos</button>
-            <a href="/ernie-resume.pdf" target="_blank" rel="noopener noreferrer" className={hoverEffectClasses}>Resume</a>
+            <button type="button" onClick={() => go("/")} className={HEADER_NAV_BUTTON_CLASS}>
+                About
+            </button>
+            <button type="button" onClick={() => go("/projects")} className={HEADER_NAV_BUTTON_CLASS}>
+                Projects
+            </button>
+            <button type="button" onClick={() => go("/creative")} className={HEADER_NAV_BUTTON_CLASS}>
+                Creative
+            </button>
+            <button type="button" onClick={() => go("/photos")} className={HEADER_NAV_BUTTON_CLASS}>
+                Photos
+            </button>
+            <a href="/ernie-resume.pdf" target="_blank" rel="noopener noreferrer" className={HEADER_TEXT_LINK_CLASS}>
+                Resume
+            </a>
         </div>
     );
 }
 
-export function HeaderMobile({ phoneMode }: HeaderMobileProps) {
-    const [deloading, setDeloading] = useContext(SwitchingTabs);
+export function HeaderMobile({ phoneMode }: { phoneMode: boolean }) {
+    const [, setDeloading] = useContext(SwitchingTabs); //never once in my life knew this was every a thing
     const [expanded, setExpanded] = useState(false);
     const { exiting, exit } = useGracefullAnimation({ speed: closeAnimationMs });
 
-    const closeMenu = (onClose?: () => void) => {
-        setDeloading(true);
-        if (exiting) {
+    const closeMenu = (sameTab:boolean = false ,onClose?: () => void) => {
+        //will not cause a context change if it goes to the same url
+        if (!sameTab) {setDeloading(true);};
+        if (exiting) { //disable when exiting
             return;
         }
-        if (expanded) {
+        if (expanded) {//expanded page close and also navigate. 
             exit(() => {
-                setDeloading(false);
+                if (!sameTab) {setDeloading(false);};
                 setExpanded(false);
                 onClose?.();
             });
@@ -64,11 +80,13 @@ export function HeaderMobile({ phoneMode }: HeaderMobileProps) {
         setExpanded(true);
     };
 
-    useEffect(() => {
+    /*
+    useEffect(() => { //turning expanded on and off. and resetting the expanded. useless
         if (!phoneMode) {
             setExpanded(false);
         }
     }, [phoneMode]);
+    */
 
     return (
         <div
@@ -91,7 +109,7 @@ export function HeaderMobile({ phoneMode }: HeaderMobileProps) {
                     </p>
                 </button>
             </div>
-            {expanded && <MobileMenu exiting={exiting} onClose={closeMenu} />}
+            {expanded && <MobileMenu exiting={exiting} closeMenu={closeMenu} />}
         </div>
     );
 }

@@ -1,10 +1,8 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import { useContext } from "react";
 import { SwitchingTabs } from "../../App";
-import { useGracefullAnimation } from "../utils/gracefull";
-
-const hoverEffectClasses =
-    "hover:text-gray-300 cursor-pointer bg-transparent border-0 p-0 font-inherit text-inherit";
+import { PAGE_EXIT_MS, useGracefullAnimation } from "../utils/gracefull";
+import { HEADER_ABOUT_BUTTON_CLASS, HEADER_NAV_BUTTON_CLASS, HEADER_TEXT_LINK_CLASS } from "./navClasses";
 
 type HeaderBrowserProps = {
     phoneMode: boolean;
@@ -13,13 +11,18 @@ type HeaderBrowserProps = {
 export function HeaderBrowser({ phoneMode }: HeaderBrowserProps) {
     //notice the differnece between these 2
     const [deloading,setDeloading] = useContext(SwitchingTabs);
-    const { exit } = useGracefullAnimation();
+    const { exit, exiting } = useGracefullAnimation({ speed: PAGE_EXIT_MS });
     const navigate = useNavigate();
+    const location = useLocation();
 
     const go = (path: string) => {
-        if (!deloading) {
-            browserChangePageStatus(()=>navigate(path));
-        }
+        if (exiting || deloading) {
+            return;
+        };
+        if (location.pathname === path) {
+            return;
+        };
+        browserChangePageStatus(()=>navigate(path));
     };
 
     const browserChangePageStatus = (onFinish?: () => void) => {
@@ -45,19 +48,21 @@ export function HeaderBrowser({ phoneMode }: HeaderBrowserProps) {
                 <div className='w-[50px] h-[22px] rounded-xl bg-white flex-shrink-0'
                 onClick={() => {console.log("invert shit idk");}}
                 ></div>
-                <button type="button" onClick={() => go("/")} className={`pl-2 ${hoverEffectClasses}`}>
+                <button type="button" onClick={() => go("/")} className={HEADER_ABOUT_BUTTON_CLASS}>
                     About
                 </button>
-                <button type="button" onClick={() => go("/projects")} className={hoverEffectClasses}>
+                <button type="button" onClick={() => go("/projects")} className={HEADER_NAV_BUTTON_CLASS}>
                     Projects
                 </button>
-                <button type="button" onClick={() => go("/creative")} className={hoverEffectClasses}>
+                <button type="button" onClick={() => go("/creative")} className={HEADER_NAV_BUTTON_CLASS}>
                     Creative
                 </button>
-                <button type="button" onClick={() => go("/photos")} className={hoverEffectClasses}>
+                <button type="button" onClick={() => go("/photos")} className={HEADER_NAV_BUTTON_CLASS}>
                     Photos
                 </button>
-                <a href="/ernie-resume.pdf" target="_blank" rel="noopener noreferrer" className={hoverEffectClasses}>Resume</a>
+                <a href="/ernie-resume.pdf" target="_blank" rel="noopener noreferrer" className={HEADER_TEXT_LINK_CLASS}>
+                    Resume
+                </a>
             </div>
         </div>
     );
