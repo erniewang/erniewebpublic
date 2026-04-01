@@ -8,7 +8,7 @@
     everything instantnious once it is done reloading?
 }
 
-3/29/26
+3/29/26 - work is hard. but the solution is easy
 
 alot of thought has been put in into how to load and render different componets effeciently. i should put more study into 
 the basics of routing in both react- router and next js.
@@ -20,3 +20,16 @@ Understand the difference between react-rounter and nextjs rounter.
     matters less for smaller stuff but it is vital for larger projects 
 - learn to use uselocation (shows location of the route) and usenavigate (lets you put a nav into a callback)
 
+Routing:
+    - React Router: Client Side. All Routes Manually Declared
+    - Next JS: Server Side Rendered Pages and sends Hydrated Pages. Improves performance. 
+
+Lazy Initial useState:
+    - useState(func()) will call every re-render  (state, props, parent, context, changed ref)
+    - useState(()=>func()). used for first load only. 
+
+
+3/30
+
+-grid layout schenaigans 
+-explain (x: number, y: number): [number, number]

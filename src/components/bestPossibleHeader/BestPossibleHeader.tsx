@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import { useMediaQuery } from './useMediaQuery';
-import { useGracefullAnimation } from '../utils/gracefull';
+import { useGracefullAnimation } from "../../utils/gracefull";
 
 const mobileQuery = '(max-width: 767px)';
 const menuAnimationMs = 300;
