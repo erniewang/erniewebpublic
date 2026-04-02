@@ -1,8 +1,8 @@
-import { Descriptions } from './Descriptions';
-import { Gallery } from './Gallery';
+import { Descriptions } from "./Descriptions";
+import { Gallery } from "./Gallery";
 
 export default function About() {
-    return (
+	return (
         <div className="
         flex h-full min-h-0 w-full flex-col overflow-y-auto md:flex-row">
             <div

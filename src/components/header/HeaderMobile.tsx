@@ -1,9 +1,22 @@
 import { useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router";
-import { useGracefullAnimation } from "../../utils/gracefull";
+import {
+	GRACEFULL_SPEED_MS,
+	useGracefullAnimation,
+} from "../../utils/gracefull";
 import { SwitchingTabs } from "../../App";
 import { HEADER_NAV_BUTTON_CLASS, HEADER_TEXT_LINK_CLASS } from "../../utils/navClasses";
-const closeAnimationMs = 400;
+
+const SOUND_ABOUT = "/sounds/pick.mp3";
+const SOUND_PROJECTS = "/sounds/pick2.mp3";
+const SOUND_CREATIVE = "/sounds/brush.mp3";
+const SOUND_PHOTOS = "/sounds/ring.mp3";
+const SOUND_RESUME = "/sounds/lever.mp3";
+const SOUND_MENU = "/sounds/Button.mp3";
+
+function playSound(src: string) {
+	void new Audio(src).play().catch(() => {});
+}
 
 type MobileMenuProps = {
 	exiting: boolean;
@@ -19,12 +32,9 @@ function MobileMenu({ exiting, closeMenu }: MobileMenuProps) {
 	const location = useLocation();
 	const navigate = useNavigate();
 
-	const go = (path: string) => {
-		const sameTabInput: boolean = location.pathname === path ? true : false;
-		//a boolean and a function is passed in
-		closeMenu(sameTabInput, () => {
-			navigate(path);
-		});
+	const go = (path: string, soundSrc: string) => {
+		playSound(soundSrc);
+		closeMenu(location.pathname === path, () => navigate(path));
 	};
 
 	return (
@@ -33,28 +43,28 @@ function MobileMenu({ exiting, closeMenu }: MobileMenuProps) {
 		>
 			<button
 				type="button"
-				onClick={() => go("/")}
+				onClick={() => go("/", SOUND_ABOUT)}
 				className={HEADER_NAV_BUTTON_CLASS}
 			>
 				About
 			</button>
 			<button
 				type="button"
-				onClick={() => go("/projects")}
+				onClick={() => go("/projects", SOUND_PROJECTS)}
 				className={HEADER_NAV_BUTTON_CLASS}
 			>
 				Projects
 			</button>
 			<button
 				type="button"
-				onClick={() => go("/creative")}
+				onClick={() => go("/creative", SOUND_CREATIVE)}
 				className={HEADER_NAV_BUTTON_CLASS}
 			>
 				Creative
 			</button>
 			<button
 				type="button"
-				onClick={() => go("/photos")}
+				onClick={() => go("/photos", SOUND_PHOTOS)}
 				className={HEADER_NAV_BUTTON_CLASS}
 			>
 				Photos
@@ -63,6 +73,7 @@ function MobileMenu({ exiting, closeMenu }: MobileMenuProps) {
 				href="/ernie-resume.pdf"
 				target="_blank"
 				rel="noopener noreferrer"
+				onClick={() => playSound(SOUND_RESUME)}
 				className={HEADER_TEXT_LINK_CLASS}
 			>
 				Resume
@@ -72,50 +83,44 @@ function MobileMenu({ exiting, closeMenu }: MobileMenuProps) {
 }
 
 export function HeaderMobile({ phoneMode }: { phoneMode: boolean }) {
-	const [, setDeloading] = useContext(SwitchingTabs); //never once in my life knew this was every a thing
+	const [deloading, setDeloading] = useContext(SwitchingTabs);
 	const [expanded, setExpanded] = useState(false);
 	const { exiting, exit } = useGracefullAnimation({
-		speed: closeAnimationMs,
+		speed: GRACEFULL_SPEED_MS,
 	});
 
 	const closeMenu = (sameTab: boolean = false, onClose?: () => void) => {
-		//will not cause a context change if it goes to the same url
-		if (!sameTab) {
-			setDeloading(true);
-		}
-		if (exiting) {
-			//disable when exiting
+		if (exiting || deloading) {
 			return;
 		}
+		const willNavigate = !sameTab && onClose != null;
+		if (willNavigate) {
+			setDeloading(true);
+		}
 		if (expanded) {
-			//expanded page close and also navigate.
 			exit(() => {
-				if (!sameTab) {
+				setExpanded(false);
+				if (willNavigate) {
 					setDeloading(false);
 				}
-				setExpanded(false);
 				onClose?.();
 			});
 		} else {
+			if (willNavigate) {
+				setDeloading(false);
+			}
 			onClose?.();
 		}
 	};
 
 	const animateOutClick = () => {
+		playSound(SOUND_MENU);
 		if (expanded) {
 			closeMenu();
 			return;
 		}
 		setExpanded(true);
 	};
-
-	/*
-    useEffect(() => { //turning expanded on and off. and resetting the expanded. useless
-        if (!phoneMode) {
-            setExpanded(false);
-        }
-    }, [phoneMode]);
-    */
 
 	return (
 		<div
@@ -125,7 +130,6 @@ export function HeaderMobile({ phoneMode }: { phoneMode: boolean }) {
 					: "hidden"
 			}
 		>
-			{/* Opaque layer above the sliding menu (z-[1]) so slide-in/out-from-top passes behind the title bar */}
 			<div className="relative z-[20] flex h-full min-h-[60px] w-full items-center bg-black">
 				<button
 					type="button"

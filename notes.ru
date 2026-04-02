@@ -30,6 +30,10 @@ Lazy Initial useState:
 
 
 3/30
-
 -grid layout schenaigans 
 -explain (x: number, y: number): [number, number]
+
+-create portal: lets you render on a specific/different part of the DOM
+-browser painting order: image takes a higher priority. 
+    bad: parent's inset shadow gets overpainted by child.'
+    good: sibling living in the same stacking area. and is drawn seperately. so it gets painted on top. 

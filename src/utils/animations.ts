@@ -1,7 +1,9 @@
+import { FADE_IN_CLASS } from "./gracefull";
+
 /** Fade layer only — keep on wrapper so long `duration-*` never sits on the hover `<img>`. */
 const photoFadeLayerBase = "h-full w-full";
 
-const PHOTO_FADE_IN_LOADED = `${photoFadeLayerBase} opacity-100 animate-in fade-in duration-450`;
+const PHOTO_FADE_IN_LOADED = `${photoFadeLayerBase} opacity-100 ${FADE_IN_CLASS}`;
 
 /** One quick fade-in for every photo. */
 export function getPhotoFadeInClasses(loaded: boolean): string {
