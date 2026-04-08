@@ -76,8 +76,8 @@ export default function Projects() {
 				</>
 			) : null}
 			<div
-				className={`relative z-10 hidden h-full min-h-0 w-full shrink-0 overflow-hidden md:flex md:w-1/6 xl:w-1/7
-					bg-gradient-to-b from-slate-900 to-black ring-1 shadow-xl
+				className={`relative z-10 hidden h-full min-h-0 w-full shrink-0 overflow-hidden bg-gradient-to-b from-slate-900 to-black ring-1 shadow-xl
+					[@media(min-width:768px)_and_(min-height:700px)]:flex [@media(min-width:768px)_and_(min-height:700px)]:w-1/6 [@media(min-width:1280px)_and_(min-height:700px)]:w-1/7
 					${SVG_LOAD_IN_CLASS}
 					`}
 				aria-hidden
