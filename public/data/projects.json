@@ -1,0 +1,85 @@
+{
+  "description": "A show case of projects and showcase that I have worked on or contributed to. Github and website links all provided!",
+  "projects": [
+    {
+      "title": "Expedition Orange",
+      "startDate": "Feb. 2026",
+      "endDate": "Mar. 2026",
+      "section": "fullstack",
+      "description": "Full-stack cleanup and zero-cost infrastructure migration. Migrated all backend and database instances from a paid service to various free services.",
+      "image": "/photos/orange.jpg",
+      "link": "https://www.expeditionorange.com/"
+    },
+    {
+      "title": "Composition Engine (CLI)",
+      "startDate": "Nov. 2025",
+      "endDate": "Dec. 2025",
+      "section": "aiTools",
+      "description": "CLI sandbox for splicing segments of ABC notation and converting them to and from musicxml file extensions. Experimenting with generating sheet music with LLMS.",
+      "link": "https://github.com/erniewang/musicai"
+    },
+    {
+      "title": "Computer Vision Developer",
+      "startDate": "Mar. 2025",
+      "endDate": "Jun. 2025",
+      "section": "computerVision",
+      "description": "Motion-driven music interface to teach the intertwinedness between Dancing and Music. Utilizes Node Server with P5.js's posenet library to capture, analyze and modify musical playback based off of the approximated velocities of the dancer.",
+      "image": "/photos/interface.jpg",
+      "link": "https://github.com/erniewang/camera_music"
+    },
+    {
+      "title": "Harmonizer",
+      "startDate": "Nov. 2024",
+      "endDate": "Present",
+      "section": "current",
+      "description": "Rule-based harmonization for structured MusicXML arrangements. Allows for customized chord to note mappings with the choice to select from the harmonization styles of well known composers (Duke Ellington, Gil Evans, Count Basie). ",
+      "image": "/svgs/icon-musical-note.svg",
+      "link": "https://github.com/erniewang/Harmonizer"
+    },
+    {
+      "title": "Curriculum Planner",
+      "startDate": "Sep. 2023",
+      "endDate": "Sep. 2023",
+      "section": "others",
+      "description": "RAG course selector model utilizing web-scrapped course data",
+      "image": "/svgs/icon-graduation-cap.svg",
+      "link": "https://github.com/erniewang/c_planner_educational"
+    },
+    {
+      "title": "Task-Tunes",
+      "startDate": "Aug. 2023",
+      "endDate": "Aug. 2023",
+      "section": "fullstack",
+      "description": "Productivity tracking platform with rankings and auth.",
+      "image": "/svgs/icon-list.svg",
+      "link": "https://example.com"
+    },
+    {
+      "title": "NotesR.us",
+      "startDate": "Jan. 2023",
+      "endDate": "Jan. 2023",
+      "section": "fullstack",
+      "description": "Browser harmonization workflow for uploaded melody files.",
+      "image": "/photos/about.jpg",
+      "link": "https://example.com"
+    },
+    {
+      "title": "Machine Learning Project",
+      "startDate": "May. 2022",
+      "endDate": "May. 2022",
+      "section": "aiTools",
+      "description": "Review-based machine learning experiments for prediction pipelines over amazon CD reviews. Focuses on classical machine learning models.",
+      "image": "/svgs/icon-robot.svg",
+      "link": "https://example.com"
+    },
+    {
+      "title": "Activity Measure",
+      "startDate": "Oct. 2021",
+      "endDate": "Oct. 2021",
+      "section": "others",
+      "description": "Browser activity visualization with lightweight usage charts based off of activity of user (mouse speed, typing frequency, etc).",
+      "image": "/svgs/icon-book.svg",
+      "link": "https://example.com"
+    }
+  ]
+}

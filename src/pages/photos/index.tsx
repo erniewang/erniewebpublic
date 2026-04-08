@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import getImages from "./loadPhotos";
 import PhotoObject from "./photoObject";
 
+const SOUND_SHOW_MORE = "/sounds/brush.mp3";
+const SOUND_NO_MORE = "/sounds/fail.mp3";
+
 const Photos = () => {
 	const containerRef = useRef<HTMLDivElement | null>(null);
 	let n: number;
@@ -36,13 +39,13 @@ const Photos = () => {
 
 	return (
 		<>
-			<div className="relative h-full w-full min-h-0 flex flex-row justify-center items-center">
+			<div className="relative h-full w-full min-h-0 flex flex-row justify-center items-center bg-black">
 				<div
 					ref={containerRef}
 					//make it so the rows still continue afterwards
-					className="grid w-full lg:w-7/8 xl:w-6/7 2xl:w-5/6 h-full 
+					className="grid w-full h-full
                     grid-cols-10 md:grid-cols-10 lg:grid-cols-15 xl:grid-cols-20 auto-rows-[minmax(40px,70px)] sm:auto-rows-[minmax(50px,100px)] md:auto-rows-[minmax(60px,400px)] grid-flow-dense gap-2 
-                    bg-gray-700 shadow-2xl overflow-y-scroll p-3 pb-20"
+                    bg-gradient-to-b from-black to-slate-700 shadow-2xl overflow-y-scroll p-3 pb-20"
 				>
 					{images.map((img: number) => {
 						return (
@@ -62,14 +65,13 @@ const Photos = () => {
 				onClick={(e) => {
 					//for now in the main place
 					e.stopPropagation(); //tis just a precaution
+					if (limitReached) {
+						void new Audio(SOUND_NO_MORE).play().catch(() => {});
+						return;
+					}
+					void new Audio(SOUND_SHOW_MORE).play().catch(() => {});
 					setPage(page + 1); //this does not update right away
 					sessionStorage.setItem("photosPage", (page + 1).toString()); //+1 otherwise it is the stale value
-				}}
-				onDoubleClick={() => {
-					//For Testing Purposes only
-					setPage(0);
-					setLimitReached(false);
-					sessionStorage.setItem("photosPage", "0");
 				}}
 				className="fixed w-screen bottom-0 h-[10vh]
                 flex flex-col items-center justify-start active:text-glow

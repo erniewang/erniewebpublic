@@ -10,12 +10,13 @@ import {
 
 const mobileQuery = '(max-width: 767px)';
 const hoverEffectClasses = 'hover:text-gray-300 cursor-pointer';
-const mobilePanelClasses = 'fixed top-[8vh] left-0 z-20 min-h-[190px] w-full bg-black p-7 text-[25px] flex flex-col items-center justify-start gap-10 shadow-xl';
+const mobilePanelClasses = 'fixed top-[8vh] left-0 z-20 min-h-[320px] w-full bg-black p-7 text-[25px] flex flex-col items-center justify-start gap-10 shadow-xl';
 
 const navItems = [
     { label: 'About', to: '/' },
-    { label: 'Projects', to: '/projects' },
-    { label: 'Creative', to: '/creative' },
+    { label: 'Architectures', to: '/architectures' },
+    { label: 'Interaction', to: '/interaction' },
+    { label: 'Photos', to: '/photos' },
 ] as const;
 
 type MobileBarProps = {

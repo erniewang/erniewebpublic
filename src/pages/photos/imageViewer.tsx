@@ -11,6 +11,8 @@ import {
 import { useContext } from "react";
 import { SwitchingTabs } from "../../App";
 
+const SOUND_VIEWER_CLOSE = "/sounds/ring.mp3";
+
 export default function ImageViewer({
 	imageId,
 	demountCall,
@@ -41,6 +43,7 @@ export default function ImageViewer({
 			aria-modal="true"
 			className={`fixed inset-x-0 top-[8vh] bottom-0 z-50 flex items-center justify-center bg-gradient-to-b from-slate-700 to-neutral-900 ${motionClass}`}
 			onClick={(e) => {
+				void new Audio(SOUND_VIEWER_CLOSE).play().catch(() => {});
 				exit(() => {
 					e.stopPropagation();
 					demountCall(false);

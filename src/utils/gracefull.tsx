@@ -5,12 +5,13 @@ type GracefullProps = {
 };
 
 /** Shared animation timings. */
-export const FADE_OUT_MS = 510;
+export const FADE_OUT_MS = 500;
 export const GRACEFULL_SPEED_MS = FADE_OUT_MS;
 
-/** Shared animation utility classes. */
-export const FADE_IN_CLASS = "animate-in fade-in duration-500";
-export const FADE_OUT_CLASS = "animate-out fade-out duration-[990ms] fill-mode-forwards";
+/** Shared animation utility classes — 900ms enter everywhere. */
+export const FADE_IN_CLASS = "animate-in fade-in duration-900";
+export const FADE_OUT_CLASS =
+	"animate-out fade-out duration-500 fill-mode-forwards";
 
 export function getTransitionClass(deloading: boolean): string {
 	return deloading ? FADE_OUT_CLASS : FADE_IN_CLASS;

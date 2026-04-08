@@ -5,7 +5,7 @@ const photoFadeLayerBase = "h-full w-full";
 
 const PHOTO_FADE_IN_LOADED = `${photoFadeLayerBase} opacity-100 ${FADE_IN_CLASS}`;
 
-/** One quick fade-in for every photo. */
+/** Fade-in for every photo (same 900ms as `FADE_IN_CLASS`). */
 export function getPhotoFadeInClasses(loaded: boolean): string {
 	if (!loaded) {
 		return `${photoFadeLayerBase} opacity-0`;

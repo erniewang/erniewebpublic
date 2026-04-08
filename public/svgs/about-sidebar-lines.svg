@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 320" preserveAspectRatio="none">
+	<title>Sidebar line texture</title>
+	<defs>
+		<pattern id="sb-lines" width="40" height="40" patternUnits="userSpaceOnUse">
+			<path d="M0 40 L40 0" stroke="#1e3a8a" stroke-width="0.55" stroke-linecap="round" opacity="0.38"/>
+			<path d="M-8 8 L8 -8 M32 48 L48 32" stroke="#334155" stroke-width="0.45" stroke-linecap="round" opacity="0.42"/>
+			<path d="M0 20 L40 20" stroke="#1e293b" stroke-width="0.4" opacity="0.35"/>
+			<path d="M20 0 L20 40" stroke="#172554" stroke-width="0.35" opacity="0.32"/>
+		</pattern>
+	</defs>
+	<rect width="100%" height="100%" fill="url(#sb-lines)"/>
+	<g fill="none" stroke-linecap="round" opacity="0.28">
+		<path d="M0 52 Q40 48 80 56" stroke="#1e3a8a" stroke-width="0.7"/>
+		<path d="M0 120 Q40 128 80 118" stroke="#334155" stroke-width="0.55"/>
+		<path d="M0 200 Q40 192 80 204" stroke="#1e293b" stroke-width="0.5"/>
+		<path d="M0 280 Q40 288 80 276" stroke="#172554" stroke-width="0.6"/>
+	</g>
+</svg>

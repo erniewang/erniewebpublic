@@ -1,5 +1,5 @@
 /**
- * Shared layout helpers (no motion).
+ * Shared layout helpers.
  */
 @layer components {
   .centralized {
@@ -8,5 +8,45 @@
     align-items: center;
     height: 100%;
     width: 100%;
+  }
+
+  /**
+   * Slow rotation — only `HeaderCard` decor (`pages/about/HeaderCard/HeaderCard.tsx`).
+   */
+  @keyframes decor-svg-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes decor-svg-spin-rev {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  .decor-svg-spin-cw {
+    transform-origin: 50% 55%;
+    animation: decor-svg-spin 280s linear infinite;
+  }
+
+  .decor-svg-spin-ccw {
+    transform-origin: 50% 55%;
+    animation: decor-svg-spin-rev 320s linear infinite;
+  }
+
+  /**
+   * Faint stroke SVGs are dark + low-alpha; on slate gradients they disappear without a lift.
+   */
+  .decor-line-img {
+    opacity: 0.55;
+    filter: brightness(1.35) contrast(1.15) saturate(1.1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .decor-svg-spin-cw,
+    .decor-svg-spin-ccw {
+      animation: none !important;
+    }
   }
 }

@@ -12,7 +12,7 @@ export function ContentPage({ children }: { children: ReactNode }) {
 		<div className={contentStyles}>
 			<div
 				className={`${getTransitionClass(deloading)} 
-            w-full h-full bg-gradient-to-b from-slate-800 to-zinc-900`}
+            w-full h-full bg-gradient-to-b from-slate-800 to-zinc-900 2xl:overflow-hidden`}
 			>
 				{children}
 			</div>
